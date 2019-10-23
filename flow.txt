@@ -1,0 +1,5 @@
+Each site carwl best posts and save it to prePosts.
+Then sorter would execute, Once all registered site finish crawling.
+sorter would re-araange posts by hitcounts and datas.
+once sorter finish to make a 100ranks of it then Sorter store arragned data to sortedPosts and  move stored data in prePosts to savedPorsts and remove prePosts'data.
+

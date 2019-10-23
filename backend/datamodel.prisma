@@ -1,0 +1,240 @@
+scalar DateTime
+
+type PrePost {
+    id: ID! @id
+    title: String!
+    author: String
+    registeredAt: String
+    hitCount: Int
+    link: String!
+    from: String!
+    createdAt: DateTime! @createdAt
+}
+
+type TempPost {
+    id: ID! @id
+    title: String!
+    author: String
+    registeredAt: String
+    hitCount: Int!
+    link: String!
+    from: String!
+    createdAt: DateTime! @createdAt
+}
+
+type SortedPosts {
+    id: ID! @id
+    title: String!
+    author: String
+    registeredAt: String
+    hitCount: Int!
+    link: String!
+    from: String!
+    createdAt: DateTime! @createdAt
+}
+
+type SavedPosts {
+    id: ID! @id
+    title: String!
+    author: String
+    registeredAt: String
+    hitCount: Int!
+    link: String!
+    from: String!
+    createdAt: DateTime! @createdAt
+}
+
+type Post {
+    id: ID! @id
+    title: String!
+    author: String
+    registeredAt: String
+    hitCount: Int
+    link: String!
+    from: String!
+    createdAt: DateTime! @createdAt
+}
+
+type Bobae {
+    id: ID! @id
+    title: String!
+    author: String
+    registeredAt: String
+    hitCount: Int
+    link: String!
+    from: String!
+    createdAt: DateTime! @createdAt
+}
+
+type RuliWeb {
+    id: ID! @id
+    title: String!
+    author: String
+    registeredAt: String
+    hitCount: Int
+    link: String!
+    from: String!
+    createdAt: DateTime! @createdAt
+}
+
+type Clien {
+    id: ID! @id
+    title: String!
+    author: String
+    registeredAt: String
+    hitCount: Int
+    link: String!
+    from: String!
+    createdAt: DateTime! @createdAt
+}
+
+type Ilbe {
+    id: ID! @id
+    title: String!
+    author: String
+    registeredAt: String
+    hitCount: Int
+    link: String!
+    from: String!
+    createdAt: DateTime! @createdAt
+}
+
+type Bullpen {
+    id: ID! @id
+    title: String!
+    author: String
+    registeredAt: String
+    hitCount: Int
+    link: String!
+    from: String!
+    createdAt: DateTime! @createdAt
+}
+
+type Etoland {
+    id: ID! @id
+    title: String!
+    author: String
+    registeredAt: String
+    hitCount: Int
+    link: String!
+    from: String!
+    createdAt: DateTime! @createdAt
+}
+
+type SLRClub {
+    id: ID! @id
+    title: String!
+    author: String
+    registeredAt: String
+    hitCount: Int
+    link: String!
+    from: String!
+    createdAt: DateTime! @createdAt
+}
+
+type TodayHumor {
+    id: ID! @id
+    title: String!
+    author: String
+    registeredAt: String
+    hitCount: Int
+    link: String!
+    from: String!
+    createdAt: DateTime! @createdAt
+}
+
+type Cook {
+    id: ID! @id
+    title: String!
+    author: String
+    registeredAt: String
+    hitCount: Int
+    link: String!
+    from: String!
+    createdAt: DateTime! @createdAt
+}
+
+type Gasengi {
+    id: ID! @id
+    title: String!
+    author: String
+    registeredAt: String
+    hitCount: Int
+    link: String!
+    from: String!
+    createdAt: DateTime! @createdAt
+}
+
+type PpompPu {
+    id: ID! @id
+    title: String!
+    author: String
+    registeredAt: String
+    hitCount: Int
+    link: String!
+    from: String!
+    createdAt: DateTime! @createdAt
+}
+
+type Instiz {
+    id: ID! @id
+    title: String!
+    author: String
+    registeredAt: String
+    hitCount: Int
+    link: String!
+    from: String!
+    createdAt: DateTime! @createdAt
+}
+
+type TheQoo {
+    id: ID! @id
+    title: String!
+    author: String
+    registeredAt: String
+    hitCount: Int
+    link: String!
+    from: String!
+    createdAt: DateTime! @createdAt
+}
+
+type FmKorea {
+    id: ID! @id
+    title: String!
+    author: String
+    registeredAt: String
+    hitCount: Int
+    link: String!
+    from: String!
+    createdAt: DateTime! @createdAt
+}
+
+type DogDrip {
+    id: ID! @id
+    title: String!
+    author: String
+    registeredAt: String
+    hitCount: Int
+    link: String!
+    from: String!
+    createdAt: DateTime! @createdAt
+}
+
+type ErrorLog{
+    id: ID! @id
+    createdAt: DateTime! @createdAt
+    reason: String!
+    from: String!
+    isRead: Boolean!,
+    type: String!,
+    link: String,
+}
+
+type HumorUniv{
+    id: ID! @id
+    createdAt: DateTime! @createdAt
+    reason: String!
+    from: String!
+    isRead: Boolean!,
+    type: String!,
+}
