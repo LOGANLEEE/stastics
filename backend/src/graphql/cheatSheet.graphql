@@ -1,0 +1,778 @@
+type AggregateBobae {
+  count: Int!
+}
+
+type AggregateClien {
+  count: Int!
+}
+
+type AggregatePost {
+  count: Int!
+}
+
+type BatchPayload {
+  count: Long!
+}
+
+type Bobae implements Node {
+  id: ID!
+  title: String!
+  author: String
+  registeredAt: String
+  hitCount: Int
+  link: String!
+  from: String!
+  createdAt: DateTime!
+}
+
+type BobaeConnection {
+  pageInfo: PageInfo!
+  edges: [BobaeEdge]!
+  aggregate: AggregateBobae!
+}
+
+input BobaeCreateInput {
+  id: ID
+  title: String!
+  author: String
+  registeredAt: String
+  hitCount: Int
+  link: String!
+  from: String!
+}
+
+type BobaeEdge {
+  node: Bobae!
+  cursor: String!
+}
+
+enum BobaeOrderByInput {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  author_ASC
+  author_DESC
+  registeredAt_ASC
+  registeredAt_DESC
+  hitCount_ASC
+  hitCount_DESC
+  link_ASC
+  link_DESC
+  from_ASC
+  from_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type BobaePreviousValues {
+  id: ID!
+  title: String!
+  author: String
+  registeredAt: String
+  hitCount: Int
+  link: String!
+  from: String!
+  createdAt: DateTime!
+}
+
+type BobaeSubscriptionPayload {
+  mutation: MutationType!
+  node: Bobae
+  updatedFields: [String!]
+  previousValues: BobaePreviousValues
+}
+
+input BobaeSubscriptionWhereInput {
+  AND: [BobaeSubscriptionWhereInput!]
+  OR: [BobaeSubscriptionWhereInput!]
+  NOT: [BobaeSubscriptionWhereInput!]
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: BobaeWhereInput
+}
+
+input BobaeUpdateInput {
+  title: String
+  author: String
+  registeredAt: String
+  hitCount: Int
+  link: String
+  from: String
+}
+
+input BobaeUpdateManyMutationInput {
+  title: String
+  author: String
+  registeredAt: String
+  hitCount: Int
+  link: String
+  from: String
+}
+
+input BobaeWhereInput {
+  AND: [BobaeWhereInput!]
+  OR: [BobaeWhereInput!]
+  NOT: [BobaeWhereInput!]
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  author: String
+  author_not: String
+  author_in: [String!]
+  author_not_in: [String!]
+  author_lt: String
+  author_lte: String
+  author_gt: String
+  author_gte: String
+  author_contains: String
+  author_not_contains: String
+  author_starts_with: String
+  author_not_starts_with: String
+  author_ends_with: String
+  author_not_ends_with: String
+  registeredAt: String
+  registeredAt_not: String
+  registeredAt_in: [String!]
+  registeredAt_not_in: [String!]
+  registeredAt_lt: String
+  registeredAt_lte: String
+  registeredAt_gt: String
+  registeredAt_gte: String
+  registeredAt_contains: String
+  registeredAt_not_contains: String
+  registeredAt_starts_with: String
+  registeredAt_not_starts_with: String
+  registeredAt_ends_with: String
+  registeredAt_not_ends_with: String
+  hitCount: Int
+  hitCount_not: Int
+  hitCount_in: [Int!]
+  hitCount_not_in: [Int!]
+  hitCount_lt: Int
+  hitCount_lte: Int
+  hitCount_gt: Int
+  hitCount_gte: Int
+  link: String
+  link_not: String
+  link_in: [String!]
+  link_not_in: [String!]
+  link_lt: String
+  link_lte: String
+  link_gt: String
+  link_gte: String
+  link_contains: String
+  link_not_contains: String
+  link_starts_with: String
+  link_not_starts_with: String
+  link_ends_with: String
+  link_not_ends_with: String
+  from: String
+  from_not: String
+  from_in: [String!]
+  from_not_in: [String!]
+  from_lt: String
+  from_lte: String
+  from_gt: String
+  from_gte: String
+  from_contains: String
+  from_not_contains: String
+  from_starts_with: String
+  from_not_starts_with: String
+  from_ends_with: String
+  from_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+}
+
+input BobaeWhereUniqueInput {
+  id: ID
+}
+
+type Clien implements Node {
+  id: ID!
+  title: String!
+  author: String
+  registeredAt: String
+  hitCount: Int
+  link: String!
+  from: String!
+  createdAt: DateTime!
+}
+
+type ClienConnection {
+  pageInfo: PageInfo!
+  edges: [ClienEdge]!
+  aggregate: AggregateClien!
+}
+
+input ClienCreateInput {
+  id: ID
+  title: String!
+  author: String
+  registeredAt: String
+  hitCount: Int
+  link: String!
+  from: String!
+}
+
+type ClienEdge {
+  node: Clien!
+  cursor: String!
+}
+
+enum ClienOrderByInput {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  author_ASC
+  author_DESC
+  registeredAt_ASC
+  registeredAt_DESC
+  hitCount_ASC
+  hitCount_DESC
+  link_ASC
+  link_DESC
+  from_ASC
+  from_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type ClienPreviousValues {
+  id: ID!
+  title: String!
+  author: String
+  registeredAt: String
+  hitCount: Int
+  link: String!
+  from: String!
+  createdAt: DateTime!
+}
+
+type ClienSubscriptionPayload {
+  mutation: MutationType!
+  node: Clien
+  updatedFields: [String!]
+  previousValues: ClienPreviousValues
+}
+
+input ClienSubscriptionWhereInput {
+  AND: [ClienSubscriptionWhereInput!]
+  OR: [ClienSubscriptionWhereInput!]
+  NOT: [ClienSubscriptionWhereInput!]
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ClienWhereInput
+}
+
+input ClienUpdateInput {
+  title: String
+  author: String
+  registeredAt: String
+  hitCount: Int
+  link: String
+  from: String
+}
+
+input ClienUpdateManyMutationInput {
+  title: String
+  author: String
+  registeredAt: String
+  hitCount: Int
+  link: String
+  from: String
+}
+
+input ClienWhereInput {
+  AND: [ClienWhereInput!]
+  OR: [ClienWhereInput!]
+  NOT: [ClienWhereInput!]
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  author: String
+  author_not: String
+  author_in: [String!]
+  author_not_in: [String!]
+  author_lt: String
+  author_lte: String
+  author_gt: String
+  author_gte: String
+  author_contains: String
+  author_not_contains: String
+  author_starts_with: String
+  author_not_starts_with: String
+  author_ends_with: String
+  author_not_ends_with: String
+  registeredAt: String
+  registeredAt_not: String
+  registeredAt_in: [String!]
+  registeredAt_not_in: [String!]
+  registeredAt_lt: String
+  registeredAt_lte: String
+  registeredAt_gt: String
+  registeredAt_gte: String
+  registeredAt_contains: String
+  registeredAt_not_contains: String
+  registeredAt_starts_with: String
+  registeredAt_not_starts_with: String
+  registeredAt_ends_with: String
+  registeredAt_not_ends_with: String
+  hitCount: Int
+  hitCount_not: Int
+  hitCount_in: [Int!]
+  hitCount_not_in: [Int!]
+  hitCount_lt: Int
+  hitCount_lte: Int
+  hitCount_gt: Int
+  hitCount_gte: Int
+  link: String
+  link_not: String
+  link_in: [String!]
+  link_not_in: [String!]
+  link_lt: String
+  link_lte: String
+  link_gt: String
+  link_gte: String
+  link_contains: String
+  link_not_contains: String
+  link_starts_with: String
+  link_not_starts_with: String
+  link_ends_with: String
+  link_not_ends_with: String
+  from: String
+  from_not: String
+  from_in: [String!]
+  from_not_in: [String!]
+  from_lt: String
+  from_lte: String
+  from_gt: String
+  from_gte: String
+  from_contains: String
+  from_not_contains: String
+  from_starts_with: String
+  from_not_starts_with: String
+  from_ends_with: String
+  from_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+}
+
+input ClienWhereUniqueInput {
+  id: ID
+}
+
+scalar DateTime
+
+scalar Json
+
+scalar Long
+
+type Mutation {
+  createPrePost(data: PostCreateInput!): Post!
+  createBobae(data: BobaeCreateInput!): Bobae!
+  createClien(data: ClienCreateInput!): Clien!
+  updatePost(data: PostUpdateInput!, where: PostWhereUniqueInput!): Post
+  updateBobae(data: BobaeUpdateInput!, where: BobaeWhereUniqueInput!): Bobae
+  updateClien(data: ClienUpdateInput!, where: ClienWhereUniqueInput!): Clien
+  deletePost(where: PostWhereUniqueInput!): Post
+  deleteBobae(where: BobaeWhereUniqueInput!): Bobae
+  deleteClien(where: ClienWhereUniqueInput!): Clien
+  upsertPost(
+    where: PostWhereUniqueInput!
+    create: PostCreateInput!
+    update: PostUpdateInput!
+  ): Post!
+  upsertBobae(
+    where: BobaeWhereUniqueInput!
+    create: BobaeCreateInput!
+    update: BobaeUpdateInput!
+  ): Bobae!
+  upsertClien(
+    where: ClienWhereUniqueInput!
+    create: ClienCreateInput!
+    update: ClienUpdateInput!
+  ): Clien!
+  updateManyPosts(
+    data: PostUpdateManyMutationInput!
+    where: PostWhereInput
+  ): BatchPayload!
+  updateManyBobaes(
+    data: BobaeUpdateManyMutationInput!
+    where: BobaeWhereInput
+  ): BatchPayload!
+  updateManyCliens(
+    data: ClienUpdateManyMutationInput!
+    where: ClienWhereInput
+  ): BatchPayload!
+  deleteManyPosts(where: PostWhereInput): BatchPayload!
+  deleteManyBobaes(where: BobaeWhereInput): BatchPayload!
+  deleteManyCliens(where: ClienWhereInput): BatchPayload!
+  executeRaw(database: PrismaDatabase, query: String!): Json!
+}
+
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
+interface Node {
+  id: ID!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+type Post implements Node {
+  id: ID!
+  title: String!
+  author: String
+  registeredAt: String
+  hitCount: Int
+  link: String!
+  from: String!
+  createdAt: DateTime!
+}
+
+type PostConnection {
+  pageInfo: PageInfo!
+  edges: [PostEdge]!
+  aggregate: AggregatePost!
+}
+
+input PostCreateInput {
+  id: ID
+  title: String!
+  author: String
+  registeredAt: String
+  hitCount: Int
+  link: String!
+  from: String!
+}
+
+type PostEdge {
+  node: Post!
+  cursor: String!
+}
+
+enum PostOrderByInput {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  author_ASC
+  author_DESC
+  registeredAt_ASC
+  registeredAt_DESC
+  hitCount_ASC
+  hitCount_DESC
+  link_ASC
+  link_DESC
+  from_ASC
+  from_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type PostPreviousValues {
+  id: ID!
+  title: String!
+  author: String
+  registeredAt: String
+  hitCount: Int
+  link: String!
+  from: String!
+  createdAt: DateTime!
+}
+
+type PostSubscriptionPayload {
+  mutation: MutationType!
+  node: Post
+  updatedFields: [String!]
+  previousValues: PostPreviousValues
+}
+
+input PostSubscriptionWhereInput {
+  AND: [PostSubscriptionWhereInput!]
+  OR: [PostSubscriptionWhereInput!]
+  NOT: [PostSubscriptionWhereInput!]
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: PostWhereInput
+}
+
+input PostUpdateInput {
+  title: String
+  author: String
+  registeredAt: String
+  hitCount: Int
+  link: String
+  from: String
+}
+
+input PostUpdateManyMutationInput {
+  title: String
+  author: String
+  registeredAt: String
+  hitCount: Int
+  link: String
+  from: String
+}
+
+input PostWhereInput {
+  AND: [PostWhereInput!]
+  OR: [PostWhereInput!]
+  NOT: [PostWhereInput!]
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  author: String
+  author_not: String
+  author_in: [String!]
+  author_not_in: [String!]
+  author_lt: String
+  author_lte: String
+  author_gt: String
+  author_gte: String
+  author_contains: String
+  author_not_contains: String
+  author_starts_with: String
+  author_not_starts_with: String
+  author_ends_with: String
+  author_not_ends_with: String
+  registeredAt: String
+  registeredAt_not: String
+  registeredAt_in: [String!]
+  registeredAt_not_in: [String!]
+  registeredAt_lt: String
+  registeredAt_lte: String
+  registeredAt_gt: String
+  registeredAt_gte: String
+  registeredAt_contains: String
+  registeredAt_not_contains: String
+  registeredAt_starts_with: String
+  registeredAt_not_starts_with: String
+  registeredAt_ends_with: String
+  registeredAt_not_ends_with: String
+  hitCount: Int
+  hitCount_not: Int
+  hitCount_in: [Int!]
+  hitCount_not_in: [Int!]
+  hitCount_lt: Int
+  hitCount_lte: Int
+  hitCount_gt: Int
+  hitCount_gte: Int
+  link: String
+  link_not: String
+  link_in: [String!]
+  link_not_in: [String!]
+  link_lt: String
+  link_lte: String
+  link_gt: String
+  link_gte: String
+  link_contains: String
+  link_not_contains: String
+  link_starts_with: String
+  link_not_starts_with: String
+  link_ends_with: String
+  link_not_ends_with: String
+  from: String
+  from_not: String
+  from_in: [String!]
+  from_not_in: [String!]
+  from_lt: String
+  from_lte: String
+  from_gt: String
+  from_gte: String
+  from_contains: String
+  from_not_contains: String
+  from_starts_with: String
+  from_not_starts_with: String
+  from_ends_with: String
+  from_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+}
+
+input PostWhereUniqueInput {
+  id: ID
+}
+
+enum PrismaDatabase {
+  default
+}
+
+type Query {
+  posts(
+    where: PostWhereInput
+    orderBy: PostOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Post]!
+  bobaes(
+    where: BobaeWhereInput
+    orderBy: BobaeOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Bobae]!
+  cliens(
+    where: ClienWhereInput
+    orderBy: ClienOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Clien]!
+  post(where: PostWhereUniqueInput!): Post
+  bobae(where: BobaeWhereUniqueInput!): Bobae
+  clien(where: ClienWhereUniqueInput!): Clien
+  postsConnection(
+    where: PostWhereInput
+    orderBy: PostOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): PostConnection!
+  bobaesConnection(
+    where: BobaeWhereInput
+    orderBy: BobaeOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): BobaeConnection!
+  cliensConnection(
+    where: ClienWhereInput
+    orderBy: ClienOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): ClienConnection!
+  node(id: ID!): Node
+}
+
+type Subscription {
+  post(where: PostSubscriptionWhereInput): PostSubscriptionPayload
+  bobae(where: BobaeSubscriptionWhereInput): BobaeSubscriptionPayload
+  clien(where: ClienSubscriptionWhereInput): ClienSubscriptionPayload
+}
+
+
