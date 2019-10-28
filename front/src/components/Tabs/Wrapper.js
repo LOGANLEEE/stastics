@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    background-color:black;
-    color:white
+background-color: #a05757;
 `;
+
 
 export default Wrapper;

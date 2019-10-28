@@ -1,13 +1,13 @@
 import React from 'react';
 import Wrapper from './Wrapper';
 
-function RightSideBar() {
+function Footer() {
 
     return (
         <Wrapper>
-            RightSideBar
+            i'm footer
         </Wrapper>
     )
 }
 
-export default RightSideBar;
+export default Footer;

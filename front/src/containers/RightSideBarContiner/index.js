@@ -1,10 +1,10 @@
 import React from 'react';
 import Wrapper from './Wrapper';
 
-function RightSideBar() {
+function RightSideBar(props) {
 
     return (
-        <Wrapper>
+        <Wrapper width={props.width} >
             RightSideBar
         </Wrapper>
     )

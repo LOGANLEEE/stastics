@@ -1,13 +1,15 @@
 import React from 'react';
+import Tabs from '../../components/Tabs'
+
 import Wrapper from './Wrapper';
 
-function RightSideBar() {
+function Header() {
 
     return (
         <Wrapper>
-            RightSideBar
+            <Tabs />
         </Wrapper>
     )
 }
 
-export default RightSideBar;
+export default Header;

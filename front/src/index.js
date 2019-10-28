@@ -6,15 +6,15 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import App from './app/App';
-import Main from './containers/mainContainer';
-import DummyContainer from './containers/dummyContainer';
+import MainContainer from './containers/MainContainer';
+import DummyContainer from './containers/DummyContainer';
 import * as serviceWorker from './app/serviceWorker';
 import store from './store';
 import './styles/index.css';
 
 
 const client = new ApolloClient({
-    uri: 'localhost:4466',
+    uri: 'http://localhost:4466/',
 });
 
 ReactDOM.render(
@@ -24,7 +24,7 @@ ReactDOM.render(
                 <Router>
                     <Switch>
                         <Route path="/" exact >
-                            <Main title={'Welcome'} />
+                            <MainContainer title={'Welcome'} />
                         </Route>
                         <Route path="/dummy" exact >
                             <DummyContainer />
