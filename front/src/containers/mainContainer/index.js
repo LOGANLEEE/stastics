@@ -4,14 +4,13 @@ import Grid from '@material-ui/core/Grid';
 
 import { dummy } from '../../actions';
 import Wrapper from './Wrapper';
+import 'react-virtualized/styles.css'; // only needs to be imported once
 
 import Header from '../HeaderContiner';
 import Footer from '../FooterContiner';
 import LeftSideBar from '../LeftSideBarContiner';
 import RightSideBar from '../RightSideBarContiner';
 import Body from '../BodyContiner';
-
-
 
 
 function Main(props) {
@@ -36,9 +35,9 @@ function Main(props) {
                     justify="center"
                     alignItems="stretch"
                 >
-                    <LeftSideBar width={'10%'} />
-                    <Body width={'80%'} />
-                    <RightSideBar width={'10%'} />
+                    <LeftSideBar width={'15%'} />
+                    <Body width={'70%'} />
+                    <RightSideBar width={'15%'} />
                 </Grid>
                 <Footer />
             </Grid>

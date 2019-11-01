@@ -6,7 +6,7 @@ import Wrapper from './Wrapper';
 
 const { info } = console;
 
-function TabsMenus() {
+function SecondTabsMenus() {
 
     const [tabValue, setTabValue] = useState(0);
 
@@ -21,13 +21,13 @@ function TabsMenus() {
                 variant="fullWidth"
                 aria-label="full width tabs example"
             >
-                <Tab label="Main" onClick={() => { setTabValue(0); info(tabValue); }} />
-                <Tab label="List" onClick={() => { setTabValue(1); info(tabValue); }} />
-                <Tab label="Rank" onClick={() => { setTabValue(2); info(tabValue); }} />
-                <Tab label="Dev" onClick={() => { setTabValue(3); info(tabValue); }} />
+                <Tab label="ALL" onClick={() => { setTabValue(0); info(tabValue); }} />
+                <Tab label="TOP100" onClick={() => { setTabValue(1); info(tabValue); }} />
+                <Tab label="TEST3" onClick={() => { setTabValue(2); info(tabValue); }} />
+                <Tab label="TEST4" onClick={() => { setTabValue(3); info(tabValue); }} />
             </Tabs>
         </Wrapper>
     )
 }
 
-export default TabsMenus;
+export default SecondTabsMenus;

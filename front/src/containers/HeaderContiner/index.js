@@ -1,5 +1,5 @@
 import React from 'react';
-import Tabs from '../../components/Tabs'
+import TabsMenus from '../../components/TabsMenus'
 
 import Wrapper from './Wrapper';
 
@@ -7,7 +7,7 @@ function Header() {
 
     return (
         <Wrapper>
-            <Tabs />
+            <TabsMenus />
         </Wrapper>
     )
 }
