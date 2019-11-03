@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 
-import { dummy } from '../../actions';
+// import { Dummy } from '../../actions';
 import Wrapper from './Wrapper';
 import 'react-virtualized/styles.css'; // only needs to be imported once
 
@@ -13,15 +13,17 @@ import RightSideBar from '../RightSideBarContiner';
 import Body from '../BodyContiner';
 
 
+
+
 function Main(props) {
     // const [count, setState] = useState(0);
 
     useEffect(() => {
-        document.title = ` ${props.title} `;
+        document.title = `${props.title}`;
     });
 
     return (
-        <Wrapper props={props} >
+        <Wrapper >
             <Grid
                 container
                 direction="column"
@@ -36,7 +38,7 @@ function Main(props) {
                     alignItems="stretch"
                 >
                     <LeftSideBar width={'15%'} />
-                    <Body width={'70%'} />
+                    <Body width={'70%'} {...props} />
                     <RightSideBar width={'15%'} />
                 </Grid>
                 <Footer />
@@ -48,11 +50,8 @@ function Main(props) {
 
 const mapStateToProps = (state, ownProps) => ({
     mainTest: state.main.mainTest,
-
+    listTargetCount: state.main.listTargetCount,
 });
 
-const mapDispatchToProps = dispatch => ({
-    dummy: (value) => dispatch(dummy(value)),
-})
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(mapStateToProps, null)(Main);

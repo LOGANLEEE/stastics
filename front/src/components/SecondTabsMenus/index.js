@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
+import { Tabs, Tab, Button } from '@material-ui/core';
 
 import Wrapper from './Wrapper';
+import Store from '../../store';
 
 const { info } = console;
 
-function SecondTabsMenus() {
+const store = Store.getState();
+
+function SecondTabsMenus(props) {
 
     const [tabValue, setTabValue] = useState(0);
 
-
+    info(store);
     return (
         <Wrapper>
             <Tabs
@@ -26,6 +28,9 @@ function SecondTabsMenus() {
                 <Tab label="TEST3" onClick={() => { setTabValue(2); info(tabValue); }} />
                 <Tab label="TEST4" onClick={() => { setTabValue(3); info(tabValue); }} />
             </Tabs>
+            <button onClick={() => props.ListClickCounter(props.listTargetCount)} >
+                {props.listTargetCount}
+            </button>
         </Wrapper>
     )
 }

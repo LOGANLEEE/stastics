@@ -1,13 +1,13 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import Grid from '@material-ui/core/Grid';
+import { connect } from 'react-redux';
 
-import { GET_TEMP_POSTS_LAST_100, GET_TEMP_POSTS_ALL,GET_TEMP_POSTS_ORDER_BY_HITCOUNT_DESC } from '../../queryConstant';
+import { ListClickCounter } from '../../actions';
+import { GET_TEMP_POSTS_LAST_100, GET_TEMP_POSTS_ALL, GET_TEMP_POSTS_ORDER_BY_HITCOUNT_DESC } from '../../queryConstant';
 import ListRenderer from '../../components/ListRenderer';
 import SecondTabsMenus from '../../components/SecondTabsMenus';
 import Wrapper from './Wrapper';
-
-const { info } = console;
 
 function Fetcher() {
 
@@ -15,6 +15,7 @@ function Fetcher() {
     if (loading) return <p>Loading...</p>;
 
     if (error) return <p>Error :(</p>;
+
 
     return <ListRenderer data={data.tempPosts} />
 }
@@ -29,11 +30,15 @@ function Body(props) {
                 justify="center"
                 alignItems="stretch"
             >
-                <SecondTabsMenus />
+                <SecondTabsMenus {...props} />
             </Grid>
             <Fetcher />
         </Wrapper>
     )
 }
 
-export default Body;
+const mapDispatchToProps = {
+    ListClickCounter
+};
+
+export default connect(null, mapDispatchToProps)(Body);

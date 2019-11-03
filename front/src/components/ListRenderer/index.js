@@ -15,7 +15,6 @@ function ListRenderer(props) {
         isVisible,   // This row is visible within the List (eg/ it is not an overscanned row)
         style        // Style object to be applied to row (to position it)
     }) {
-        console.info(style);
         return (
             <Grid
                 className='listGrid'
@@ -57,7 +56,7 @@ function ListRenderer(props) {
                 rowCount={data.length}
                 rowHeight={38}
                 rowRenderer={rowRenderer}
-                style={{ width: '100%' }}
+                style={{ width: '100%', outline: 'none' }}
             />,
         </Wrapper >
     )
