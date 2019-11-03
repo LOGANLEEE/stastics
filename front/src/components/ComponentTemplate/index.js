@@ -1,13 +1,12 @@
 import React from 'react';
 import Wrapper from './Wrapper';
-
-function RightSideBar() {
+function template() {
 
     return (
         <Wrapper>
-            RightSideBar
+            template
         </Wrapper>
     )
 }
 
-export default RightSideBar;
+export default template;

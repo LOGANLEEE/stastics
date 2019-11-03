@@ -1,13 +1,15 @@
 import React from 'react';
+import TabsMenus from '../../components/TabsMenus'
+
 import Wrapper from './Wrapper';
 
-function RightSideBar() {
+function Header() {
 
     return (
         <Wrapper>
-            RightSideBar
+            <TabsMenus />
         </Wrapper>
     )
 }
 
-export default RightSideBar;
+export default Header;

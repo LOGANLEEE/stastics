@@ -1,44 +1,57 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { dummy } from '../../actions';
-import Wrapper from './mainWrapper';
+import Grid from '@material-ui/core/Grid';
+
+// import { Dummy } from '../../actions';
+import Wrapper from './Wrapper';
+import 'react-virtualized/styles.css'; // only needs to be imported once
+
+import Header from '../HeaderContiner';
+import Footer from '../FooterContiner';
+import LeftSideBar from '../LeftSideBarContiner';
+import RightSideBar from '../RightSideBarContiner';
+import Body from '../BodyContiner';
+
+
+
 
 function Main(props) {
-    const [count, setState] = useState(0);
+    // const [count, setState] = useState(0);
 
     useEffect(() => {
-        document.title = ` ${props.title} `;
+        document.title = `${props.title}`;
     });
 
     return (
-        <Wrapper>
-            main
-            <div>
-                <div>
-                    value of  {count}
-                    <br />
-                    redux connection test : {props.mainTest}
-                </div>
-                <div>
-                    <button onClick={() => setState(count + 1)}>
-                        counter up
-                </button>
-                    <button onClick={() => props.dummy(666)}>
-                        dummy
-                </button>
-                </div>
-            </div>
-        </Wrapper>
+        <Wrapper >
+            <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems="stretch"
+            >
+                <Header />
+                <Grid
+                    container
+                    direction="row"
+                    justify="center"
+                    alignItems="stretch"
+                >
+                    <LeftSideBar width={'15%'} />
+                    <Body width={'70%'} {...props} />
+                    <RightSideBar width={'15%'} />
+                </Grid>
+                <Footer />
+            </Grid>
+        </Wrapper >
+
     )
 }
 
 const mapStateToProps = (state, ownProps) => ({
     mainTest: state.main.mainTest,
-
+    listTargetCount: state.main.listTargetCount,
 });
 
-const mapDispatchToProps = dispatch => ({
-    dummy: (value) => dispatch(dummy(value)),
-})
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(mapStateToProps, null)(Main);

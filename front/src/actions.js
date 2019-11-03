@@ -1,10 +1,15 @@
-import actionTypes from './actionTypes'
+import * as actionTypes from './actionTypes'
 
-export function dummy(value) {
+export function Dummy(value) {
     return ({
         type: actionTypes.DUMMY,
         payload: value,
     });
 };
+
+export const ListClickCounter = (count) => ({
+    type: actionTypes.LIST_CLICK_COUNTER,
+    payload: { count },
+});
 
 export default 'import actions properly';
