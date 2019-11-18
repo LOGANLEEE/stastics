@@ -6,11 +6,11 @@ import Grid from '@material-ui/core/Grid';
 import Wrapper from './Wrapper';
 import 'react-virtualized/styles.css'; // only needs to be imported once
 
-import Header from '../HeaderContiner';
-import Footer from '../FooterContiner';
-import LeftSideBar from '../LeftSideBarContiner';
-import RightSideBar from '../RightSideBarContiner';
-import Body from '../BodyContiner';
+import Header from '../HeaderContainer';
+import Footer from '../FooterContainer';
+import LeftSideBar from '../LeftSideBarContainer';
+import RightSideBar from '../RightSideBarContainer';
+import Body from '../BodyContainer';
 
 
 
@@ -49,7 +49,7 @@ function Main(props) {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    mainTest: state.main.mainTest,
+    list: state.main.list,
     listTargetCount: state.main.listTargetCount,
 });
 

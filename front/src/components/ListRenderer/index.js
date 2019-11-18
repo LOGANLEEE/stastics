@@ -23,7 +23,7 @@ function ListRenderer(props) {
                 justify="center"
                 alignItems="stretch"
                 key={data[index].id}
-                onClick={() => console.info(data[index].link)}
+                // onClick={() => console.info(data[index].link)}
                 style={style}
             >
                 <span className="index">
