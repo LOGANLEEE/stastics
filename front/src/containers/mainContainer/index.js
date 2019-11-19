@@ -12,46 +12,31 @@ import LeftSideBar from '../LeftSideBarContainer';
 import RightSideBar from '../RightSideBarContainer';
 import Body from '../BodyContainer';
 
-
-
-
 function Main(props) {
-    // const [count, setState] = useState(0);
+	// const [count, setState] = useState(0);
 
-    useEffect(() => {
-        document.title = `${props.title}`;
-    });
+	useEffect(() => {
+		document.title = `${props.title}`;
+	});
 
-    return (
-        <Wrapper >
-            <Grid
-                container
-                direction="column"
-                justify="center"
-                alignItems="stretch"
-            >
-                <Header />
-                <Grid
-                    container
-                    direction="row"
-                    justify="center"
-                    alignItems="stretch"
-                >
-                    <LeftSideBar width={'15%'} />
-                    <Body width={'70%'} {...props} />
-                    <RightSideBar width={'15%'} />
-                </Grid>
-                <Footer />
-            </Grid>
-        </Wrapper >
-
-    )
+	return (
+		<Wrapper>
+			<Grid container direction='column' justify='center' alignItems='stretch'>
+				<Header />
+				<Grid container direction='row' justify='center' alignItems='stretch'>
+					<LeftSideBar width={'15%'} />
+					<Body width={'70%'} {...props} />
+					<RightSideBar width={'15%'} />
+				</Grid>
+				<Footer />
+			</Grid>
+		</Wrapper>
+	);
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    list: state.main.list,
-    listTargetCount: state.main.listTargetCount,
+	list: state.main.list,
+	listTargetCount: state.main.listTargetCount,
 });
-
 
 export default connect(mapStateToProps, null)(Main);

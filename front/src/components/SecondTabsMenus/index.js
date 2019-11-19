@@ -29,7 +29,7 @@ export default function SecondTabsMenus(props) {
 					}}
 				/>
 				<Tab
-					label='TEST3'
+					label=''
 					onClick={() => {
 						setTabValue(2);
 					}}
