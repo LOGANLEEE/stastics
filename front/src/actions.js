@@ -1,4 +1,4 @@
-import * as actionTypes from './actionTypes';
+import * as actionTypes from 'actionTypes';
 
 export function Dummy(value) {
 	return {
@@ -21,6 +21,20 @@ export function openSite(min, max) {
 	return {
 		type: actionTypes.OPEN_SITE_FROM_MIN_TO_MAX,
 		payload: { min, max },
+	};
+}
+
+export function firstTabMover(tabId) {
+	return {
+		type: actionTypes.FIRST_TAB_MOVER,
+		payload: { tabId },
+	};
+}
+
+export function secondTabMover(tabId) {
+	return {
+		type: actionTypes.SECOND_TAB_MOVER,
+		payload: { tabId },
 	};
 }
 

@@ -1,15 +1,13 @@
 import React from 'react';
-import TabsMenus from '../../components/TabsMenus'
-
+import TabsMenus from 'components/TabsMenus';
 import Wrapper from './Wrapper';
 
-function Header() {
-
-    return (
-        <Wrapper>
-            <TabsMenus />
-        </Wrapper>
-    )
+function Header(props) {
+	return (
+		<Wrapper>
+			<TabsMenus {...props} />
+		</Wrapper>
+	);
 }
 
 export default Header;

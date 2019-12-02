@@ -1,47 +1,31 @@
 import React, { useState } from 'react';
 import { Tabs, Tab } from '@material-ui/core';
 
+import store from 'store';
+import * as actions from 'actions';
+
 import Buttons from '../Buttons';
 import Wrapper from './Wrapper';
 
-export default function SecondTabsMenus(props) {
-	const [tabValue, setTabValue] = useState(0);
+function tabHandler(e, value) {
+	store.dispatch(actions.secondTabMover(value));
+}
 
+export default function SecondTabsMenus({ currentSecondTabId, openSite }) {
 	return (
 		<Wrapper>
 			<Tabs
-				value={tabValue}
-				// onChange={() => setTabValue()}
+				value={currentSecondTabId}
+				onChange={(e, value) => tabHandler(e, value)}
 				indicatorColor='primary'
 				textColor='primary'
 				variant='fullWidth'
 				aria-label='full width tabs example'>
-				<Tab
-					label='ALL'
-					onClick={() => {
-						setTabValue(0);
-					}}
-				/>
-				<Tab
-					label='TOP100'
-					onClick={() => {
-						setTabValue(1);
-					}}
-				/>
-				<Tab
-					label=''
-					onClick={() => {
-						setTabValue(2);
-					}}
-				/>
-				<Tab
-					label='TEST4'
-					onClick={() => {
-						setTabValue(3);
-					}}
-				/>
+				<Tab label='ALL' />
+				<Tab label='TOP100' />
+				<Tab label='' />
+				<Tab label='TEST4' />
 			</Tabs>
-			<Buttons {...props} />
 		</Wrapper>
 	);
 }
