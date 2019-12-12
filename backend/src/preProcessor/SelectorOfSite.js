@@ -2,7 +2,7 @@ const Etoland = {
     title: '#mw_basic > table:nth-child(17) > tbody > tr:nth-child(2) > td > h1',
     author: '#mw_basic > table:nth-child(17) > tbody > tr:nth-child(4) > td > span > a:nth-child(2) > span',
     date: '#mw_basic > table:nth-child(17) > tbody > tr:nth-child(4) > td > span > span.mw_basic_view_datetime',
-    hitCount: '#mw_basic > table:nth-child(17) > tbody > tr:nth-child(4) > td > span > span.mw_basic_view_hit',
+    hitCount: '#mw_basic > table:nth-child(16) > tbody > tr:nth-child(4) > td > span > span.mw_basic_view_hit',
 };
 
 const Clien = {

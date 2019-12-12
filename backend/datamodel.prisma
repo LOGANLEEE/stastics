@@ -1,11 +1,7 @@
 scalar DateTime
 
-type PrePost {
+type PostLinks {
     id: ID! @id
-    title: String!
-    author: String
-    registeredAt: String
-    hitCount: Int
     link: String!
     from: String!
     createdAt: DateTime! @createdAt
