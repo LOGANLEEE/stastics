@@ -38,4 +38,9 @@ export function secondTabMover(tabId) {
 	};
 }
 
+export const GET_TEMP_POSTS = list => ({
+	type: actionTypes.GET_TEMP_POSTS,
+	payload: { list },
+});
+
 export default 'import specific actions mate.';

@@ -10,15 +10,16 @@ import { GET_TEMP_POSTS_ORDER_BY_HITCOUNT_DESC } from '../../queryConstant';
 import MainPage from 'components/MainPage';
 import Wrapper from './Wrapper';
 
-function Fetcher(props) {
-	const { loading, error, data } = useQuery(GET_TEMP_POSTS_ORDER_BY_HITCOUNT_DESC());
-	if (loading) return <p>Loading...</p>;
+// function Fetcher(props) {
+// 	const { loading, error, data } = useQuery(GET_TEMP_POSTS_ORDER_BY_HITCOUNT_DESC());
 
-	if (error) return <p>Error :(</p>;
+// 	if (loading) return <p>Loading...</p>;
 
-	props.listFetcher(data.tempPosts);
-	return <ListRenderer data={data.tempPosts} />;
-}
+// 	if (error) return <p>Error :(</p>;
+
+// 	props.listFetcher(data.tempPosts);
+// 	return <ListRenderer data={data.tempPosts} />;
+// }
 
 function ContentRenderer(props) {
 	const { currentFirstTabId } = props;
@@ -30,7 +31,8 @@ function ContentRenderer(props) {
 			return [
 				<SecondTabsMenus {...props} />,
 				<Buttons key={`ContentRenderer${1}`} openSite={openSite} />,
-				<Fetcher key={`ContentRenderer${2}`} listFetcher={props.listFetcher} />,
+				// <Fetcher key={`ContentRenderer${2}`} listFetcher={props.listFetcher} />,
+				<ListRenderer tempPosts={props.tempPosts} />,
 			];
 		}
 		case 2: {
@@ -58,4 +60,8 @@ const mapDispatchToProps = {
 	openSite,
 };
 
-export default connect(null, mapDispatchToProps)(ListView);
+const mapStatetoProps = state => ({
+	tempPosts: state.initial.tempPosts,
+});
+
+export default connect(mapStatetoProps, mapDispatchToProps)(ListView);

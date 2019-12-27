@@ -10,9 +10,11 @@ import Footer from '../FooterContainer';
 import LeftSideBar from '../LeftSideBarContainer';
 import RightSideBar from '../RightSideBarContainer';
 import ListView from '../ListContainer';
+import * as init from 'init';
 
 function Main(props) {
 	useEffect(() => {
+		init.start();
 		document.title = `${props.title}`;
 	});
 
@@ -34,7 +36,7 @@ function Main(props) {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-	list: state.main.list,
+	tempPosts: state.initial.tempPosts,
 	listTargetCount: state.main.listTargetCount,
 	currentFirstTabId: state.ui.currentFirstTabId,
 	currentSecondTabId: state.ui.currentSecondTabId,
