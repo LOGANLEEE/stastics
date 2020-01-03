@@ -2,17 +2,26 @@ const crawl = require('../crawl');
 const preProcessor = require('../preProcessor');
 const cors = require('cors');
 const { prisma } = require('../../generated/prisma-client');
+const Constants = require('../Constants');
 
 function gate(app) {
 	app.use(cors()); // CORS setting
 
-	app.post('/init', (req, res) => {
+	app.post('/getTempList', (req, res) => {
 		const { auth } = req.headers;
-		console.info('£££ gate :', auth, auth === '1743511');
 		if (auth === '1743511') {
 			return prisma.tempPosts().then(e => {
 				return res.status(200).send(e);
 			});
+		} else {
+			return res.status(404);
+		}
+	});
+
+	app.post('/getTargetSiteList', (req, res) => {
+		const { auth } = req.headers;
+		if (auth === '1743511') {
+			res.status(200).send(Constants.targetList);
 		} else {
 			return res.status(404);
 		}

@@ -40,7 +40,6 @@ const siteList = [Etoland, Clien, Bobae, SLR, Bullpen, TodayHumor, Cook, Gasengi
 // ILBE, DogDrip, HumorUniv, PpomPu
 
 function init() {
-	info('£££ Crawler Init : ', siteList.toString());
 	const resultList = [];
 
 	try {
@@ -64,4 +63,5 @@ function init() {
 
 module.exports = {
 	init,
+	siteList,
 };
