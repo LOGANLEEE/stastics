@@ -1,13 +1,8 @@
 import React from 'react';
 import Wrapper from './Wrapper';
 
-function Footer() {
-
-    return (
-        <Wrapper>
-            i'm footer
-        </Wrapper>
-    )
+function FooterContainer() {
+	return <Wrapper>FooterContainer</Wrapper>;
 }
 
-export default Footer;
+export default FooterContainer;

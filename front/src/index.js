@@ -12,10 +12,13 @@ import Popup from './components/Popup';
 import * as serviceWorker from './app/serviceWorker';
 import store from './store';
 import './styles/index.css';
+import * as init from 'init';
 
 const client = new ApolloClient({
 	uri: 'http://localhost:4466/',
 });
+
+init.loading();
 
 ReactDOM.render(
 	// <React.StrictMode>

@@ -1,8 +1,8 @@
 import { combineReducers, createStore } from 'redux';
 
-import main from 'reducers/mainReducer';
-import ui from 'reducers/ui';
-import initial from 'reducers/initial';
+import main from 'reducers/main_reducer';
+import ui from 'reducers/ui_reducer';
+import initial from 'reducers/initial_reducer';
 
 const rootReducers = combineReducers({ main, ui, initial });
 

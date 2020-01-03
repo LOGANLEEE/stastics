@@ -2,7 +2,7 @@ import React from 'react';
 import TabsMenus from 'components/TabsMenus';
 import Wrapper from './Wrapper';
 
-function Header(props) {
+function HeaderContainer(props) {
 	return (
 		<Wrapper>
 			<TabsMenus {...props} />
@@ -10,4 +10,4 @@ function Header(props) {
 	);
 }
 
-export default Header;
+export default HeaderContainer;
