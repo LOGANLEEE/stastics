@@ -19,13 +19,19 @@ const config = {
 };
 
 function isServerAlive() {
-	return axios.get(url + address.alive).then(res => {
-		if (res.status === 200) {
-			return true;
-		} else {
+	return axios
+		.get(url + address.alive)
+		.then(res => {
+			if (res.status === 200) {
+				return true;
+			} else {
+				return false;
+			}
+		})
+		.catch(err => {
+			outPutLogger(err);
 			return false;
-		}
-	});
+		});
 }
 
 function GET_TEMP_POSTS() {
@@ -54,7 +60,10 @@ export async function loading() {
 			GET_TARGET_SITE_LIST();
 			return true;
 		} else {
-			info('Server is in sleep :(');
+			setTimeout(() => {
+				info('Server is in Danger! :(');
+				loading();
+			}, 5000);
 			return false;
 		}
 	});
