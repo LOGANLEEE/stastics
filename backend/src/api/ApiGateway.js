@@ -4,31 +4,39 @@ const cors = require('cors');
 const { prisma } = require('../../generated/prisma-client');
 const Constants = require('../Constants');
 
+const addressBook = { getTempList: '/getTempList', getTargetSiteList: '/getTargetSiteList', alive: '/alive' };
+
 function gate(app) {
 	app.use(cors()); // CORS setting
 
-	app.post('/getTempList', (req, res) => {
+	app.post(addressBook.getTempList, (req, res) => {
 		const { auth } = req.headers;
 		if (auth === '1743511') {
-			return prisma.tempPosts().then(e => {
-				return res.status(200).send(e);
-			});
+			inPutLogger(addressBook.getTempList);
+			prisma
+				.tempPosts()
+				.then(e => {
+					res.status(200).send(e);
+				})
+				.then(outPutLogger(res.status));
 		} else {
 			return res.status(404);
 		}
 	});
 
-	app.post('/getTargetSiteList', (req, res) => {
+	app.post(addressBook.getTargetSiteList, (req, res) => {
 		const { auth } = req.headers;
 		if (auth === '1743511') {
+			inPutLogger(addressBook.getTargetSiteList);
 			res.status(200).send(Constants.targetList);
+			outPutLogger(res.status);
 		} else {
 			return res.status(404);
 		}
 	});
 
-	app.get('/alive', (req, res) => {
-		console.info('£££ alive');
+	app.get(addressBook.alive, (req, res) => {
+		inPutLogger(addressBook.alive);
 		res.status(200).send("yes i'm alive yet..?");
 	});
 
@@ -51,6 +59,17 @@ function gate(app) {
 	});
 }
 
+// loggers
+function outPutLogger(data) {
+	return console.info('[£OUTPUT_LOG] : ', data);
+}
+
+function inPutLogger(data) {
+	return console.info('[#INPUT_LOG] : ', data);
+}
+
 module.exports = {
 	gate,
+	outPutLogger,
+	inPutLogger,
 };
