@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { List } from 'react-virtualized';
 import Grid from '@material-ui/core/Grid';
+import * as sorter from 'utils/sorter';
 
 import Wrapper from './Wrapper';
 
 function ListRenderer(props) {
-	const { tempPosts } = props;
+	const [tempPosts, setTempPosts] = useState([]);
+	const [isAsc, setIsAsc] = useState(true);
+	const [orderStandard, setOrderStandard] = useState('index');
+
+	useEffect(() => {
+		setTempPosts(props.tempPosts);
+		setIsAsc(props.isAsc);
+		setOrderStandard(props.orderStandard);
+	});
 
 	function rowRenderer({
 		key, // Unique key within array of rows
@@ -25,13 +34,26 @@ function ListRenderer(props) {
 				// onClick={() => console.info(data[index].link)}
 				style={style}>
 				<span className='index'>{index + 1}</span>
-				<span className={`from ${tempPosts[index].from}`}>{tempPosts[index].from}</span>
+				<span onClick={() => orderChanger(index, 'from')} className={`from ${tempPosts[index].from}`}>
+					{tempPosts[index].from}
+				</span>
 				<span className='title'>{tempPosts[index].title}</span>
 				<span className='author'>{tempPosts[index].author}</span>
-				<span className='hitCount'>{tempPosts[index].hitCount}</span>
-				<span className='registeredAt'>{tempPosts[index].registeredAt}</span>
+				<span onClick={() => orderChanger(index, 'hitCount')} className='hitCount'>
+					{tempPosts[index].hitCount}
+				</span>
+				<span onClick={() => orderChanger(index, 'registeredAt')} className='registeredAt'>
+					{tempPosts[index].registeredAt}
+				</span>
 			</Grid>
 		);
+	}
+
+	function orderChanger(index, value) {
+		if (index === 0) {
+			sorter.listSorter(tempPosts, orderStandard, isAsc);
+			props.LIST_ORDER_CHANGER(value);
+		}
 	}
 
 	return (

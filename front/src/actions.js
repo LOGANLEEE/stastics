@@ -1,4 +1,5 @@
 import * as actionTypes from 'actionTypes';
+import * as sorter from 'utils/sorter';
 
 export function Dummy(value) {
 	return {
@@ -43,9 +44,23 @@ export const GET_TEMP_POSTS = list => ({
 	payload: { list },
 });
 
+export function SET_PRE_PROCESSED_LIST(preProcessedList) {
+	return {
+		type: actionTypes.SET_PRE_PROCESSED_LIST,
+		payload: { preProcessedList },
+	};
+}
+
 export const GET_TARGET_SITE_LIST = list => ({
 	type: actionTypes.GET_TARGET_SITE_LIST,
 	payload: { list },
 });
+
+export function LIST_ORDER_CHANGER(orderStandard) {
+	return {
+		type: actionTypes.LIST_ORDER_CHANGER,
+		payload: { orderStandard },
+	};
+}
 
 export default 'import specific actions mate.';

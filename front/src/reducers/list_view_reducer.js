@@ -3,6 +3,7 @@ import * as actionTypes from 'actionTypes';
 const initialState = {
 	isAsc: true,
 	orderStandard: 'index',
+	preProcessedList: [],
 };
 
 export default function list_view(state = initialState, action) {
@@ -17,6 +18,10 @@ export default function list_view(state = initialState, action) {
 				state.isAsc = !state.isAsc;
 			}
 			return { ...state, isAsc: state.isAsc, orderStandard };
+		}
+		case actionTypes.SET_PRE_PROCESSED_LIST: {
+			const { preProcessedList } = action.payload;
+			return { ...state, preProcessedList };
 		}
 		default:
 			return { ...state };

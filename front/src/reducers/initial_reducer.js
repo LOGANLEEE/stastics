@@ -3,6 +3,7 @@ import * as actionTypes from 'actionTypes';
 const initialState = {
 	tempPosts: [],
 	targetSiteList: [],
+	processedList: [],
 };
 
 export default function initial(state = initialState, action) {

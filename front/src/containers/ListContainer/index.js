@@ -4,7 +4,7 @@ import MainPage from 'components/MainPage';
 import SecondTabsMenus from 'components/SecondTabsMenus';
 import React from 'react';
 import { connect } from 'react-redux';
-import { OPEN_SITE_FROM_MIN_TO_MAX } from '../../actions';
+import { OPEN_SITE_FROM_MIN_TO_MAX, LIST_ORDER_CHANGER } from '../../actions';
 import Wrapper from './Wrapper';
 
 function ContentRenderer(props) {
@@ -20,7 +20,13 @@ function ContentRenderer(props) {
 					key={`ContentRenderer > Buttons`}
 					OPEN_SITE_FROM_MIN_TO_MAX={props.OPEN_SITE_FROM_MIN_TO_MAX}
 				/>,
-				<ListRenderer key={`ContentRenderer > ListRenderer`} tempPosts={props.tempPosts} />,
+				<ListRenderer
+					key={`ContentRenderer > ListRenderer`}
+					LIST_ORDER_CHANGER={props.LIST_ORDER_CHANGER}
+					tempPosts={props.tempPosts}
+					isAsc={props.isAsc}
+					orderStandard={props.orderStandard}
+				/>,
 			];
 		}
 		case 2: {
@@ -42,8 +48,7 @@ function ListContainer(props) {
 
 const mapDispatchToProps = {
 	OPEN_SITE_FROM_MIN_TO_MAX,
+	LIST_ORDER_CHANGER,
 };
 
-const mapStatetoProps = state => ({});
-
-export default connect(mapStatetoProps, mapDispatchToProps)(ListContainer);
+export default connect(null, mapDispatchToProps)(ListContainer);
