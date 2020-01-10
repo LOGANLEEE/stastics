@@ -2,7 +2,7 @@ import Grid from '@material-ui/core/Grid';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import 'react-virtualized/styles.css';
-import PropTypes from 'prop-types'; // only needs to be imported once
+import PropTypes from 'prop-types';
 import FooterContainer from '../FooterContainer';
 import HeaderContainer from '../HeaderContainer';
 import LeftSideBarContainer from '../LeftSideBarContainer';
@@ -34,9 +34,13 @@ function Main(props) {
 
 const mapStateToProps = (state, ownProps) => ({
 	tempPosts: state.initial.tempPosts,
+	processedList: state.initial.processedList,
+
 	listTargetCount: state.main.listTargetCount,
+
 	currentFirstTabId: state.ui.currentFirstTabId,
 	currentSecondTabId: state.ui.currentSecondTabId,
+
 	isAsc: state.list_view.isAsc,
 	orderStandard: state.list_view.orderStandard,
 });
@@ -46,6 +50,7 @@ Main.propTypes = {
 	listTargetCount: PropTypes.number,
 	currentFirstTabId: PropTypes.number,
 	currentSecondTabId: PropTypes.string,
+	processedList: PropTypes.array,
 	isAsc: PropTypes.bool,
 	orderStandard: PropTypes.string,
 };
@@ -56,6 +61,7 @@ Main.defaultProps = {
 	currentSecondTabId: 0,
 	isAsc: true,
 	orderStandard: 'index',
+	processedList: [],
 };
 
 export default connect(mapStateToProps, null)(Main);

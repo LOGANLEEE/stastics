@@ -6,15 +6,7 @@ import * as sorter from 'utils/sorter';
 import Wrapper from './Wrapper';
 
 function ListRenderer(props) {
-	const [tempPosts, setTempPosts] = useState([]);
-	const [isAsc, setIsAsc] = useState(true);
-	const [orderStandard, setOrderStandard] = useState('index');
-
-	useEffect(() => {
-		setTempPosts(props.tempPosts);
-		setIsAsc(props.isAsc);
-		setOrderStandard(props.orderStandard);
-	});
+	const { processedList, orderStandard, isAsc } = props;
 
 	function rowRenderer({
 		key, // Unique key within array of rows
@@ -30,28 +22,38 @@ function ListRenderer(props) {
 				direction='row'
 				justify='center'
 				alignItems='stretch'
-				key={tempPosts[index].id}
+				key={processedList[index].id}
 				// onClick={() => console.info(data[index].link)}
 				style={style}>
 				<span className='index'>{index + 1}</span>
-				<span onClick={() => orderChanger(index, 'from')} className={`from ${tempPosts[index].from}`}>
-					{tempPosts[index].from}
+				<span onClick={() => orderChanger(index, 'from')} className={`from ${processedList[index].from}`}>
+					{processedList[index].from}
 				</span>
-				<span className='title'>{tempPosts[index].title}</span>
-				<span className='author'>{tempPosts[index].author}</span>
+				<span onClick={() => windowOpener(processedList[index].link)} className='title'>
+					{processedList[index].title}
+				</span>
+				<span className='author'>{processedList[index].author}</span>
 				<span onClick={() => orderChanger(index, 'hitCount')} className='hitCount'>
-					{tempPosts[index].hitCount}
+					{processedList[index].hitCount}
 				</span>
 				<span onClick={() => orderChanger(index, 'registeredAt')} className='registeredAt'>
-					{tempPosts[index].registeredAt}
+					{processedList[index].registeredAt}
 				</span>
 			</Grid>
 		);
 	}
 
+	function windowOpener(value) {
+		{
+			if (value !== null && value !== '') {
+				window.open(value);
+			}
+		}
+	}
+
 	function orderChanger(index, value) {
 		if (index === 0) {
-			sorter.listSorter(tempPosts, orderStandard, isAsc);
+			sorter.listSorter(processedList, value, !isAsc);
 			props.LIST_ORDER_CHANGER(value);
 		}
 	}
@@ -61,7 +63,7 @@ function ListRenderer(props) {
 			<List
 				width={1500}
 				height={1500}
-				rowCount={tempPosts.length}
+				rowCount={processedList.length}
 				rowHeight={38}
 				rowRenderer={rowRenderer}
 				style={{ width: '100%', outline: 'none' }}

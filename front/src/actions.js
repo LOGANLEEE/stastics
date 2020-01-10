@@ -44,10 +44,10 @@ export const GET_TEMP_POSTS = list => ({
 	payload: { list },
 });
 
-export function SET_PRE_PROCESSED_LIST(preProcessedList) {
+export function SET_PROCESSED_LIST(processedList) {
 	return {
-		type: actionTypes.SET_PRE_PROCESSED_LIST,
-		payload: { preProcessedList },
+		type: actionTypes.SET_PROCESSED_LIST,
+		payload: { processedList },
 	};
 }
 

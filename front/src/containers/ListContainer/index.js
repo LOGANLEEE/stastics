@@ -23,7 +23,7 @@ function ContentRenderer(props) {
 				<ListRenderer
 					key={`ContentRenderer > ListRenderer`}
 					LIST_ORDER_CHANGER={props.LIST_ORDER_CHANGER}
-					tempPosts={props.tempPosts}
+					processedList={props.processedList}
 					isAsc={props.isAsc}
 					orderStandard={props.orderStandard}
 				/>,
