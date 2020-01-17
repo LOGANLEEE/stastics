@@ -1,63 +1,177 @@
+const Constants = require('../Constants');
+
 const Etoland = {
-	link: '#mw_basic > table:nth-child(17) > tbody > tr:nth-child(2) > td > h1',
+	link: 'http://www.etoland.co.kr/bbs/board.php?bo_table=hit',
+	startIndex: 8,
+	endIndex: 126,
+	indexGap: 2,
+	from: Constants.Etoland,
+	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
+	prefix: 'http://www.etoland.co.kr',
 };
 
 const Clien = {
-	link: '#div_content > div.post_link.symph_row > h3 > span',
+	link: 'https://www.clien.net/service/board/park',
+	from: Constants.Clien,
+	startIndex: 8,
+	endIndex: 126,
+	indexGap: 2,
+	from: Constants.Etoland,
+	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
 };
 
 const Bobae = {
-	link: '#print_area > div.writerProfile > dl > dt > strong',
+	link: 'https://www.bobaedream.co.kr/list?code=best',
+	from: Constants.Bobae,
+	startIndex: 8,
+	endIndex: 126,
+	indexGap: 2,
+	from: Constants.Etoland,
+	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
 };
 
 const Bullpen = {
-	link: '#container > div.contents > div.left_cont > div.links',
+	link: 'http://mlbpark.donga.com/mp/best.php?b=bullpen&m=view',
+	from: Constants.Bullpen,
+	startIndex: 8,
+	endIndex: 126,
+	indexGap: 2,
+	from: Constants.Etoland,
+	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
 };
 
 const SLR = {
-	link: '#bbs_view_head > tbody > tr.first_part > td',
+	link: 'http://www.slrclub.com/bbs/zboard.php?id=best_article',
+	from: Constants.SLR,
+	startIndex: 8,
+	endIndex: 126,
+	indexGap: 2,
+	from: Constants.Etoland,
+	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
 };
 
 const TodayHumor = {
-	link: '#containerInner > div.viewSubjectDiv > div',
+	link: 'http://www.todayhumor.co.kr/board/list.php?table=humorbest',
+	from: Constants.TodayHumor,
+	startIndex: 8,
+	endIndex: 126,
+	indexGap: 2,
+	from: Constants.Etoland,
+	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
 };
 
 const Cook = {
-	link: '#column2 > h4',
+	link: 'https://www.82cook.com/entiz/enti.php?bn=15',
+	from: Constants.Cook,
+	startIndex: 8,
+	endIndex: 126,
+	indexGap: 2,
+	from: Constants.Etoland,
+	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
 };
 
 const Gasengi = {
-	link: '#view_conta > table > tbody > tr > td > div:nth-child(2) > table > tbody > tr > td:nth-child(1) > div',
+	link: 'https://www.gasengi.com/main/board.php?bo_table=commu',
+	from: Constants.Gasengi,
+	startIndex: 8,
+	endIndex: 126,
+	indexGap: 2,
+	from: Constants.Etoland,
+	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
 };
 const RuliWeb = {
-	link: '#board_read > div > div.board_main > div.board_main_top > div.user_view > div:nth-child(1) > h4 > span',
+	link: 'https://bbs.ruliweb.com/best/humor',
+	from: Constants.RuliWeb,
+	startIndex: 8,
+	endIndex: 126,
+	indexGap: 2,
+	from: Constants.Etoland,
+	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
 };
 const PpomPu = {
-	link:
-		'body > div > div.contents > div.container > div > table:nth-child(9) > tbody > tr:nth-child(3) > td > table > tbody > tr > td:nth-child(5) > font.view_link2',
+	link: 'http://www.ppomppu.co.kr/hot.php',
+	from: Constants.PpomPu,
+	startIndex: 8,
+	endIndex: 126,
+	indexGap: 2,
+	from: Constants.Etoland,
+	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
 };
 const Instiz = {
-	link: '#nowsubject > a',
+	startIndex: 8,
+	endIndex: 126,
+	indexGap: 2,
+	from: Constants.Etoland,
+	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
+	link: 'https://www.instiz.net/pt/',
+	from: Constants.Instiz,
 };
 const FmKorea = {
-	link: '#bd_capture > div.rd_hd.clear > div.board.clear > div.top_area.ngeb > h1 > span.np_18px_span',
+	link: 'https://www.fmkorea.com/index.php?mid=humor&sort_index=pop&order_type=desc&listStyle=webzine',
+	from: Constants.FmKorea,
+	startIndex: 8,
+	endIndex: 126,
+	indexGap: 2,
+	from: Constants.Etoland,
+	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
 };
 const TheQoo = {
-	link:
-		'#content > div > div.bd_load_target.bd.clear.hover_effect > div.rd.rd_nav_style2.clear > div.rd_hd.clear > div.theqoo_document_header > span > span',
+	link: 'https://theqoo.net/hot?filter_mode=normal',
+	from: Constants.TheQoo,
+	startIndex: 8,
+	endIndex: 126,
+	indexGap: 2,
+	from: Constants.Etoland,
+	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
 };
 const Ilbe = {
-	link: '',
+	link: 'https://www.ilbe.com/list/ilbe',
+	from: Constants.Ilbe,
+	startIndex: 8,
+	endIndex: 126,
+	indexGap: 2,
+	from: Constants.Etoland,
+	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
 };
 
 const HumorUniv = {
-	link: '',
+	link: 'http://www.todayhumor.co.kr/board/list.php?table=humorbest',
+	from: Constants.HumorUniv,
+	startIndex: 8,
+	endIndex: 126,
+	indexGap: 2,
+	from: Constants.Etoland,
+	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
 };
 
 const DogDrip = {
-	link:
-		'#main > div > div.eq.section.secontent.background-color-content > div > div.ed.article-wrapper.inner-container > div.ed > div.ed.article-head.margin-bottom-large > h4 > a',
+	link: 'https://www.dogdrip.net/index.php?mid=dogdrip&sort_index=popular',
+	from: Constants.DogDrip,
+	startIndex: 8,
+	endIndex: 126,
+	indexGap: 2,
+	from: Constants.Etoland,
+	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
 };
+
+const targetList = [
+	Etoland,
+	// Clien,
+	// Bobae,
+	// Bullpen,
+	// SLR,
+	// TodayHumor,
+	// Cook,
+	// Gasengi,
+	// RuliWeb,
+	// PpomPu,
+	// Instiz,
+	// TheQoo,
+	// FmKorea,
+	// DogDrip,
+	// Ilbe,
+	// HumorUniv,
+];
 
 module.exports = {
 	Clien,
@@ -74,6 +188,7 @@ module.exports = {
 	TheQoo,
 	FmKorea,
 	DogDrip,
-	Ilbe,
 	HumorUniv,
+	Ilbe,
+	targetList,
 };

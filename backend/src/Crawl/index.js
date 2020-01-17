@@ -27,14 +27,31 @@ const { info } = console;
 // NATEPANN // TODO
 // YGOSU // TODO
 // DDANZI // TODO
-// HumorUniv.fetching(); // not working
-// const siteList = [Clien, Bobae, Bullpen, Etoland, SLR, TodayHumor, Cook, Gasengi, RuliWeb, PpomPu, Instiz, TheQoo, FmKorea, DogDrip];
-// const siteList = [Instiz];
+
+// TOTAL
+const siteList = [
+	Clien,
+	Bobae,
+	Bullpen,
+	// Ilbe,
+	Etoland,
+	SLR,
+	TodayHumor,
+	Cook,
+	Gasengi,
+	RuliWeb,
+	PpomPu,
+	Instiz,
+	TheQoo,
+	FmKorea,
+	// DogDrip,
+	HumorUniv,
+];
 
 // DONE
-const siteList = [Etoland, Clien, Bobae, SLR, Bullpen, TodayHumor, Cook, Gasengi, RuliWeb, TheQoo, FmKorea];
+// const siteList = [Etoland, Clien, Bobae, SLR, Bullpen, TodayHumor, Cook, Gasengi, RuliWeb, TheQoo, FmKorea];
 // const siteList = [Etoland, Clien, Bobae, SLR, TodayHumor, Cook, Gasengi, RuliWeb, TheQoo, FmKorea];
-// const siteList = [Clien];
+// const siteList = [PpomPu];
 
 // TODO
 // ILBE, DogDrip, HumorUniv, PpomPu

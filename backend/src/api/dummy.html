@@ -1,0 +1,909 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="PPOMPPU CO.">
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+
+<script async='async' src=' //www.googletagservices.com/tag/js/gpt.js'></script>
+<script>var googletag = googletag || {};googletag.cmd = googletag.cmd || [];</script>
+
+<!--
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, target-densitydpi=device-dpi" />
+-->
+
+
+
+<meta property="og:site_name" content="뽐뿌" />
+
+<title>뽐뿌 - 자유게시판</title><!--<link href='http: //fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>-->
+
+<link rel="stylesheet" type="text/css" href="//www.ppomppu.co.kr/css/style.css?v=2019122616" />
+<link rel="stylesheet" type="text/css" href="//www.ppomppu.co.kr/css/stylesheet.css?v=2019122616" />
+
+<!--[if IE
+]>
+<link rel="stylesheet" type="text/css" href="//www.ppomppu.co.kr/css/stylesheet_ms.css?v=2019122616" />
+<![endif
+]-->
+
+
+
+
+
+<!--<link type="text/css" rel="stylesheet" href="//www.ppomppu.co.kr/thickbox/thickbox20130718.css" />-->
+
+
+<link rel="stylesheet" type="text/css" href="//www.ppomppu.co.kr/zboard/dq_css/cate_tab_201303042.css" />
+<link rel="shortcut icon" href="//img.ppomppu.co.kr/favicon.ico" />
+<link rel="apple-touch-icon" href="//img.ppomppu.co.kr/images/nn128.jpeg" />
+
+<script>
+var G_HOME_URL    = "http://www.ppomppu.co.kr";
+var G_WWW_URL     = "http://www.ppomppu.co.kr";
+var G_WWW_REL_URL = "//www.ppomppu.co.kr";
+var G_MOB_URL     = "http://m.ppomppu.co.kr";
+var G_MOB_REL_URL = "//m.ppomppu.co.kr";
+var G_NIC_URL     = "//nic.ppomppu.co.kr";
+var G_MEMO_URL    = "http://memo.ppomppu.co.kr";
+var G_S_URL       = "http://s.ppomppu.co.kr";
+var G_HOME_SSL_URL= "https://www.ppomppu.co.kr";
+var G_WWW_SSL_URL = "https://www.ppomppu.co.kr";
+var G_MOB_SSL_URL = "https://m.ppomppu.co.kr";
+var G_MEMO_SSL_URL= "https://memo.ppomppu.co.kr";
+var G_S_SSL_URL   = "https://s.ppomppu.co.kr";
+var G_STATIC_URL  = "//static.ppomppu.co.kr";
+var G_IMG_URL     = "//img.ppomppu.co.kr";
+</script>
+<script type="text/javascript" src="//www.ppomppu.co.kr/js/default3.js"></script>
+<script type="text/javascript" src="//www.ppomppu.co.kr/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="//www.ppomppu.co.kr/js/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="//www.ppomppu.co.kr/js/jquery.rolling.js"></script>
+<script type="text/javascript" src="//www.ppomppu.co.kr/js/jquery.elipsis.js"></script>
+<!--<script type="text/javascript" src="//www.ppomppu.co.kr/thickbox/thickbox.patch.20100708.js"></script>-->
+<script type="text/javascript" src="//www.ppomppu.co.kr/js/writeCapture.js"></script>
+<script type="text/javascript" src="//www.ppomppu.co.kr/js/jquery.writeCapture.js"></script>
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject'
+]=r;i[r
+]=i[r
+]||function(){
+(i[r
+].q=i[r
+].q||[]).push(arguments)
+},i[r
+].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[
+0
+];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script',' //www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-1778193-1',
+{'cookieDomain': 'ppomppu.co.kr'
+});
+ga('require', 'linkid', 'linkid.js');
+ga('send', 'pageview');
+</script>
+
+<script language="javascript">
+browserName = navigator.appName;
+browserVer = parseInt(navigator.appVersion);
+if(browserName == "Netscape" && browserVer >= 3){ init = "net";
+}
+else { init = "ie";
+}
+
+
+if(((init == "net")&&(browserVer >=3))||((init == "ie")&&(browserVer >= 4))){
+
+sn_on=new Image;
+sn_off=new Image;
+sn_on.src= "skin/DQ_Revolution_BBS/name_on.gif";
+sn_off.src= "skin/DQ_Revolution_BBS/name_off.gif";
+
+ss_on=new Image;
+ss_off=new Image;
+ss_on.src= "skin/DQ_Revolution_BBS/subject_on.gif";
+ss_off.src= "skin/DQ_Revolution_BBS/subject_off.gif";
+
+sc_on=new Image;
+sc_off=new Image;
+sc_on.src= "skin/DQ_Revolution_BBS/content_on.gif";
+sc_off.src= "skin/DQ_Revolution_BBS/content_off.gif";
+}
+
+function OnOff(name) {
+if(((init == "net")&&(browserVer >=3))||((init == "ie")&&(browserVer >= 4))) {
+if(document.search[name
+].value=='on')
+{
+document.search[name
+    ].value='off';
+ImgSrc=eval(name+"_off.src");
+document[name
+    ].src=ImgSrc;
+}
+else
+{
+document.search[name
+    ].value='on';
+ImgSrc=eval(name+"_on.src");
+document[name
+    ].src=ImgSrc;
+}
+}
+}
+</script>
+
+<script language="javascript">
+function reverse() {
+var i, chked=0;
+if(confirm('목록을 반전하시겠습니까?\n\n반전을 원하지 않는다면 취소를 누르시면 다음으로 넘어갑니다'))
+{
+for(i=0;i<document.list.length;i++)
+{
+if(document.list[i
+    ].type=='checkbox')
+{
+if(document.list[i
+        ].checked) { document.list[i
+            ].checked=false;
+        }
+else { document.list[i
+            ].checked=true;
+        }
+    }
+}
+}
+for(i=0;i<document.list.length;i++)
+{
+if(document.list[i
+].type=='checkbox')
+{
+if(document.list[i
+    ].checked) chked=1;
+}
+}
+if(chked) {
+if(confirm('선택된 항목을 보시겠습니까?'))
+{
+document.list.selected.value='';
+document.list.exec.value='view_all';
+for(i=0;i<document.list.length;i++)
+{
+ if(document.list[i
+        ].type=='checkbox')
+ {
+  if(document.list[i
+            ].checked)
+  {
+   document.list.selected.value=document.list[i
+                ].value+';'+document.list.selected.value;
+            }
+        }
+    }
+document.list.submit();
+return true;
+}
+}
+}
+
+function delete_all() {
+var i, chked=0;
+for(i=0;i<document.list.length;i++)
+{
+if(document.list[i
+].type=='checkbox')
+{
+if(document.list[i
+    ].checked) chked=1;
+}
+}
+if(chked)
+{
+document.list.selected.value='';
+document.list.exec.value='delete_all';
+for(i=0;i<document.list.length;i++)
+{
+if(document.list[i
+    ].type=='checkbox')
+{
+if(document.list[i
+        ].checked)
+{
+ document.list.selected.value=document.list[i
+            ].value+';'+document.list.selected.value;
+        }
+    }
+}
+window.open("select_list_all.php?id=freeboard&selected="+document.list.selected.value,
+"게시물정리",
+"width=260,height=360,toolbars=no,resize=no,scrollbars=no");
+}
+else {alert('정리할 게시물을 선택하여 주십시요');
+}
+}
+
+
+function done_all() {
+  var i, chked=0;
+  for(i=0;i<document.list.length;i++){
+          if(document.list[i
+].type=='checkbox'){
+                  if(document.list[i
+    ].checked) chked=1;
+}
+}
+
+  if(chked){
+          document.list.selected.value='';
+          document.list.exec.value='delete_all';
+          for(i=0;i<document.list.length;i++){
+                  if(document.list[i
+    ].type=='checkbox'){
+                          if(document.list[i
+        ].checked){
+                                  document.list.selected.value=document.list[i
+            ].value+';'+document.list.selected.value;
+        }
+    }
+}
+          window.open("select_done_all.php?id=freeboard&selected="+document.list.selected.value,
+"게시물완료",
+"width=260,height=360,toolbars=no,resize=no,scrollbars=no");
+}else {
+          alert('완료할 게시물을 선택하여 주십시요');
+}
+}
+
+
+function category_change(obj) {
+var myindex=obj.selectedIndex;
+document.search.category.value=obj.options[myindex
+].value;
+document.search.submit();
+return true;
+}
+//-->
+</script>
+<script type="text/javascript" src="//www.ppomppu.co.kr/js/jquery.hotkeys-0.7.8.js"></script>
+<script type="text/javascript" src="//www.ppomppu.co.kr/js/load-hotkey.min.js"></script>
+
+
+</head>
+
+
+<body>
+
+<script type="text/javascript">
+var hotKeyVar = new function() { this.enable = true; this.keys = ['a','f','z','h','0','1','2','3','4','5','6','7','8','9'
+]; this.links = ['http: //www.ppomppu.co.kr','http://www.ppomppu.co.kr/recent_forum_article.php','http://www.google.co.kr','http://www.ppomppu.co.kr/hot.php','http://www.ppomppu.co.kr/recent_main_article.php?type=market','http://www.ppomppu.co.kr/zboard/zboard.php?id=ppomppu','http://www.ppomppu.co.kr/zboard/zboard.php?id=event','http://www.ppomppu.co.kr/zboard/zboard.php?id=buy','http://www.ppomppu.co.kr/zboard/zboard.php?id=help','http://www.ppomppu.co.kr/zboard/zboard.php?id=freeboard','http://www.ppomppu.co.kr/zboard/zboard.php?id=etc_info','http://www.ppomppu.co.kr/zboard/zboard.php?id=free_gallery','http://www.ppomppu.co.kr/zboard/zboard.php?id=news2','http://www.ppomppu.co.kr/zboard/zboard.php?id=review2']; };
+</script>
+<div class="wrapper">
+  <div class="sidebar">
+      <div class="floating-banner">
+          <div id="pp_ban_right" class="ad-banner" style="width: 120px; height: 600px;">
+                <script>
+                  googletag.cmd.push(function() {
+                  googletag.defineSlot('/65120695/r_banner_f',
+    [
+        120,
+        600
+    ], 'div-gpt-ad-1552883278863-0').addService(googletag.pubads());
+});
+                  </script>
+                  <div id='div-gpt-ad-1552883278863-0' style=' width: 120px;height: 600px;'></div>
+                                  </div>
+                          <div class="personal-ui" id="tabs-container">
+              <ul class="tabs">
+                  <li class="active"><a rel="#tab1-contents" class="tab">단축키</a></li>
+                  <li><a rel="#tab2-contents" class="tab">북마크</a></li>
+              </ul>
+
+              <div class="tab-contents-container">
+                  <div class="tab-contents" id="tab1-contents">
+                      <ul class="hotkey">
+                                                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=ppomppu">뽐뿌게시판 </a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=event">이벤트게시판 </a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=buy">구매게시판 </a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=help">질문/요청 </a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=freeboard">자유게시판 </a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=etc_info">생활정보 </a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=free_gallery">자유갤러리 </a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=news2">IT/취업 </a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=review2">사용기 </a></li>
+                          <li><a href="http://www.ppomppu.co.kr/recent_main_article.php?type=market">장터 리스트</a></li>
+                                                      </ul>
+                      <!--/.hotkey-->
+                      <div class="setup">
+                          <a href="http://www.ppomppu.co.kr/myinfo/env.php?cmd=env" target="_blank"><img src="//img.ppomppu.co.kr/images/main/setting_icon.png" />설정하기</a>
+                      </div>
+                  </div>
+                  <!--/.tab-contents-->
+
+                  <div class="tab-contents" id="tab2-contents">
+                      <ul class="bookmark">
+                      </ul>
+                      <div class="setup">
+                          <a href="http://www.ppomppu.co.kr/myinfo/member_bookmark.php" target="_blank"><img src="//img.ppomppu.co.kr/images/main/setting_icon.png" />설정하기</a>
+                      </div>
+                  </div>
+                  <!--/.tab-contents-->
+              </div>
+              <!--/.tab-contents-container-->
+
+          </div>
+          <!--/#tab-container-->
+
+                          
+      </div>
+      <!--/.floating-banner-->
+  </div>
+  <!--/.aside-->
+
+  <div class="contents">
+                                          <div class="header">
+          <div class="wrap">
+              <a href="http://www.ppomppu.co.kr/index.php" class="logo-sm"><img
+                  src="//img.ppomppu.co.kr/images/main/201111/logo_small.gif" alt="뽐뿌" /> </a>
+                                  <a href="/zboard/zboard.php?id=freeboard" class="title-image"><img src="//img.ppomppu.co.kr/images/header/title03.png" border="0" /> </a>
+                                  <div class="ad-banner header-banner" id="pp_ban_top">
+                    <script>
+                      googletag.cmd.push(function() {
+                      googletag.defineSlot('/65120695/top_f',
+    [
+        468,
+        60
+    ], 'div-gpt-ad-1553129536230-0').addService(googletag.pubads());
+});
+                      </script>
+                      <div id='div-gpt-ad-1553129536230-0' style=' width: 468px;height: 60px;'></div>
+                                          </div>
+          </div>
+      </div>
+      
+
+
+
+      <!-- Top navigation -->
+      <div class="top-nav">
+          <ul>
+              <li class="menu01 "><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=ppomppu" class="menu">뽐뿌</a>
+                                                  <div class="sub-menu">
+                              
+                              <ul>
+                                  <li class="strong"><i class="caret"></i><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=ppomppu">뽐뿌게시판</a></li>
+                                  <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=ppomppu2">휴대폰뽐뿌</a></li>
+                                  <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=ppomppu4">해외뽐뿌</a></li>
+                                  <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=pmarket">MD뽐뿌</a></li>
+                                  <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=ppomppu5">오프라인뽐뿌</a></li>
+                                  <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=ppomppu7">뷰티뽐뿌</a></li>
+                                  <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=ppomppu6">업체뽐뿌</a></li>
+                                  <!-- <li class="divider"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=pmarket">업체게시판</a></li> -->
+                                  <li class="divider"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=pmarket2">휴대폰업체</a></li>
+                                  <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=pmarket3">통신업체</a></li>
+                                  <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=card_market">카드업체</a></li>
+                                  <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=pmarket7">렌탈업체</a></li>
+                                  <li><a href="http://www.ppomppu.co.kr/books/index.php">책가격비교</a></li>
+                                  
+                                  
+                                  
+                                  
+                                                                                                                                                                                                  <li class="divider strong"><a href="http://www.ppomppu.co.kr/hot.php">HOT게시글</a></li>
+                                  <li><a href="http://www.ppomppu.co.kr/hot_comment.php">HOT코멘트</a></li>
+                              </ul>
+                          </div>
+
+              </li>
+              <li class="menu02 "><a href="http://www.ppomppu.co.kr/recent_main_article.php?type=event"
+                  class="menu">이벤트</a>
+                  <div class="sub-menu">
+                      <ul>
+                          <li class="strong"><i class="caret"></i><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=event">이벤트게시판</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=coupon">쿠폰게시판</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=mobile">모바일이벤트</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=experience">체험단모집</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=wcoupon">다운로드 쿠폰</a></li>
+                          <li class="divider"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=wow">참여/리뷰</a></li>
+                          <li class="divider strong"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=event_ppomppu">뽐뿌이벤트</a></li>
+                                                      </ul>
+                  </div>
+              </li>
+              <li class="menu03 "><a href="http://www.ppomppu.co.kr/recent_main_article.php?type=info" class="menu">정보</a>
+                  <div class="sub-menu">
+                      <ul>
+                          <li class="strong"><i class="caret"></i><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=etc_info">생활정보</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=ppomapp">앱정보</a></li>
+                          <li class="divider strong"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=review2">사용기</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=receive">수령기</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=buy">구매게시판</a></li>
+                          <li class="divider strong"><a href="/fortune/index.html">무료운세</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=flash_game">플래시게임</a></li>
+                      </ul>
+                  </div>
+              </li>
+              <li class="menu04 active"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=freeboard" class="menu">커뮤니티</a>
+                  <div class="sub-menu" style="width: 101px;">
+                      <ul>
+                          <li class="strong"><i class="caret"></i><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=freeboard">자유게시판</a></li>
+                          <li ><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=issue">정치자유게시판</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=humor">유머/감동</a></li>
+                          <li class="strong"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=help">질문/요청</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=grade">자기소개</a></li>
+                                                          <li class="divider strong"><a href="http://www.ppomppu.co.kr/chat">실시간채팅</a></li>
+                          
+                          <li class="strong divider"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=campaign">뽐뿌캠페인</a></li>
+                                                      </ul>
+                  </div>
+              </li>
+              <li class="menu05 "><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=free_gallery" class="menu">갤러리</a>
+                  <div class="sub-menu">
+                      <ul>
+                          <li class="strong"><i class="caret"></i><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=free_gallery">자유갤러리</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=star">연예인갤러리</a></li>
+                          <li class="divider"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=sketch_gallery">그림갤러리</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=bg_gallery">바탕화면갤러리</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=jjalbang">짤방갤러리</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=review_gallery">닉콘신청갤러리</a></li>
+                      </ul>
+                  </div>
+              </li>
+              <li class="menu06 "><a href="http://www.ppomppu.co.kr/recent_main_article.php?type=market"
+                  class="menu">장터</a>
+                  <div class="sub-menu">
+                      <ul>
+                          <li class="strong"><i class="caret"></i><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=market">뽐뿌장터</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=market_phone">휴대폰장터</a></li>
+                          <li class="new"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=market_data">데이터장터</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=cmarket">쿠폰장터</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=onmarket">온라인장터</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=market_social">소셜쿠폰장터</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=market_oversea">해외구매장터</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=market_item">아이템장터</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=market_talent">재능장터</a></li>
+                          <li class="divider strong"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=market_bike">자전거장터</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=market_ecig">전자담배장터</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=market_car">중고차장터</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=market_camping">캠핑장터</a></li>
+                          <li class="divider strong"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=gonggu">공동구매</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=gonggu_request">공동구매요청</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=market_agent">해외구매대행</a></li>
+                          <li class="divider"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=guin">구인게시판</a></li>
+                          <li class="divider strong"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=market_story">장터이야기</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=relay">추천릴레이</a></li>
+                          <li class="divider strong"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=love">사랑공간</a></li>
+                      </ul>
+                  </div>
+              </li>
+              <li class="menu07 extand "><a href="http://www.ppomppu.co.kr/recent_forum_article.php" class="menu">포럼</a>
+                  <i class="caret"></i>
+                  <div class="sub-menu">
+                      <ul>
+                          <li class="title">휴대폰/가전</li>
+                          <li class="strong"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=phone">휴대폰포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=phone3">구입개통수령</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=phone2">휴대폰질문</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=iphone">아이폰포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=tablet">아이패드포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=android">안드로이드</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=androidtab">안드로이드탭</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=wintab">윈도우태블릿</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=smartphone">기타스마트폰</a></li>
+                          <li class="divider strong"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=av">가전포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=mini">음향기기</a></li>
+                          <li class="divider strong"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=computer">컴퓨터포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=nas">NAS포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=macintosh">맥포럼</a></li>
+                      </ul>
+                      <ul>
+                          <li class="title">스포츠/레저</li>
+                          <li class="strong"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=golf">골프포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=fishing">낚시포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=basketball">농구포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=climb">등산포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=motorbike">바이크포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=lifesports">생활스포츠</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=swim">수영포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=ski">스키/보드</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=scuba">스킨/스쿠버</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=sports">스포츠포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=baseball">야구포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=ppom_baseball_team">사회인야구</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=car">자동차포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=bike">자전거포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=soccer">축구포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=camping">캠핑포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=tennis">테니스포럼</a></li>
+                          <li class="divider strong"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=health">건강/헬스</a></li>
+                      </ul>
+                      <ul>
+                          <li class="title">경제/지역</li>
+                          <li class="strong"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=money">재테크포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=insurance">보험포럼</a></li>
+                          <li class="renewal"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=social">쇼핑포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=stock">증권포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=soho">창업/자영업</a></li>
+                          <li class="divider strong"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=bitcoin">가상화폐</a></li>
+                          <li class="beta"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=info_ico">코인정보/ICO</a></li>
+                          <li class="beta"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=recommend">코인추천링크</a></li>
+                          <li class="divider strong"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=lotto">로또포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=toto">토토/프로토</a></li>
+                          <li class="divider strong"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=house">부동산포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=offline">지역별포럼</a></li>
+                          <li class="beta"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=country">국가별포럼</a></li>
+                          <li class="divider strong"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=oversea">해외포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=china">중국포럼</a></li>
+                      </ul>
+                      <ul>
+                          <li class="title">생활</li>
+                          <li class="strong"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=wedding">결혼포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=problem">고민포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=nonsmoking">금연포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=e_cig">전자담배포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=publictransport">대중교통</a></li>
+                          <li class="beta"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=diabetes">당뇨포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=pet">동식물포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=mart">마트/편의점</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=restaurant">맛집포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=medical">메디컬포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=delivery_food">배달음식</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=tour">여행포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=couple">연애포럼</a></li>
+                          <li class="beta"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=nutrients">영양제포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=recipe">요리/레시피</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=baby">육아포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=alone">자취포럼</a></li>
+                          <li class="beta"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=alopecia">탈모포럼</a></li>
+                      </ul>
+                      <ul>
+                          <li class="title">게임/문화</li>
+                          <li class="strong renewal"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=gameforum">게임포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=gamer">게임기포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=boardgame">보드게임</a></li>
+                          <li class="renewal"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=mobile_game">모바일게임</a></li>
+
+                          <li class="divider strong"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=drama">TV/드라마</a></li>
+                          <li class="beta"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=streamer">개인방송포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=book">독서/e-book</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=animation">만화/애니</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=munwha">문화포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=announcer">아나운서</a></li>
+                          <li class="beta"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=idol">아이돌포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=movie">영화포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=music">음악/악기</a></li>
+                      </ul>
+                      <ul>
+                          <li class="title">취미</li>
+                          <li class="strong"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=diy">DIY포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=rc">드론포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=camera">사진/카메라</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=watch">시계포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=interior">인테리어</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=e_unicycle">전동휠포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=alcohol">주류포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=hobby">취미포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=coffee">커피포럼</a></li>
+                      </ul>
+                      <ul>
+                          <li class="title">그룹</li>
+                          <li class="strong"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=f7080">30+포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=morethan40">40+포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=developer">개발자포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=army">군대포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=univ_student">대학생포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=miz">미즈포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=volunteer">봉사포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=adult">성인포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=religion">종교포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=worker">직장인포럼</a></li>
+                          <li class="beta"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=honjok">혼족포럼</a></li>
+                      </ul>
+                      <ul>
+                          <li class="title">기타</li>
+                          <li class="strong"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=fear">공포포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=science">과학포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=mungu">문구포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=stylesheet">문서/서식</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=beauty">뷰티/케어</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=history">역사포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=fortune">운세포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=style">스타일포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=whatever">전/현/무포럼</a></li>
+                          <li class="divider strong"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=alba">알바포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=employment">취업포럼</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=study">학습포럼</a></li>
+                          <li class="addon">
+                              <ul>
+                                  <li class="divider">(<img src="//img.ppomppu.co.kr/images/icon_beta.gif" />: 베타포럼)
+                                  </li>
+                                  <li>(<img src="//img.ppomppu.co.kr/images/icon_renewal.gif" />: 리뉴얼)
+                                  </li>
+                                  <li><a href="/recent_forum_article.php"><img src="//img.ppomppu.co.kr/images/icon_search.png" class="icon-search" />포럼검색</a></li>
+                              </ul>
+                          </li>
+                      </ul>
+                  </div>
+              </li>
+              <li class="menu08 "><a href="http://www.ppomppu.co.kr/recent_main_article.php?type=news" class="menu">뉴스</a>
+                  <div class="sub-menu">
+                      <ul>
+                          <li><i class="caret"></i><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=news_broadcast">방송/연예</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=news_sports">스포츠</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=news_life&page=1">라이프/여행</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=news_pol_eco">정치/경제</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=news2">IT/취업</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=news">뉴스참여</a></li>
+                      </ul>
+                  </div>
+              </li>
+              <li class="menu09 extand02 "><a href="http://www.ppomppu.co.kr/recent_main_article.php?type=consult" class="menu">상담실</a>
+                  <i class="caret"></i>
+                  <div class="sub-menu">
+                      <ul>
+                          <li class="title">경제 / 자동차</li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=consulting">보험상담</a></li>
+                          <li class="" style="letter-spacing:-2px !important;"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=loan_consult">대출상담</a></li>
+                                                          <li><a class="" href="http://www.ppomppu.co.kr/zboard/zboard.php?id=tele_consult">통신상담</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=card_consult">카드상담</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=rental_consult">렌탈상담</a></li>
+                          <li class="divider"><a href="http://www.ppomppu.co.kr/partner/car_estimate.php">신차견적상담</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=car_consult">중고차상담</a></li>
+                      </ul>
+                      <ul style="height:166px;">
+                          <li class="title">생활</li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=wedding_consult">웨딩상담</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=move_consult">이사/청소상담</a></li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=tour_consult">여행레저상담</a></li>
+                          <li style="letter-spacing:-2px !important;"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=interior_consult">인테리어상담</a></li>
+                          <li style="letter-spacing:-2px !important;"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=security_guard_consult">보안경비상담</a></li>
+                                                          <li><a href="/zboard/zboard.php?id=pc_consult">PC견적상담</a></li>
+                          <li class="divider new"><a href="/zboard/zboard.php?id=etc_consult">기타상담</a></li>
+                          <!-- <li class="renewal"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=ad_consult">광고/제작상담</a></li> -->
+                      </ul>
+                      <ul>
+                          <li class="title">전문가상담</li>
+                          <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=law_consult">법률상담</a></li>
+                          <!-- <li><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=tax_consult">세무상담</a></li> -->
+                          <li class="renewal"><a href="http://www.ppomppu.co.kr/zboard/zboard.php?id=medical_consult">메디컬상담</a></li>
+                          <li class="addon" style="margin-top:50px;">
+                              <ul>
+                                  <li class="divider">(<img src="//img.ppomppu.co.kr/images/icon_new.gif">: 신규)</li>
+                                  <li>(<img src="//img.ppomppu.co.kr/images/icon_renewal.gif">: 리뉴얼)</li>
+                              </ul>
+                          </li>
+                      </ul>
+                  </div>
+              </li>
+          </ul>
+      </div>
+
+
+      <div class="sub-nav">
+          <form method="get" name="search1" action="http://www.ppomppu.co.kr/search_bbs.php">
+              <div class="input-search" style="width:290px;">
+                                              <input type="text" name="keyword" value="학교 2020" />
+                                      </div>
+                                      <div id="subpage-hot-keyword" class="hot-keyword" style="float:left; width:10px; margin:0;">
+                      <span id="subpage-hot-keyword-toggle-btn" style="display:inline-block; height:30px; line-height:26px; color:#727272; cursor:pointer;">▼</span>
+                      <div id="subpage-hot-keyword-wrapper" class="hot-keyword-wrapper" style="display:none; margin:0 0 0 -65px;">
+                                                              <a href="/search_bbs.php?order_type=date&keyword=%C7%CA%B8%AE%C7%C9+%C8%AD%BB%EA" >
+                                  <img src="//img.ppomppu.co.kr/images/header/keyword01.gif" />
+                                  <span> 필리핀 화산</span>
+                              </a>
+                                                              <a href="/search_bbs.php?order_type=date&keyword=%C7%CA%B8%AE%C7%C9" >
+                                  <img src="//img.ppomppu.co.kr/images/header/keyword02.gif" />
+                                  <span> 필리핀</span>
+                              </a>
+                                                              <a href="/search_bbs.php?order_type=date&keyword=%C7%D0%B1%B3+2020" style="background:#f1f1f1;">
+                                  <img src="//img.ppomppu.co.kr/images/header/keyword03.gif" />
+                                  <span> 학교 2020</span>
+                              </a>
+                                                              <a href="/search_bbs.php?order_type=date&keyword=%C0%BD%B9%AE%BC%AE" >
+                                  <img src="//img.ppomppu.co.kr/images/header/keyword04.gif" />
+                                  <span> 음문석</span>
+                              </a>
+                                                              <a href="/search_bbs.php?order_type=date&keyword=%B1%E8%BF%E4%C7%D1" >
+                                  <img src="//img.ppomppu.co.kr/images/header/keyword05.gif" />
+                                  <span> 김요한</span>
+                              </a>
+                                                              <a href="/search_bbs.php?order_type=date&keyword=%C1%F6%C7%AA%B6%F3%B1%E2%B6%F3%B5%B5+%C0%E2%B0%ED+%BD%CD%C0%BA+%C1%FC%BD%C2%B5%E9" >
+                                  <img src="//img.ppomppu.co.kr/images/header/keyword06.gif" />
+                                  <span> 지푸라기라도 잡고 싶은 짐승들</span>
+                              </a>
+                                                              <a href="/search_bbs.php?order_type=date&keyword=%C5%A9%B7%D0%BA%B4" >
+                                  <img src="//img.ppomppu.co.kr/images/header/keyword07.gif" />
+                                  <span> 크론병</span>
+                              </a>
+                                                              <a href="/search_bbs.php?order_type=date&keyword=%B3%AA%B4%D9%C0%BA" >
+                                  <img src="//img.ppomppu.co.kr/images/header/keyword08.gif" />
+                                  <span> 나다은</span>
+                              </a>
+                                                              <a href="/search_bbs.php?order_type=date&keyword=%C7%CA%B8%AE%C7%C9+%BC%BC%BA%CE+%C0%A7%C7%E8" >
+                                  <img src="//img.ppomppu.co.kr/images/header/keyword09.gif" />
+                                  <span> 필리핀 세부 위험</span>
+                              </a>
+                                                              <a href="/search_bbs.php?order_type=date&keyword=%C1%D6%B1%A4%B4%F6" >
+                                  <img src="//img.ppomppu.co.kr/images/header/keyword10.gif" />
+                                  <span> 주광덕</span>
+                              </a>
+                                                      </div>
+                  </div>
+                  <script>
+                      $('#subpage-hot-keyword-toggle-btn').on('click', function(){
+                          var $target = $('#subpage-hot-keyword-wrapper');
+
+                          if( $target.is(':visible') ){
+                              $(this).html( '▼' );
+                              $target.css('display', 'none');
+    }else{
+                              $(this).html( '▲' );
+                              $target.css('display', 'block');
+    }
+
+                          return false;
+});
+
+                      $(document).on('click', function(){
+                          var $target = $('#subpage-hot-keyword-wrapper');
+
+                          if( $(this).not($target) ){
+                              $('#subpage-hot-keyword-toggle-btn').html( '▼' );
+                              $target.css('display', 'none');
+    }
+});
+                  </script>
+                                  <button type="submit" class="btn btn-search"></button>
+          </form>
+
+          
+          <script type="text/javascript">
+//<![CDATA[
+function zb_login_check_submit() {
+  var $user_id = $("form[name='zb_login'] input[id='user_id']");
+  var $password = $("form[name='zb_login'] input[name='password']");
+  if ($user_id.val() === "") {
+      alert("아이디를 입력하여 주십시요");
+      $user_id.focus();
+      return false;
+    }
+  if ($password.val() === "") {
+      alert("비밀번호를 입력하여 주십시요");
+      $password.focus();
+      return false;
+    }
+  return true;
+}
+function check_autologin() {
+  var $auto_login = $("form[name='zb_login'] input[name='auto_login']");
+  if ($auto_login.attr('checked')) {
+      var check;
+      check = confirm("자동 로그인 기능을 사용하시겠습니까?\n\n자동 로그인 사용시 다음 접속부터는 로그인을 하실필요가 없습니다.\n\n단, 게임방, 학교등 공공장소에서 이용시 개인정보가 유출될수 있으니 주의해주세요");
+      if (check === false) {
+          $auto_login.attr('checked', false);
+        }
+    }
+}
+//]]>
+</script>
+
+
+<div class="sm_loginwrap" >
+<span class="smloginbtnbox"><a href="javascript:toggleHelpLayerOn('loginsm');" class="loginsmbtn"><img src="/images/main/login_smbtn.gif" alt="로그인" style="cursor:pointer;"/></a></span>
+<span><a href="/https_redirect.php"  class="memrog" >회원가입</a>|<a href="https://www.ppomppu.co.kr/auth/auth.php?tab=id" target=_blank class="idpw">아이디</a><img src="/images/main/dot03.gif"><a href="https://www.ppomppu.co.kr/auth/auth.php?tab=pwd" target=_blank class="idpw" >비번찾기</a></span>
+</div>
+<div class="loginbox02" id="loginsm" style="display:none;">
+<form name="zb_login" method="post" action="https://www.ppomppu.co.kr/zboard/login_check.php" onsubmit="return zb_login_check_submit();">
+<input type="hidden" name="s_url" value="/zboard/zboard.php?id=freeboard&no=6784995">
+<input type="hidden" name="secure1" checked=checked value="1">
+<div class="secuopt"><!--span class="secubtn"><font color="#FF7713">보안접속 <a href="#" id="secure_name" onclick='javascript:change_ssl()'><strong>ON</strong></a></font></span--> <span class="autologin"><label><input type="checkbox" name="auto_login" value="1" onclick="check_autologin()" /> </label>자동로그인</span><span class="closebox"  style="float:right; padding-right:5px;"><a href="javascript:toggleHelpLayerOff('loginsm');"><img src="/images/main/close01.gif" alt="닫기" /></a></span></div>
+  <ul class="loginput">
+      <li><INPUT class="idinput" title="아이디입력" type=text  name="user_id" id="user_id" maxlength="20" style="background:url('/images/main/ppimg_20100617_007.gif') no-repeat; background-position:4px 5px;background-color:#fff;"/></li>
+      <li><INPUT class="pwinput" title="비밀번호입력" type="password"  name="password" maxlength="20" style="background:url('/images/main/ppimg_20100617_008.gif') no-repeat; background-position:4px 5px;background-color:#fff;" /></li>
+      <li class="loginbtn"><input type=image src="/images/main/login_mainbtn.gif" alt="로그인"></li>
+  </ul>
+</form>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+/*
+function change_ssl()
+{
+var $frm = $("form[name='zb_login']");
+var $secure1 = $("input[name='secure1']", $frm);
+var $secure_name = $("form[name='zb_login'] a[id='secure_name']");
+if ($secure1.attr('checked') === true) {
+$frm.attr('action', '/zboard/login_check.php');
+$secure1.attr('checked', false);
+$secure_name.html("OFF");
+} else {
+$frm.attr('action', 'https://www.ppomppu.co.kr/zboard/login_check.php');
+$secure1.attr('checked', true);
+$secure_name.html("<strong>ON</strong");
+}
+}
+*/
+
+$(document).ready(function() {
+$("form[name='zb_login'] input[id='user_id']").bind('blur focus keypress', function(event) {
+switch (event.type) {
+case 'blur':
+    if($(this).val() === "") {
+        $(this).css('background-image', 'url(/images/main/ppimg_20100617_007.gif)');
+            }
+break;
+case 'focus':
+    $(this).css('background-image', '');
+break;
+case 'keypress':
+  if(event.which === 13) {
+       if ($(this).val() !== "") {
+           $("input[name='password']").focus();
+                } else {
+           alert('아이디를 입력하여 주십시요');
+                }
+       return false;
+            }
+break;
+        }
+    });
+$("form[name='zb_login'] input[name='password']").bind('blur focus keypress', function(event) {
+switch (event.type) {
+case 'blur':
+    if($(this).val() === "") {
+        $(this).css('background-image', 'url(/images/main/ppimg_20100617_008.gif)');
+            }
+break;
+case 'focus':
+    $(this).css('background-image', '');
+break;
+case 'keypress':
+  if(event.which === 13) {
+       if ($(this).val() !== "") {
+           if( zb_login_check_submit() ) zb_login.submit();
+                } else {
+           alert('비밀번호를 입력하여 주십시요');
+                }
+       return false;
+            }
+break;
+        }
+    });
+
+if ($("form[name='zb_login'] input[id='user_id']").val() !== "") {
+  $("form[name='zb_login'] input[id='user_id']").css('background-image', '');
+    }
+    /*
+$("form[name='zb_login'] a[id='secure_name']").click(function (event) {
+event.preventDefault();
+change_ssl();
+});
+$("form[name='zb_login'] input[name='secure1']").attr('checked', false);
+change_ssl();
+*/
+});
+//]]>
+</script>
+
+      </div>
+
+      <!-- ST container ST -->
+      <div class="container">
+
+          <div align="center"><div id="header_box">  <div class="bbs_title">      <h1><a href="/zboard/zboard.php?id=freeboard">자유게시판</a> 입니다.</h1>      <p><a href="/zboard/zboard.php?id=issue">정치자유게시판</a> | <a href="/zboard/zboard.php?id=humor">유머/감동</a> | <a href="/zboard/zboard.php?id=help">질문/요청</a>      </p>  </div><div class="desc">
+미풍양속을 해치지 않는 범위 내에서 자유롭게 작성해주세요. <a href='/zboard/view.php?id=regulation&page=2&divpage=1&no=6' target='_blank'>[게시판 이용규칙
+]</a><br>
+정치와 관련된 글은 <a href='/zboard/zboard.php?id=issue' target='_blank'>정치자유게시판</a>, 질문글은 <a href='/zboard/zboard.php?id=help' target='_blank'>질문/요청게시판</a>을 이용해주세요.
+</div></div><meta http-equiv="Refresh" content="0; URL=/zboard/view.php?id=freeboard&no=6784995">
+===================================
+(node: 47180) UnhandledPromiseRejectionWarning: TypeError: tempHitCount2.forEach is not a function
+at /Users/loganlee/project/portfolio/back_stastics/backend/src/preProcessor/index.js: 216: 21
+at processTicksAndRejections (internal/process/task_queues.js: 97: 5)
+(node: 47180) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https: //nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 2)
+(node: 47180) [DEP0018
+] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.

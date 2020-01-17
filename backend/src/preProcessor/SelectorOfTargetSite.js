@@ -1,8 +1,8 @@
 const Etoland = {
 	// 12/07 update selector
 	title: 'head > title',
-	author: 'head > meta:nth-child(7)',
-	date: 'head > meta:nth-child(21)',
+	author: '#mw_basic > table:nth-child(16) > tbody > tr:nth-child(4) > td > span > a:nth-child(2) > span',
+	date: '#mw_basic > table:nth-child(16) > tbody > tr:nth-child(4) > td > span > span.mw_basic_view_datetime',
 	hitCount: '#mw_basic > table:nth-child(16) > tbody > tr:nth-child(4) > td > span > span.mw_basic_view_hit',
 };
 
@@ -76,6 +76,10 @@ const PpomPu = {
 		'body > div > div.contents > div.container > div > table:nth-child(9) > tbody > tr:nth-child(3) > td > table > tbody > tr > td:nth-child(5)',
 	hitCount:
 		'body > div > div.contents > div.container > div > table:nth-child(9) > tbody > tr:nth-child(3) > td > table > tbody > tr > td:nth-child(5)',
+	date2:
+		'body > div > div.contents > div.container > div > table:nth-child(11) > tbody > tr:nth-child(3) > td > table > tbody > tr > td:nth-child(5)',
+	hitCount2:
+		'body > div > div.contents > div.container > div > table:nth-child(11) > tbody > tr:nth-child(3) > td > table > tbody > tr > td:nth-child(5)',
 };
 const Instiz = {
 	title: '#nowsubject > a',
