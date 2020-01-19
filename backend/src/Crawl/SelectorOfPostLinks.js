@@ -13,98 +13,98 @@ const Etoland = {
 const Clien = {
 	link: 'https://www.clien.net/service/board/park',
 	from: Constants.Clien,
-	startIndex: 8,
-	endIndex: 126,
-	indexGap: 2,
-	from: Constants.Etoland,
-	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
+	startIndex: 1,
+	endIndex: 30,
+	indexGap: 1,
+	prefix: 'https://www.clien.net',
+	selector: i => `#div_content > div.list_content > div:nth-child(${i}) > div.list_title > a`,
 };
 
 const Bobae = {
 	link: 'https://www.bobaedream.co.kr/list?code=best',
 	from: Constants.Bobae,
-	startIndex: 8,
-	endIndex: 126,
-	indexGap: 2,
-	from: Constants.Etoland,
-	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
+	startIndex: 1,
+	endIndex: 30,
+	indexGap: 1,
+	prefix: 'https://www.bobaedream.co.kr',
+	selector: i => `#boardlist > tbody > tr:nth-child(${i}) > td.pl14 > a.bsubject`,
 };
 
 const Bullpen = {
 	link: 'http://mlbpark.donga.com/mp/best.php?b=bullpen&m=view',
 	from: Constants.Bullpen,
-	startIndex: 8,
-	endIndex: 126,
-	indexGap: 2,
-	from: Constants.Etoland,
-	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
+	startIndex: 1,
+	endIndex: 25,
+	indexGap: 1,
+	selector: i =>
+		`#container > div.contents > div.left_cont > div.tbl_box > table > tbody > tr:nth-child(${i}) > td:nth-child(2) > a`,
 };
 
 const SLR = {
 	link: 'http://www.slrclub.com/bbs/zboard.php?id=best_article',
 	from: Constants.SLR,
-	startIndex: 8,
-	endIndex: 126,
-	indexGap: 2,
-	from: Constants.Etoland,
-	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
+	startIndex: 1,
+	endIndex: 30,
+	indexGap: 1,
+	prefix: 'http://www.slrclub.com',
+	selector: i => `#bbs_list > tbody > tr:nth-child(${i}) > td.sbj > a`,
 };
 
 const TodayHumor = {
 	link: 'http://www.todayhumor.co.kr/board/list.php?table=humorbest',
 	from: Constants.TodayHumor,
-	startIndex: 8,
-	endIndex: 126,
-	indexGap: 2,
-	from: Constants.Etoland,
-	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
+	startIndex: 2,
+	endIndex: 31,
+	indexGap: 1,
+	prefix: 'http://www.todayhumor.co.kr',
+	selector: i => `body > div.whole_box > div > div > table > tbody > tr:nth-child(${i}) > td.subject > a`,
 };
 
 const Cook = {
 	link: 'https://www.82cook.com/entiz/enti.php?bn=15',
 	from: Constants.Cook,
-	startIndex: 8,
-	endIndex: 126,
-	indexGap: 2,
-	from: Constants.Etoland,
-	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
+	startIndex: 1,
+	endIndex: 10,
+	indexGap: 1,
+	prefix: 'https://www.82cook.com',
+	selector: i => `#column1 > div.leftbox.Best > ul > li:nth-child(${i}) > a`,
 };
 
 const Gasengi = {
 	link: 'https://www.gasengi.com/main/board.php?bo_table=commu',
 	from: Constants.Gasengi,
-	startIndex: 8,
-	endIndex: 126,
-	indexGap: 2,
-	from: Constants.Etoland,
-	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
+	startIndex: 1,
+	endIndex: 5,
+	indexGap: 1,
+	prefix: 'https://www.gasengi.com',
+	selector: (i, j) =>
+		`#rightcolumn > div.rank_div > div.rank_dbox > ol > span:nth-child(${i}) > li:nth-child(${j}) > a`,
 };
 const RuliWeb = {
 	link: 'https://bbs.ruliweb.com/best/humor',
 	from: Constants.RuliWeb,
-	startIndex: 8,
-	endIndex: 126,
-	indexGap: 2,
-	from: Constants.Etoland,
-	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
+	startIndex: 1,
+	endIndex: 30,
+	indexGap: 1,
+	selector: i => `#best_body > table > tbody > tr:nth-child(${i}) > td.subject > a`,
 };
 const PpomPu = {
 	link: 'http://www.ppomppu.co.kr/hot.php',
 	from: Constants.PpomPu,
-	startIndex: 8,
-	endIndex: 126,
-	indexGap: 2,
-	from: Constants.Etoland,
-	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
+	startIndex: 4,
+	endIndex: 23,
+	indexGap: 1,
+	prefix: 'http://www.ppomppu.co.kr',
+	selector: i =>
+		`body > div > div.contents > div.container > div:nth-child(3) > div.board_box > table.board_table > tbody > tr:nth-child(${i}) > td:nth-child(4) > a`,
 };
 const Instiz = {
-	startIndex: 8,
-	endIndex: 126,
-	indexGap: 2,
-	from: Constants.Etoland,
-	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
 	link: 'https://www.instiz.net/pt/',
+	startIndex: 1,
+	endIndex: 10,
+	indexGap: 1,
 	from: Constants.Instiz,
+	selector: (i, j) => `#rank1to${j}0 > div:nth-child(${i}) > div.rank_subject > a:nth-child(1)`,
 };
 const FmKorea = {
 	link: 'https://www.fmkorea.com/index.php?mid=humor&sort_index=pop&order_type=desc&listStyle=webzine',
@@ -112,7 +112,7 @@ const FmKorea = {
 	startIndex: 8,
 	endIndex: 126,
 	indexGap: 2,
-	from: Constants.Etoland,
+	from: Constants.FmKorea,
 	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
 };
 const TheQoo = {
@@ -121,7 +121,7 @@ const TheQoo = {
 	startIndex: 8,
 	endIndex: 126,
 	indexGap: 2,
-	from: Constants.Etoland,
+	from: Constants.TheQoo,
 	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
 };
 const Ilbe = {
@@ -130,7 +130,7 @@ const Ilbe = {
 	startIndex: 8,
 	endIndex: 126,
 	indexGap: 2,
-	from: Constants.Etoland,
+	from: Constants.Ilbe,
 	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
 };
 
@@ -140,7 +140,7 @@ const HumorUniv = {
 	startIndex: 8,
 	endIndex: 126,
 	indexGap: 2,
-	from: Constants.Etoland,
+	from: Constants.HumorUniv,
 	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
 };
 
@@ -150,12 +150,12 @@ const DogDrip = {
 	startIndex: 8,
 	endIndex: 126,
 	indexGap: 2,
-	from: Constants.Etoland,
+	from: Constants.DogDrip,
 	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
 };
 
 const targetList = [
-	Etoland,
+	// Etoland,
 	// Clien,
 	// Bobae,
 	// Bullpen,
@@ -165,7 +165,7 @@ const targetList = [
 	// Gasengi,
 	// RuliWeb,
 	// PpomPu,
-	// Instiz,
+	Instiz,
 	// TheQoo,
 	// FmKorea,
 	// DogDrip,

@@ -28,6 +28,7 @@ function approacher(target) {
 	let isInstiz = false;
 	let isPpomPu = false;
 	let isEtoland = false;
+	let isSLR = false;
 
 	// Set configuration for each site.
 	switch (target.from) {
@@ -87,6 +88,10 @@ function approacher(target) {
 			isInstiz = true;
 			break;
 		}
+		case Constants.SLR: {
+			isSLR = true;
+			break;
+		}
 		default:
 			break;
 	}
@@ -97,17 +102,50 @@ function approacher(target) {
 					// Encoding & Decoding for the site where still use EUC-KR format instead of UTF-8
 					const $ = cheerio.load(isNeedEncodingConfig ? iconv.decode(res.data, 'euc-kr') : res.data);
 					const { startIndex, endIndex, indexGap, selector } = SelectorOfPostLinks[target.from];
+					let link;
 					for (let i = startIndex; i < endIndex + 1; i += indexGap) {
-						let link = $(selector(i)).attr('href');
-						if (isEtoland) {
-							link = SelectorOfPostLinks[target.from].prefix + link.replace('..', '');
-						}
-						const data = {
-							link,
-							from: target.from,
-						};
+						if (isGasengi || isInstiz) {
+							for (let j = startIndex; j < endIndex + 1; j += indexGap) {
+								link = $(selector(i, j)).attr('href');
 
-						await prisma.createPostLinks(data);
+								// link value checker
+								if (typeof link === 'string') {
+									if (isGasengi) {
+										link = link.replace('..', '');
+									}
+									if (isInstiz) {
+										link = link.replace('//', '');
+									}
+									if (isGasengi) {
+										link = SelectorOfPostLinks[target.from].prefix + link;
+									}
+									const data = {
+										link,
+										from: target.from,
+									};
+									info('£££ link : ', link, i, j);
+									await prisma.createPostLinks(data);
+								}
+							}
+						} else {
+							link = $(selector(i)).attr('href');
+
+							// link value checker
+							if (typeof link === 'string') {
+								if (isEtoland) {
+									link = link.replace('..', '');
+								}
+								if (isClien || isTodayHumor || isPpomPu || is82Cook || isBobae || isSLR || isEtoland) {
+									link = SelectorOfPostLinks[target.from].prefix + link;
+								}
+								const data = {
+									link,
+									from: target.from,
+								};
+
+								await prisma.createPostLinks(data);
+							}
+						}
 					}
 				}
 			},
