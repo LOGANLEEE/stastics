@@ -29,6 +29,8 @@ function approacher(target) {
 	let isPpomPu = false;
 	let isEtoland = false;
 	let isSLR = false;
+	let isFmKorea = false;
+	let HumorUniv = false;
 
 	// Set configuration for each site.
 	switch (target.from) {
@@ -92,6 +94,13 @@ function approacher(target) {
 			isSLR = true;
 			break;
 		}
+		case Constants.FmKorea: {
+			isFmKorea = true;
+			break;
+		}
+		case Constants.HumorUniv: {
+			isHumorUniv = true;
+		}
 		default:
 			break;
 	}
@@ -123,19 +132,30 @@ function approacher(target) {
 										link,
 										from: target.from,
 									};
-									info('£££ link : ', link, i, j);
 									await prisma.createPostLinks(data);
 								}
 							}
 						} else {
 							link = $(selector(i)).attr('href');
+							console.info('£££ fuck: ', link);
 
 							// link value checker
 							if (typeof link === 'string') {
 								if (isEtoland) {
 									link = link.replace('..', '');
 								}
-								if (isClien || isTodayHumor || isPpomPu || is82Cook || isBobae || isSLR || isEtoland) {
+								if (
+									isClien ||
+									isTheQoo ||
+									isTodayHumor ||
+									isPpomPu ||
+									is82Cook ||
+									isBobae ||
+									isSLR ||
+									isEtoland ||
+									isFmKorea ||
+									isHumorUniv
+								) {
 									link = SelectorOfPostLinks[target.from].prefix + link;
 								}
 								const data = {

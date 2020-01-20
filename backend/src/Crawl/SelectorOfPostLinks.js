@@ -107,22 +107,25 @@ const Instiz = {
 	selector: (i, j) => `#rank1to${j}0 > div:nth-child(${i}) > div.rank_subject > a:nth-child(1)`,
 };
 const FmKorea = {
-	link: 'https://www.fmkorea.com/index.php?mid=humor&sort_index=pop&order_type=desc&listStyle=webzine',
+	link: 'https://www.fmkorea.com/index.php?mid=humor&sort_index=pop&order_type=desc&listStyle=list&page=1',
 	from: Constants.FmKorea,
-	startIndex: 8,
-	endIndex: 126,
-	indexGap: 2,
+	startIndex: 4,
+	endIndex: 23,
+	indexGap: 1,
 	from: Constants.FmKorea,
-	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
+	prefix: 'https://www.fmkorea.com',
+	selector: i => `#bd_486616_0 > div > table > tbody > tr:nth-child(${i}) > td.title.hotdeal_var8 > a.hx`,
 };
 const TheQoo = {
 	link: 'https://theqoo.net/hot?filter_mode=normal',
 	from: Constants.TheQoo,
 	startIndex: 8,
-	endIndex: 126,
-	indexGap: 2,
+	endIndex: 36,
+	indexGap: 1,
 	from: Constants.TheQoo,
-	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
+	prefix: 'https://theqoo.net',
+
+	selector: i => `#bd_801402415_0 > div > table > tbody > tr:nth-child(${i}) > td.title > a:nth-child(1)`,
 };
 const Ilbe = {
 	link: 'https://www.ilbe.com/list/ilbe',
@@ -135,13 +138,15 @@ const Ilbe = {
 };
 
 const HumorUniv = {
-	link: 'http://www.todayhumor.co.kr/board/list.php?table=humorbest',
+	link: 'http://web.humoruniv.com/board/humor/list.html?table=pick',
 	from: Constants.HumorUniv,
-	startIndex: 8,
-	endIndex: 126,
-	indexGap: 2,
+	startIndex: 1,
+	endIndex: 39,
+	indexGap: 1,
 	from: Constants.HumorUniv,
-	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
+	prefix: 'http://web.humoruniv.com/board/humor',
+	selector: i =>
+		`#cnts_list_new > div:nth-child(1) > table:nth-child(3) > tbody > tr:nth-child(${i}) > td.li_sbj > a`,
 };
 
 const DogDrip = {
@@ -165,12 +170,12 @@ const targetList = [
 	// Gasengi,
 	// RuliWeb,
 	// PpomPu,
-	Instiz,
+	// Instiz,
 	// TheQoo,
 	// FmKorea,
 	// DogDrip,
 	// Ilbe,
-	// HumorUniv,
+	HumorUniv,
 ];
 
 module.exports = {
