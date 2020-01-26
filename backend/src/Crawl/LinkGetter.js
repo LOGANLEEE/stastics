@@ -5,15 +5,23 @@ const Constants = require('../Constants');
 const SelectorOfPostLinks = require('./SelectorOfPostLinks');
 const iconv = require('iconv-lite');
 const https = require('https');
+const preProcessor = require('../preProcessor');
 
 const { info } = console;
 
 function exec() {
+	/*
+		Get information (link,startIndex,endIndex,indexGap,from,selector,prefix) of target site.
+	*/
 	SelectorOfPostLinks.targetList.forEach(target => {
 		approacher(target);
 	});
 }
 
+/*
+	approacher will approch to target webstie to get a each post's url info.
+	Also, the way of approach is different for each site.
+*/
 function approacher(target) {
 	const link = target.link;
 	let config = {};
@@ -106,7 +114,7 @@ function approacher(target) {
 	}
 	try {
 		axios.get(target.link, config).then(
-			async res => {
+			res => {
 				if (res.status === 200) {
 					// Encoding & Decoding for the site where still use EUC-KR format instead of UTF-8
 					const $ = cheerio.load(isNeedEncodingConfig ? iconv.decode(res.data, 'euc-kr') : res.data);
@@ -132,12 +140,12 @@ function approacher(target) {
 										link,
 										from: target.from,
 									};
-									await prisma.createPostLinks(data);
+									// await prisma.createPostLinks(data);
+									preProcessor.approacher(data);
 								}
 							}
 						} else {
 							link = $(selector(i)).attr('href');
-							console.info('£££ fuck: ', link);
 
 							// link value checker
 							if (typeof link === 'string') {
@@ -163,7 +171,10 @@ function approacher(target) {
 									from: target.from,
 								};
 
-								await prisma.createPostLinks(data);
+								// can i pass data to preProcessor?
+								await prisma.createPostLinks(data).then(res => info("£££ res : ", res));
+								// preProcessor.exec(data);
+								// preProcessor.approacher(data);
 							}
 						}
 					}

@@ -8,17 +8,18 @@ const https = require('https');
 
 const { info } = console;
 
-function exec() {
+function exec(data) {
 	info('£££ preProcessor.exec() started ');
-	prisma.postLinkses().then(data => {
-		info('£££ total crawled list count? : ' + data.length);
-		data.forEach(e => approacher(e));
-	});
-
+	// prisma.postLinkses().then(data => {
+	// 	info('£££ total crawled list count? : ' + data.length);
+	// 	data.forEach(e => approacher(e));
+	// });
+	
 	info('£££ preProcessor.exec() terminated ');
 }
 
 function approacher(target) {
+	// console.info('£££ data: ', target);
 	const link = target.link;
 	let config = {};
 	let isNeedEncodingConfig = false;
@@ -233,7 +234,7 @@ function approacher(target) {
 					};
 
 					await prisma.createTempPost(data);
-					await prisma.deletePostLinks({ id: target.id });
+					// await prisma.deletePostLinks({ id: target.id });
 				}
 			},
 			async error => {
@@ -262,4 +263,5 @@ function approacher(target) {
 
 module.exports = {
 	exec,
+	approacher,
 };
