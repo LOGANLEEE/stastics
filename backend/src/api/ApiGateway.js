@@ -14,7 +14,7 @@ function gate(app) {
 		if (auth === '1743511') {
 			inPutLogger(addressBook.getTempList);
 			prisma
-				.tempPosts()
+				.preProcessedPosts()
 				.then(e => {
 					res.status(200).send(e);
 				})

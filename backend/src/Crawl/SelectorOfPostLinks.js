@@ -4,7 +4,6 @@ const Etoland = {
 	link: 'http://www.etoland.co.kr/bbs/board.php?bo_table=hit',
 	startIndex: 8,
 	endIndex: 126,
-	// endIndex: 9,
 	indexGap: 2,
 	from: Constants.Etoland,
 	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
@@ -130,12 +129,13 @@ const TheQoo = {
 };
 const Ilbe = {
 	link: 'https://www.ilbe.com/list/ilbe',
+	startIndex: 7,
+	endIndex: 36,
+	indexGap: 1,
 	from: Constants.Ilbe,
-	startIndex: 8,
-	endIndex: 126,
-	indexGap: 2,
-	from: Constants.Ilbe,
-	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
+	prefix: 'https://www.ilbe.com/',
+	selector: i => `#content-wrap > div.board-wrap > div.board-list > ul > li:nth-child(${i}) > span.title > a`,
+	hitCount: i => `#content-wrap > div.board-wrap > div.board-list > ul > li:nth-child(${i}) > span.view`,
 };
 
 const HumorUniv = {
@@ -161,20 +161,20 @@ const DogDrip = {
 };
 
 const targetList = [
-	Etoland,
-	Clien,
-	Bobae,
-	Bullpen,
-	SLR,
-	TodayHumor,
-	Cook,
-	Gasengi,
-	RuliWeb,
-	PpomPu,
+	// Etoland,
+	// Clien,
+	// Bobae,
+	// Bullpen,
+	// SLR,
+	// TodayHumor,
+	// Cook,
+	// Gasengi,
+	// RuliWeb,
+	// PpomPu, // has problem
 	Instiz,
-	TheQoo,
-	FmKorea,
-	DogDrip,
+	// TheQoo,
+	// FmKorea,
+	// DogDrip,
 	// Ilbe, // unable to approach from abroad.
 	// HumorUniv, // doesn't work
 ];

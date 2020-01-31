@@ -107,9 +107,9 @@ const TheQoo = {
 		'#content > div > div.bd_load_target.bd.clear.hover_effect > div.rd.rd_nav_style2.clear > div.rd_hd.clear > div.theqoo_document_header > div',
 };
 const Ilbe = {
-	title: '',
-	author: '',
-	date: '',
+	title: '#content-wrap > div.board-wrap > div.board-view > div.post-wrap > div.post-header > h3 > a',
+	author: '#content-wrap > div.board-wrap > div.board-view > div.post-wrap > div.post-header > span > a',
+	date: '#content-wrap > div.board-wrap > div.board-view > div.post-wrap > div.post-count > div.count > span.date',
 	hitCount: '',
 };
 

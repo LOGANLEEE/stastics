@@ -13,8 +13,10 @@ function exec() {
 	/*
 		Get information (link,startIndex,endIndex,indexGap,from,selector,prefix) of target site.
 	*/
+	info(' LinkGetter has Started...');
 	SelectorOfPostLinks.targetList.forEach(target => {
-		approacher(target);
+		let count = 0;
+		approacher(target, count);
 	});
 }
 
@@ -22,7 +24,8 @@ function exec() {
 	approacher will approch to target webstie to get a each post's url info.
 	Also, the way of approach is different for each site.
 */
-function approacher(target) {
+function approacher(target, count) {
+	const countLimit = 5;
 	const link = target.link;
 	let config = {};
 	let isNeedEncodingConfig = false;
@@ -38,7 +41,8 @@ function approacher(target) {
 	let isEtoland = false;
 	let isSLR = false;
 	let isFmKorea = false;
-	let HumorUniv = false;
+	let isHumorUniv = false;
+	let isIlbe = false;
 
 	// Set configuration for each site.
 	switch (target.from) {
@@ -109,98 +113,119 @@ function approacher(target) {
 		case Constants.HumorUniv: {
 			isHumorUniv = true;
 		}
+		case Constants.Ilbe: {
+			isIlbe = true;
+		}
 		default:
 			break;
 	}
-	try {
-		axios.get(target.link, config).then(
-			res => {
-				if (res.status === 200) {
-					// Encoding & Decoding for the site where still use EUC-KR format instead of UTF-8
-					const $ = cheerio.load(isNeedEncodingConfig ? iconv.decode(res.data, 'euc-kr') : res.data);
-					const { startIndex, endIndex, indexGap, selector } = SelectorOfPostLinks[target.from];
-					let link;
-					for (let i = startIndex; i < endIndex + 1; i += indexGap) {
-						if (isGasengi || isInstiz) {
-							for (let j = startIndex; j < endIndex + 1; j += indexGap) {
-								link = $(selector(i, j)).attr('href');
+	if (count < countLimit) {
+		try {
+			axios.get(target.link, config).then(
+				async res => {
+					if (res.status === 200) {
+						// Encoding & Decoding for the site where still use EUC-KR format instead of UTF-8
+						const $ = cheerio.load(isNeedEncodingConfig ? iconv.decode(res.data, 'euc-kr') : res.data);
+						const { startIndex, endIndex, indexGap, selector } = SelectorOfPostLinks[target.from];
+						let link;
+
+						for (let i = startIndex; i < endIndex + 1; i += indexGap) {
+							let hitCount = 0;
+							let data = '';
+							if (isGasengi || isInstiz) {
+								for (let j = startIndex; j < endIndex + 1; j += indexGap) {
+									link = $(selector(i, j)).attr('href');
+
+									// link value checker
+									if (typeof link === 'string') {
+										if (isGasengi) {
+											link = link.replace('..', '');
+										}
+										if (isInstiz) {
+											link = link.replace('//', '');
+										}
+										if (isGasengi) {
+											link = SelectorOfPostLinks[target.from].prefix + link;
+										}
+										data = {
+											link,
+											from: target.from,
+										};
+									}
+								}
+							} else {
+								link = $(selector(i)).attr('href');
 
 								// link value checker
 								if (typeof link === 'string') {
-									if (isGasengi) {
+									if (isEtoland) {
 										link = link.replace('..', '');
 									}
-									if (isInstiz) {
-										link = link.replace('//', '');
-									}
-									if (isGasengi) {
+									if (
+										isClien ||
+										isTheQoo ||
+										isTodayHumor ||
+										isPpomPu ||
+										is82Cook ||
+										isBobae ||
+										isSLR ||
+										isEtoland ||
+										isFmKorea ||
+										isHumorUniv ||
+										isIlbe
+									) {
 										link = SelectorOfPostLinks[target.from].prefix + link;
 									}
-									const data = {
+
+									if (isIlbe) {
+										hitCount = parseInt(
+											$(SelectorOfPostLinks[target.from].hitCount(i))
+												.text()
+												.replace(',', ''),
+										);
+									}
+
+									data = {
 										link,
 										from: target.from,
+										hitCount,
 									};
-									// await prisma.createPostLinks(data);
-									preProcessor.approacher(data);
 								}
 							}
-						} else {
-							link = $(selector(i)).attr('href');
-
-							// link value checker
-							if (typeof link === 'string') {
-								if (isEtoland) {
-									link = link.replace('..', '');
-								}
-								if (
-									isClien ||
-									isTheQoo ||
-									isTodayHumor ||
-									isPpomPu ||
-									is82Cook ||
-									isBobae ||
-									isSLR ||
-									isEtoland ||
-									isFmKorea ||
-									isHumorUniv
-								) {
-									link = SelectorOfPostLinks[target.from].prefix + link;
-								}
-								const data = {
-									link,
-									from: target.from,
-								};
-
-								// can i pass data to preProcessor?
-								await prisma.createPostLinks(data).then(res => info("£££ res : ", res));
-								// preProcessor.exec(data);
-								// preProcessor.approacher(data);
+							if (data !== '') {
+								await prisma.createPostLinks(data).then(res => {
+									preProcessor.approacher(res, 0);
+								});
+							}
+							// log for when target site's process has finished.
+							if (i === endIndex) {
+								info(`£££ i'm done for [ ${target.from} ]`);
 							}
 						}
 					}
-				}
-			},
-			async error => {
-				await prisma
-					.createErrorLog({
-						reason: error.toString(),
-						from: target.from,
-						isRead: false,
-						type: 'P',
-						link,
-					})
-					.then(() => {
-						if (error.request.res.statusCode === 503) {
-							approacher(target);
-						} else {
-							approacher(target);
-							throw error;
-						}
-					});
-			},
-		);
-	} catch (e) {
-		console.info(`£££ Error caught : `, e);
+				},
+				async error => {
+					await prisma
+						.createErrorLog({
+							reason: error.toString(),
+							from: target.from,
+							isRead: false,
+							type: 'P',
+							link,
+						})
+						.then(() => {
+							if (error.request.res.statusCode === 503) {
+								approacher(target, count + 1);
+							} else {
+								approacher(target, count + 1);
+								throw error;
+							}
+						});
+				},
+			);
+		} catch (e) {
+			console.info(`£££ Error caught : `, e);
+		}
 	}
 }
 
