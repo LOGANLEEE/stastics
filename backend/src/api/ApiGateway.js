@@ -1,8 +1,9 @@
 const crawl = require('../crawl');
-const preProcessor = require('../preProcessor');
+const PreProcessor = require('../PreProcessor');
 const cors = require('cors');
 const { prisma } = require('../../generated/prisma-client');
 const Constants = require('../Constants');
+const SelectorOfPostLinks = require('../Crawl/SelectorOfPostLinks');
 
 const addressBook = { getTempList: '/getTempList', getTargetSiteList: '/getTargetSiteList', alive: '/alive' };
 
@@ -26,9 +27,15 @@ function gate(app) {
 
 	app.post(addressBook.getTargetSiteList, (req, res) => {
 		const { auth } = req.headers;
+
 		if (auth === '1743511') {
 			inPutLogger(addressBook.getTargetSiteList);
-			res.status(200).send(Constants.targetList);
+
+			const targetList = SelectorOfPostLinks.targetList.map(e => {
+				return e.from;
+			});
+
+			res.status(200).send(targetList);
 			outPutLogger(res.status);
 		} else {
 			return res.status(404);
