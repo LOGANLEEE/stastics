@@ -254,19 +254,19 @@ function approacher(target, count) {
 							date = util.replaceAll(date, day, '');
 						});
 
-						// // 일자 데이터 재가공
-						// date = util.replaceAll(date, '/', '-');
-						// date = util.replaceAll(date, '.', '-');
-						// date = util.replaceAll(date, '(', '');
-						// date = util.replaceAll(date, ')', '');
-						try {
-							date = moment(date).format('YYYY-DD-MM HH:mm');
-						} catch (e) {
-							info('£££ date parse error : ', e);
-						}
+						// 일자 데이터 재가공
+						date = util.replaceAll(date, '/', '-');
+						date = util.replaceAll(date, '.', '-');
+						date = util.replaceAll(date, '(', '');
+						date = util.replaceAll(date, ')', '');
+						// date = date.replace(' ', 'T');
+						// date = date + '+09:00';
+
+						// date = moment(date).format('YYYY-DD-MM HH:mm');
+
 						const data = {
 							title: title.trim(),
-							author: author,
+							author: author.trim(),
 							hitCount: parseInt(hitCount),
 							registeredAt: date,
 							link,
@@ -301,14 +301,29 @@ function approacher(target, count) {
 								approacher(target, count + 1);
 							} else {
 								approacher(target, count + 1);
-								throw error;
 							}
 						});
 				},
 			);
-		} catch (e) {
-			console.info(`£££ Error caught : `, e);
+		} catch (error) {
+			async error =>
+				await prisma.createErrorLog({
+					reason: error.toString(),
+					from: target.from,
+					isRead: false,
+					type: 'P',
+					link,
+				});
 		}
+	} else {
+		async () =>
+			await prisma.createErrorLog({
+				reason: `[PreProcessor] Axios attempt count has reached limit(${countLimit}).`,
+				from: target.from,
+				isRead: false,
+				type: 'P',
+				link,
+			});
 	}
 }
 
