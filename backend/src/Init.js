@@ -1,5 +1,5 @@
 const crawl = require('./crawl');
-const preProcessor = require('./preProcessor');
+const PreProcessor = require('./PreProcessor');
 const moment = require('moment');
 const LinkGetter = require('./Crawl/LinkGetter');
 
@@ -12,7 +12,7 @@ function start() {
 	// info(`=================`);
 	// crawl.init(); // 10s
 	LinkGetter.exec();
-	// preProcessor.exec();
+	// PreProcessor.exec();
 	// const _moment = moment.locale('ko-KR');
 	// console.info('£££ : ' + moment('2020-01-12 22:28').format('YYYY-MM-DD,h:mm a'));
 }
