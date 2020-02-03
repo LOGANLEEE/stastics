@@ -228,14 +228,29 @@ function approacher(target, idx, count, total) {
 								approacher(target, count + 1);
 							} else {
 								approacher(target, count + 1);
-								throw error;
 							}
 						});
 				},
 			);
-		} catch (e) {
-			console.info(`£££ Error caught : `, e);
+		} catch (error) {
+			async error =>
+				await prisma.createErrorLog({
+					reason: error.toString(),
+					from: target.from,
+					isRead: false,
+					type: 'P',
+					link,
+				});
 		}
+	} else {
+		async () =>
+			await prisma.createErrorLog({
+				reason: `[LinkGetter] Axios attempt count has reached limit(${countLimit}).`,
+				from: target.from,
+				isRead: false,
+				type: 'P',
+				link,
+			});
 	}
 }
 

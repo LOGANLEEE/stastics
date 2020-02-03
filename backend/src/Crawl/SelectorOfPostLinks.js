@@ -181,7 +181,7 @@ const targetList = [
 	FmKorea, // IP BLOCK
 	Ilbe, // unable to approach from abroad.
 	// DogDrip, // this site don't have hitCount only have recommendation count.
-	// HumorUniv, // missiong protocol.
+	// HumorUniv, // doesn't work dont know why.
 ];
 
 module.exports = {
