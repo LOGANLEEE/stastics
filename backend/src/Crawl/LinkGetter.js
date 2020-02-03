@@ -5,7 +5,7 @@ const Constants = require('../Constants');
 const SelectorOfPostLinks = require('./SelectorOfPostLinks');
 const iconv = require('iconv-lite');
 const https = require('https');
-const preProcessor = require('../preProcessor');
+const PreProcessor = require('../PreProcessor');
 
 const { info } = console;
 
@@ -14,9 +14,10 @@ function exec() {
 		Get information (link,startIndex,endIndex,indexGap,from,selector,prefix) of target site.
 	*/
 	info(' LinkGetter has Started...');
-	SelectorOfPostLinks.targetList.forEach(target => {
+	const length = SelectorOfPostLinks.targetList.length;
+	SelectorOfPostLinks.targetList.forEach((target, idx) => {
 		let count = 0;
-		approacher(target, count);
+		approacher(target, idx, count, length);
 	});
 }
 
@@ -24,7 +25,7 @@ function exec() {
 	approacher will approch to target webstie to get a each post's url info.
 	Also, the way of approach is different for each site.
 */
-function approacher(target, count) {
+function approacher(target, idx, count, total) {
 	const countLimit = 5;
 	const link = target.link;
 	let config = {};
@@ -43,6 +44,7 @@ function approacher(target, count) {
 	let isFmKorea = false;
 	let isHumorUniv = false;
 	let isIlbe = false;
+	let isDogDrip = false;
 
 	// Set configuration for each site.
 	switch (target.from) {
@@ -116,6 +118,10 @@ function approacher(target, count) {
 		case Constants.Ilbe: {
 			isIlbe = true;
 		}
+
+		case Constants.DogDrip: {
+			isDogDrip = true;
+		}
 		default:
 			break;
 	}
@@ -142,14 +148,16 @@ function approacher(target, count) {
 											link = link.replace('..', '');
 										}
 										if (isInstiz) {
-											link = link.replace('//', '');
+											link = SelectorOfPostLinks[target.from].prefix + link;
 										}
 										if (isGasengi) {
 											link = SelectorOfPostLinks[target.from].prefix + link;
 										}
+
 										data = {
 											link,
 											from: target.from,
+											hitCount,
 										};
 									}
 								}
@@ -172,12 +180,13 @@ function approacher(target, count) {
 										isEtoland ||
 										isFmKorea ||
 										isHumorUniv ||
-										isIlbe
+										isIlbe ||
+										isDogDrip
 									) {
 										link = SelectorOfPostLinks[target.from].prefix + link;
 									}
 
-									if (isIlbe) {
+									if (isIlbe || isDogDrip) {
 										hitCount = parseInt(
 											$(SelectorOfPostLinks[target.from].hitCount(i))
 												.text()
@@ -192,14 +201,15 @@ function approacher(target, count) {
 									};
 								}
 							}
+
 							if (data !== '') {
 								await prisma.createPostLinks(data).then(res => {
-									preProcessor.approacher(res, 0);
+									// log for when target site's process has finished.
+									if (i === endIndex) {
+										info(`£££ i'm done for ${idx}:[ ${target.from} ] : total ${total}`);
+									}
+									PreProcessor.approacher(res, 0);
 								});
-							}
-							// log for when target site's process has finished.
-							if (i === endIndex) {
-								info(`£££ i'm done for [ ${target.from} ]`);
 							}
 						}
 					}
