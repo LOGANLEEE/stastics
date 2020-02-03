@@ -5,17 +5,21 @@ const Constants = require('../Constants');
 const SelectorOfSite = require('./SelectorOfTargetSite');
 const iconv = require('iconv-lite');
 const https = require('https');
+const util = require('../util');
+const moment = require('moment');
 
 const { info } = console;
 
+const dayList = ['월', '화', '수', '목', '금', '토', '일'];
+
 function exec(data) {
-	info('£££ preProcessor.exec() started ');
+	info('£££ PreProcessor.exec() started ');
 	// prisma.postLinkses().then(data => {
 	// 	info('£££ total crawled list count? : ' + data.length);
 	// 	data.forEach(e => approacher(e));
 	// });
 
-	info('£££ preProcessor.exec() terminated ');
+	info('£££ PreProcessor.exec() terminated ');
 }
 
 function approacher(target, count) {
@@ -33,6 +37,7 @@ function approacher(target, count) {
 	let isInstiz = false;
 	let isPpomPu = false;
 	let isIlbe = false;
+	let isDogDrip = false;
 
 	// Set configuration for each site.
 	switch (target.from) {
@@ -94,6 +99,9 @@ function approacher(target, count) {
 		case Constants.Ilbe: {
 			isIlbe = true;
 		}
+		case Constants.Ilbe: {
+			isDogDrip = true;
+		}
 		default:
 			break;
 	}
@@ -123,6 +131,18 @@ function approacher(target, count) {
 								author = $(SelectorOfSite[target.from].author).text();
 							}
 
+							if (isPpomPu) {
+								if (author === '' || author === undefined) {
+									author = $(SelectorOfSite[target.from].author2).text();
+									if (author === '' || author === undefined) {
+										author = $(SelectorOfSite[target.from].author3).attr('alt');
+										if (author === '' || author === undefined) {
+											author = $(SelectorOfSite[target.from].author4).text();
+										}
+									}
+								}
+							}
+
 							if (isTheQoo) {
 								author.includes('https://')
 									? (author = author.substring(author.indexOf('https://theqoo.net'), -1))
@@ -136,7 +156,7 @@ function approacher(target, count) {
 							.text()
 							.replace(',', '');
 
-						if (isIlbe) {
+						if (isIlbe || isDogDrip) {
 							hitCount = target.hitCount;
 						}
 
@@ -229,14 +249,26 @@ function approacher(target, count) {
 								});
 						}
 
+						// 요일 제거
+						dayList.forEach(day => {
+							date = util.replaceAll(date, day, '');
+						});
+
+						// // 일자 데이터 재가공
+						// date = util.replaceAll(date, '/', '-');
+						// date = util.replaceAll(date, '.', '-');
+						// date = util.replaceAll(date, '(', '');
+						// date = util.replaceAll(date, ')', '');
+						try {
+							date = moment(date).format('YYYY-DD-MM HH:mm');
+						} catch (e) {
+							info('£££ date parse error : ', e);
+						}
 						const data = {
 							title: title.trim(),
-							author: author.trim(),
+							author: author,
 							hitCount: parseInt(hitCount),
-							registeredAt: date
-								.replace('/', '-')
-								.replace('.', '-')
-								.trim(),
+							registeredAt: date,
 							link,
 							from: target.from,
 						};
@@ -244,13 +276,13 @@ function approacher(target, count) {
 						if (title.trim() !== '') {
 							await prisma
 								.createpreProcessedPost(data)
-								.then(res => {
-									prisma.deletePostLinks({ id: target.id }).catch(e => {
-										return info('ERROR [preProcessor] deletePostLinks has error: ');
+								.then(() => {
+									prisma.deletePostLinks({ id: target.id }).catch(() => {
+										return info('ERROR [PreProcessor] deletePostLinks has error: ');
 									});
 								})
-								.catch(e => {
-									return info('ERROR [preProcessor] createpreProcessedPost has error: ');
+								.catch(() => {
+									return info('ERROR [PreProcessor] createpreProcessedPost has error: ');
 								});
 						}
 					}

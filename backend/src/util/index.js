@@ -1,12 +1,17 @@
+const { info } = console;
+
 function replaceAll(value, targetString, replaceString) {
-	if (typeof value === 'string' && value !== '') {
-		return value
-			.split(targetString)
-			.join(replaceString)
-			.trim();
+	if ((value !== undefined || targetString !== undefined, replaceString !== undefined)) {
+		if (typeof value === 'string' && value !== '') {
+			return value
+				.split(targetString)
+				.join(replaceString)
+				.trim();
+		}
 	} else {
-		return value;
+		info('[ ERROR ] util > replaceAll has recieved not sufficent parameters');
 	}
+	return value;
 }
 
 module.exports = {
