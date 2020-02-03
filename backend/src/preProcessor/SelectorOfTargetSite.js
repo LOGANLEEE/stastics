@@ -72,6 +72,12 @@ const PpomPu = {
 		'body > div > div.contents > div.container > div > table:nth-child(9) > tbody > tr:nth-child(3) > td > table > tbody > tr > td:nth-child(5) > font.view_title2',
 	author:
 		'body > div > div.contents > div.container > div > table:nth-child(9) > tbody > tr:nth-child(3) > td > table > tbody > tr > td:nth-child(5) > span:nth-child(5) > a > font',
+	author2:
+		'body > div > div.contents > div.container > div > table:nth-child(9) > tbody > tr:nth-child(3) > td > table > tbody > tr > td:nth-child(5) > span:nth-child(7) > a > font',
+	author3:
+		' body > div > div.contents > div.container > div > table:nth-child(9) > tbody > tr:nth-child(3) > td > table > tbody > tr > td:nth-child(5) > span:nth-child(7) > a > img',
+	author4:
+		'body > div > div.contents > div.container > div > table:nth-child(9) > tbody > tr:nth-child(3) > td > table > tbody > tr > td:nth-child(5) > span:nth-child(5)',
 	date:
 		'body > div > div.contents > div.container > div > table:nth-child(9) > tbody > tr:nth-child(3) > td > table > tbody > tr > td:nth-child(5)',
 	hitCount:
@@ -85,9 +91,9 @@ const Instiz = {
 	title: '#nowsubject > a',
 	author: '',
 	hitCount:
-		'body > table > tbody > tr:nth-child(1) > td > table:nth-child(6) > tbody > tr:nth-child(2) > td > div.tb_left',
+		'body > div.container > div > div > table > tbody > tr:nth-child(1) > td > table:nth-child(6) > tbody > tr:nth-child(2) > td > div.tb_left',
 	hitCount2:
-		'body > table > tbody > tr:nth-child(1) > td > table:nth-child(7) > tbody > tr:nth-child(2) > td > div.tb_left',
+		'body > div.container > div > div > table > tbody > tr:nth-child(1) > td > table:nth-child(7) > tbody > tr:nth-child(2) > td > div.tb_left',
 };
 const FmKorea = {
 	title: '#bd_capture > div.rd_hd.clear > div.board.clear > div.top_area.ngeb > h1 > span.np_18px_span',
