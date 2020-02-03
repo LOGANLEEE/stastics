@@ -1,7 +1,7 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 const { prisma } = require('../../generated/prisma-client');
-const preProcessor = require('../preProcessor');
+const PreProcessor = require('../PreProcessor');
 const SelectorOfPostLinks = require('./SelectorOfPostLinks');
 
 const Clien = require('./Clien');
@@ -66,7 +66,7 @@ function init() {
 					info(`£££ ${idx} Is ${value.from}  has Error? :  ${value.isErrorOccured}`);
 					resultList.push(value);
 					if (resultList.length === siteList.length) {
-						preProcessor.exec();
+						PreProcessor.exec();
 					}
 				})
 				.catch(err => {
