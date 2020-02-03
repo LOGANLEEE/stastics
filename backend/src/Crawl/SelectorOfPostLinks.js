@@ -96,7 +96,7 @@ const PpomPu = {
 	indexGap: 1,
 	prefix: 'http://www.ppomppu.co.kr',
 	selector: i =>
-		`body > div > div.contents > div.container > div:nth-child(3) > div.board_box > table.board_table > tbody > tr:nth-child(${i}) > td:nth-child(4) > a`,
+		`body > div > div.contents > div.container > div:nth-child(2) > div.board_box > table.board_table > tbody > tr:nth-child(${i}) > td:nth-child(4) > a`,
 };
 const Instiz = {
 	link: 'https://www.instiz.net/pt/',
@@ -104,6 +104,7 @@ const Instiz = {
 	endIndex: 10,
 	indexGap: 1,
 	from: Constants.Instiz,
+	prefix: 'https:',
 	selector: (i, j) => `#rank1to${j}0 > div:nth-child(${i}) > div.rank_subject > a:nth-child(1)`,
 };
 const FmKorea = {
@@ -153,30 +154,34 @@ const HumorUniv = {
 const DogDrip = {
 	link: 'https://www.dogdrip.net/index.php?mid=dogdrip&sort_index=popular',
 	from: Constants.DogDrip,
-	startIndex: 8,
-	endIndex: 126,
-	indexGap: 2,
+	startIndex: 1,
+	endIndex: 20,
+	indexGap: 1,
 	from: Constants.DogDrip,
-	selector: i => `#fboardlist > table > tbody > tr:nth-child(${i}) > td.mw_basic_list_subject > a:nth-child(3)`,
+	prefix: 'https://www.dogdrip.net',
+	selector: i =>
+		`#main > div > div.eq.section.secontent.background-color-content > div > div.ed.board-list > table > tbody > tr:nth-child(${i}) > td.title > a`,
+	hitCount: i =>
+		`#main > div > div.eq.section.secontent.background-color-content > div > div.ed.board-list > table > tbody > tr:nth-child(${i}) > td.ed.voteNum.text-primary`,
 };
 
 const targetList = [
-	// Etoland,
-	// Clien,
-	// Bobae,
-	// Bullpen,
-	// SLR,
-	// TodayHumor,
-	// Cook,
-	// Gasengi,
-	// RuliWeb,
-	// PpomPu, // has problem
+	Etoland,
+	Clien,
+	Bobae,
+	Bullpen, // has problem
+	SLR,
+	TodayHumor,
+	Cook,
+	Gasengi,
+	RuliWeb,
+	PpomPu,
 	Instiz,
-	// TheQoo,
-	// FmKorea,
-	// DogDrip,
-	// Ilbe, // unable to approach from abroad.
-	// HumorUniv, // doesn't work
+	TheQoo,
+	FmKorea, // IP BLOCK
+	Ilbe, // unable to approach from abroad.
+	// DogDrip, // this site don't have hitCount only have recommendation count.
+	// HumorUniv, // missiong protocol.
 ];
 
 module.exports = {
