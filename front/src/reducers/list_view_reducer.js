@@ -2,7 +2,7 @@ import * as actionTypes from 'actionTypes';
 
 const initialState = {
 	isAsc: true,
-	orderStandard: 'index',
+	orderStandard: 'createdAt',
 };
 
 export default function list_view(state = initialState, action) {
@@ -11,7 +11,7 @@ export default function list_view(state = initialState, action) {
 			const { orderStandard } = action.payload;
 			//if orderStandard changed then set as ASC order
 			if (orderStandard !== state.orderStandard) {
-				state.isAsc = true;
+				state.isAsc = false;
 				// otherwise set isAsc reverse
 			} else {
 				state.isAsc = !state.isAsc;

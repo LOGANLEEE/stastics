@@ -32,8 +32,8 @@ async function fetching() {
 
 	async function Processor(html) {
 		try {
-			// for (let i = 4; i < 24; i++) {
-			for (let i = 4; i < 5; i++) {
+			for (let i = 4; i < 24; i++) {
+				// for (let i = 4; i < 5; i++) {
 				const target = `body > div.wrapper > div.contents > div.container > div:nth-child(3) > div.board_box > table.board_table > tbody > tr:nth-child(${i})`;
 				const $ = cheerio.load(html);
 				const link = $(target + '> td:nth-child(4) > a').attr('href');

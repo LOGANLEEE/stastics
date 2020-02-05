@@ -36,13 +36,11 @@ async function fetching() {
 				const $ = cheerio.load(html);
 				const link = $(target + '> td:nth-child(2) > a').attr('href');
 
-				if (author !== '엠팍제휴팀' && author !== '담당자') {
-					const data = {
-						link,
-						from,
-					};
-					await prisma.createPostLinks(data);
-				}
+				const data = {
+					link,
+					from,
+				};
+				await prisma.createPostLinks(data);
 			}
 		} catch (e) {
 			await prisma.createErrorLog({
