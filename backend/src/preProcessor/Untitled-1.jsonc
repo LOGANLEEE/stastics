@@ -1,0 +1,21 @@
+IncomingMessage {
+  readable: false,
+  _eventsCount: 3,
+  _maxListeners: undefined,
+  httpVersionMajor: 1,
+  httpVersionMinor: 1,
+  httpVersion: '1.1',
+  complete: true,
+  trailers: {},
+  rawTrailers: [],
+  aborted: false,
+  upgrade: false,
+  url: '',
+  method: null,
+  statusCode: 503,
+  statusMessage: 'Service Temporarily Unavailable',
+  _consuming: false,
+  _dumped: false,
+  responseUrl: 'http://www.slrclub.com/bbs/vx2.php?id=best_article&no=310993',
+  redirects: []
+}

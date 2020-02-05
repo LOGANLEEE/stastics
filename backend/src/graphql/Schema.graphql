@@ -1,0 +1,13 @@
+scalar DateTime
+
+type Query {
+    post: [Post!]
+}
+
+type Post {
+    id: ID!
+    title: String!
+    author: String
+    registeredAt: DateTime!
+    hitCount: Int
+}
