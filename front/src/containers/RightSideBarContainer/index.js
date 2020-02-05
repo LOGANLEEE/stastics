@@ -1,13 +1,13 @@
 import React from 'react';
 import Wrapper from './Wrapper';
 
-function LeftSideBar({ width }) {
+function RightSideBarContainer({ width }) {
 
     return (
         <Wrapper width={width} >
-            LeftSideBar
+            RightSideBarContainer
         </Wrapper>
     )
 }
 
-export default LeftSideBar;
+export default RightSideBarContainer;
