@@ -8,7 +8,7 @@ const preProcessor = require('./preProcessor');
 
 function start() {
 	// info(`=================`);
-	crawl.init(); // 10s
+	// crawl.init(); // 10s
 	// preProcessor.exec();
 }
 

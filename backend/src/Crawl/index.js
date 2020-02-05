@@ -32,14 +32,14 @@ const { info } = console;
 // const siteList = [Instiz];
 
 // DONE
-// const siteList = [Etoland, Clien, Bobae, SLR, Bullpen, TodayHumor, Cook, Gasengi, RuliWeb, TheQoo, FmKorea];
-const siteList = [Etoland, Clien, Bobae, SLR, TodayHumor, Cook, Gasengi, RuliWeb, TheQoo, FmKorea];
+const siteList = [Etoland, Clien, Bobae, SLR, Bullpen, TodayHumor, Cook, Gasengi, RuliWeb, TheQoo, FmKorea];
+// const siteList = [Etoland, Clien, Bobae, SLR, TodayHumor, Cook, Gasengi, RuliWeb, TheQoo, FmKorea];
+// const siteList = [Clien];
 
 // TODO
 // ILBE, DogDrip, HumorUniv, PpomPu
 
 function init() {
-	info('£££ Crawler Init ');
 	const resultList = [];
 
 	try {
@@ -63,4 +63,5 @@ function init() {
 
 module.exports = {
 	init,
+	siteList,
 };
