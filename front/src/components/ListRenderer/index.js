@@ -1,12 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { List } from 'react-virtualized';
 import Grid from '@material-ui/core/Grid';
-import * as sorter from 'utils/sorter';
-
+import React, { useEffect, useState } from 'react';
+import { BeatLoader } from 'react-spinners';
+import { List } from 'react-virtualized';
 import Wrapper from './Wrapper';
+import { preListSorter, preListSorterTester } from 'utils';
 
 function ListRenderer(props) {
 	const { processedList, orderStandard, isAsc } = props;
+	const [loading, setLoading] = useState(true);
+
+	useEffect(() => {
+		if (processedList.length > 0) {
+			setLoading(false);
+			// preListSorter(processedList);
+		}
+	});
 
 	function rowRenderer({
 		key, // Unique key within array of rows
@@ -20,25 +28,18 @@ function ListRenderer(props) {
 				className='listGrid'
 				container
 				direction='row'
-				justify='center'
+				justify='space-around'
 				alignItems='stretch'
-				key={processedList[index].id}
-				// onClick={() => console.info(data[index].link)}
+				key={key + '::' + processedList[index].id}
 				style={style}>
 				<span className='index'>{index + 1}</span>
-				<span onClick={() => orderChanger(index, 'from')} className={`from ${processedList[index].from}`}>
-					{processedList[index].from}
-				</span>
+				<span className={`from ${processedList[index].from}`}>{processedList[index].from}</span>
 				<span onClick={() => windowOpener(processedList[index].link)} className='title'>
 					{processedList[index].title}
 				</span>
 				<span className='author'>{processedList[index].author}</span>
-				<span onClick={() => orderChanger(index, 'hitCount')} className='hitCount'>
-					{processedList[index].hitCount}
-				</span>
-				<span onClick={() => orderChanger(index, 'registeredAt')} className='registeredAt'>
-					{processedList[index].registeredAt}
-				</span>
+				<span className='hitCount'>{processedList[index].hitCount}</span>
+				<span className='registeredAt'>{processedList[index].registeredAt}</span>
 			</Grid>
 		);
 	}
@@ -51,24 +52,70 @@ function ListRenderer(props) {
 		}
 	}
 
-	function orderChanger(index, value) {
-		if (index === 0) {
-			sorter.listSorter(processedList, value, !isAsc);
-			props.LIST_ORDER_CHANGER(value);
-		}
+	function orderChanger(value) {
+		// sorter.preListSorter(processedList, value, !isAsc);
+		props.LIST_ORDER_CHANGER(value);
 	}
 
+	const widthsPercent = {
+		index: 5,
+		from: 10,
+		title: 45,
+		author: 10,
+		hitCount: 10,
+		registeredAt: 15,
+	};
+
 	return (
-		<Wrapper>
-			<List
-				width={1500}
-				height={1500}
-				rowCount={processedList.length}
-				rowHeight={38}
-				rowRenderer={rowRenderer}
-				style={{ width: '100%', outline: 'none' }}
-			/>
-			,
+		<Wrapper widthsPercent={widthsPercent}>
+			{loading ? (
+				<div className='spinner'>
+					<BeatLoader
+						// css={override}
+						size={35}
+						color={'yellow'}
+						loading={loading}
+					/>
+				</div>
+			) : (
+				[
+					<Grid
+						className='headerGrid'
+						key={'ListRenderer > Grid'}
+						container
+						direction='row'
+						justify='space-around'
+						alignItems='stretch'>
+						<span onClick={() => orderChanger('index')} className='index'>
+							<span>순서</span>
+							<span className='downArrow' />
+						</span>
+						<span className='from'>
+							<span>출처</span>
+							<span className='downArrow' />
+						</span>
+						<span className='title'>제목</span>
+						<span className='author'>작성자</span>
+						<span onClick={() => orderChanger('hitCount')} className='hitCount'>
+							<span>조회수</span>
+							<span className='downArrow' />
+						</span>
+						<span onClick={() => orderChanger('registeredAt')} className='registeredAt'>
+							<span>등록일</span>
+							<span className='downArrow' />
+						</span>
+					</Grid>,
+					<List
+						key={'ListRenderer > List'}
+						width={1500}
+						height={1500}
+						rowCount={processedList.length}
+						rowHeight={38}
+						rowRenderer={e => rowRenderer(e)}
+						style={{ width: '100%', outline: 'none' }}
+					/>,
+				]
+			)}
 		</Wrapper>
 	);
 }
