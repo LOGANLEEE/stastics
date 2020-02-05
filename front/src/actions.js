@@ -1,12 +1,5 @@
 import * as actionTypes from 'actionTypes';
-import * as sorter from 'utils/sorter';
-
-export function Dummy(value) {
-	return {
-		type: actionTypes.DUMMY,
-		payload: value,
-	};
-}
+import { preListSorter, preListSorterTester } from 'utils';
 
 export const ListClickCounter = count => ({
 	type: actionTypes.LIST_CLICK_COUNTER,
@@ -25,6 +18,7 @@ export function OPEN_SITE_FROM_MIN_TO_MAX(min, max) {
 	};
 }
 
+// UI
 export function firstTabMover(tabId) {
 	return {
 		type: actionTypes.FIRST_TAB_MOVER,
@@ -39,15 +33,25 @@ export function secondTabMover(tabId) {
 	};
 }
 
-export const GET_TEMP_POSTS = list => ({
-	type: actionTypes.GET_TEMP_POSTS,
-	payload: { list },
-});
-
-export function SET_PROCESSED_LIST(processedList) {
+export function GET_PREPROCESSED_LIST(list) {
+	preListSorter(list);
 	return {
-		type: actionTypes.SET_PROCESSED_LIST,
-		payload: { processedList },
+		type: actionTypes.GET_PREPROCESSED_LIST,
+		payload: { list },
+	};
+}
+
+export const MODE_CHANGER = mode => {
+	return {
+		type: actionTypes.MODE_CHANGER,
+		payload: { mode },
+	};
+};
+
+export function SET_SORTED_LIST(list, type, isASC) {
+	return {
+		type: actionTypes.SET_SORTED_LIST,
+		payload: { list, type, isASC },
 	};
 }
 
