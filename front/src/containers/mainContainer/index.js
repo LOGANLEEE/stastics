@@ -6,9 +6,11 @@ import PropTypes from 'prop-types';
 import FooterContainer from '../FooterContainer';
 import HeaderContainer from '../HeaderContainer';
 import LeftSideBarContainer from '../LeftSideBarContainer';
-import ListContainer from '../ListContainer';
+import BodyContainer from '../BodyContainer';
 import RightSideBarContainer from '../RightSideBarContainer';
 import Wrapper from './Wrapper';
+import { MODE_CHANGER } from 'actions';
+import { orderStandard } from 'internal_constants';
 
 function Main(props) {
 	useEffect(() => {
@@ -22,46 +24,91 @@ function Main(props) {
 			<Grid container direction='column' justify='center' alignItems='stretch'>
 				<HeaderContainer {...props} />
 				<Grid container direction='row' justify='center' alignItems='stretch'>
-					<LeftSideBarContainer width={'15%'} />
-					<ListContainer width={'70%'} {...props} />
-					<RightSideBarContainer width={'15%'} />
+					<LeftSideBarContainer isDayMode={props.isDayMode} width={'15%'} />
+					<BodyContainer width={'70%'} {...props} />
+					<RightSideBarContainer
+						MODE_CHANGER={props.MODE_CHANGER}
+						isDayMode={props.isDayMode}
+						width={'15%'}
+					/>
 				</Grid>
-				<FooterContainer />
+				<FooterContainer isDayMode={props.isDayMode} />
 			</Grid>
 		</Wrapper>
 	);
 }
 
 const mapStateToProps = (state, ownProps) => ({
-	tempPosts: state.initial.tempPosts,
-	processedList: state.initial.processedList,
+	//initial
+	preProcessedList: state.initial.preProcessedList,
+	sortedListByCreateAt_ASC: state.initial.sortedListByCreateAt_ASC,
+	sortedListByHitCount_ASC: state.initial.sortedListByHitCount_ASC,
+	sortedListByRegisteredAt_ASC: state.initial.sortedListByRegisteredAt_ASC,
+	sortedListByCreateAt_DESC: state.initial.sortedListByCreateAt_DESC,
+	sortedListByHitCount_DESC: state.initial.sortedListByHitCount_DESC,
+	sortedListByRegisteredAt_DESC: state.initial.sortedListByRegisteredAt_DESC,
 
+	//main
 	listTargetCount: state.main.listTargetCount,
 
+	//ui
 	currentFirstTabId: state.ui.currentFirstTabId,
 	currentSecondTabId: state.ui.currentSecondTabId,
+	isDayMode: state.ui.isDayMode,
 
+	//list_view
 	isAsc: state.list_view.isAsc,
 	orderStandard: state.list_view.orderStandard,
 });
 
 Main.propTypes = {
-	tempPosts: PropTypes.array,
+	//initial
+	preProcessedList: PropTypes.array,
+	sortedListByCreateAt_ASC: PropTypes.array,
+	sortedListByHitCount_ASC: PropTypes.array,
+	sortedListByRegisteredAt_ASC: PropTypes.array,
+	sortedListByCreateAt_DESC: PropTypes.array,
+	sortedListByHitCount_DESC: PropTypes.array,
+	sortedListByRegisteredAt_DESC: PropTypes.array,
+
+	//main
 	listTargetCount: PropTypes.number,
+
+	//ui
 	currentFirstTabId: PropTypes.number,
 	currentSecondTabId: PropTypes.string,
-	processedList: PropTypes.array,
+	isDayMode: PropTypes.bool,
+	MODE_CHANGER: PropTypes.func,
+
+	//list_view
 	isAsc: PropTypes.bool,
 	orderStandard: PropTypes.string,
 };
 Main.defaultProps = {
-	tempPosts: [],
+	// initial
+	preProcessedList: [],
+	sortedListByCreateAt_ASC: [],
+	sortedListByHitCount_ASC: [],
+	sortedListByRegisteredAt_ASC: [],
+	sortedListByCreateAt_DESC: [],
+	sortedListByHitCount_DESC: [],
+	sortedListByRegisteredAt_DESC: [],
+
+	//main
 	listTargetCount: 0,
+
+	//ui
 	currentFirstTabId: 0,
 	currentSecondTabId: 0,
+	isDayMode: true,
+
+	//list_view
 	isAsc: true,
-	orderStandard: 'index',
-	processedList: [],
+	orderStandard: orderStandard.createdAt,
 };
 
-export default connect(mapStateToProps, null)(Main);
+const mapDispatchToProps = {
+	MODE_CHANGER,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
