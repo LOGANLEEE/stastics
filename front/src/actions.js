@@ -17,7 +17,7 @@ export const listFetcher = list => ({
 	payload: { list },
 });
 
-export function openSite(min, max) {
+export function OPEN_SITE_FROM_MIN_TO_MAX(min, max) {
 	return {
 		type: actionTypes.OPEN_SITE_FROM_MIN_TO_MAX,
 		payload: { min, max },
@@ -37,5 +37,15 @@ export function secondTabMover(tabId) {
 		payload: { tabId },
 	};
 }
+
+export const GET_TEMP_POSTS = list => ({
+	type: actionTypes.GET_TEMP_POSTS,
+	payload: { list },
+});
+
+export const GET_TARGET_SITE_LIST = list => ({
+	type: actionTypes.GET_TARGET_SITE_LIST,
+	payload: { list },
+});
 
 export default 'import specific actions mate.';

@@ -11,7 +11,7 @@ function tabHandler(e, value) {
 	store.dispatch(actions.secondTabMover(value));
 }
 
-export default function SecondTabsMenus({ currentSecondTabId, openSite }) {
+export default function SecondTabsMenus({ currentSecondTabId }) {
 	return (
 		<Wrapper>
 			<Tabs
@@ -21,8 +21,8 @@ export default function SecondTabsMenus({ currentSecondTabId, openSite }) {
 				textColor='primary'
 				variant='fullWidth'
 				aria-label='full width tabs example'>
-				<Tab label='ALL' />
-				<Tab label='TOP100' />
+				<Tab value='ALL' label='ALL' />
+				<Tab value='TOP100' label='TOP100' />
 				<Tab label='' />
 				<Tab label='TEST4' />
 			</Tabs>
