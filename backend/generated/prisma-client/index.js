@@ -9,7 +9,7 @@ var models = [
     embedded: false
   },
   {
-    name: "TempPost",
+    name: "preProcessedPost",
     embedded: false
   },
   {

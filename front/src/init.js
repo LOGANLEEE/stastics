@@ -34,9 +34,9 @@ function isServerAlive() {
 		});
 }
 
-function GET_TEMP_POSTS() {
+function GET_PREPROCESSED_LIST() {
 	return axios.post(url + address.getTempList, '', config).then(res => {
-		store.dispatch(actions.GET_TEMP_POSTS(res.data));
+		store.dispatch(actions.GET_PREPROCESSED_LIST(res.data));
 		info('=== 1. DONE GET_TEMP_POSTS');
 		inPutLogger(res.data);
 		return true;
@@ -56,7 +56,7 @@ export async function loading() {
 	return await isServerAlive().then(res => {
 		if (res) {
 			inPutLogger('Server is Alive');
-			GET_TEMP_POSTS();
+			GET_PREPROCESSED_LIST();
 			GET_TARGET_SITE_LIST();
 			return true;
 		} else {

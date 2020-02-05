@@ -1,8 +1,8 @@
 const Etoland = {
 	// 12/07 update selector
 	title: 'head > title',
-	author: 'head > meta:nth-child(7)',
-	date: 'head > meta:nth-child(21)',
+	author: '#mw_basic > table:nth-child(16) > tbody > tr:nth-child(4) > td > span > a:nth-child(2) > span',
+	date: '#mw_basic > table:nth-child(16) > tbody > tr:nth-child(4) > td > span > span.mw_basic_view_datetime',
 	hitCount: '#mw_basic > table:nth-child(16) > tbody > tr:nth-child(4) > td > span > span.mw_basic_view_hit',
 };
 
@@ -72,18 +72,28 @@ const PpomPu = {
 		'body > div > div.contents > div.container > div > table:nth-child(9) > tbody > tr:nth-child(3) > td > table > tbody > tr > td:nth-child(5) > font.view_title2',
 	author:
 		'body > div > div.contents > div.container > div > table:nth-child(9) > tbody > tr:nth-child(3) > td > table > tbody > tr > td:nth-child(5) > span:nth-child(5) > a > font',
+	author2:
+		'body > div > div.contents > div.container > div > table:nth-child(9) > tbody > tr:nth-child(3) > td > table > tbody > tr > td:nth-child(5) > span:nth-child(7) > a > font',
+	author3:
+		' body > div > div.contents > div.container > div > table:nth-child(9) > tbody > tr:nth-child(3) > td > table > tbody > tr > td:nth-child(5) > span:nth-child(7) > a > img',
+	author4:
+		'body > div > div.contents > div.container > div > table:nth-child(9) > tbody > tr:nth-child(3) > td > table > tbody > tr > td:nth-child(5) > span:nth-child(5)',
 	date:
 		'body > div > div.contents > div.container > div > table:nth-child(9) > tbody > tr:nth-child(3) > td > table > tbody > tr > td:nth-child(5)',
 	hitCount:
 		'body > div > div.contents > div.container > div > table:nth-child(9) > tbody > tr:nth-child(3) > td > table > tbody > tr > td:nth-child(5)',
+	date2:
+		'body > div > div.contents > div.container > div > table:nth-child(11) > tbody > tr:nth-child(3) > td > table > tbody > tr > td:nth-child(5)',
+	hitCount2:
+		'body > div > div.contents > div.container > div > table:nth-child(11) > tbody > tr:nth-child(3) > td > table > tbody > tr > td:nth-child(5)',
 };
 const Instiz = {
 	title: '#nowsubject > a',
 	author: '',
 	hitCount:
-		'body > table > tbody > tr:nth-child(1) > td > table:nth-child(6) > tbody > tr:nth-child(2) > td > div.tb_left',
+		'body > div.container > div > div > table > tbody > tr:nth-child(1) > td > table:nth-child(6) > tbody > tr:nth-child(2) > td > div.tb_left',
 	hitCount2:
-		'body > table > tbody > tr:nth-child(1) > td > table:nth-child(7) > tbody > tr:nth-child(2) > td > div.tb_left',
+		'body > div.container > div > div > table > tbody > tr:nth-child(1) > td > table:nth-child(7) > tbody > tr:nth-child(2) > td > div.tb_left',
 };
 const FmKorea = {
 	title: '#bd_capture > div.rd_hd.clear > div.board.clear > div.top_area.ngeb > h1 > span.np_18px_span',
@@ -103,9 +113,9 @@ const TheQoo = {
 		'#content > div > div.bd_load_target.bd.clear.hover_effect > div.rd.rd_nav_style2.clear > div.rd_hd.clear > div.theqoo_document_header > div',
 };
 const Ilbe = {
-	title: '',
-	author: '',
-	date: '',
+	title: '#content-wrap > div.board-wrap > div.board-view > div.post-wrap > div.post-header > h3 > a',
+	author: '#content-wrap > div.board-wrap > div.board-view > div.post-wrap > div.post-header > span > a',
+	date: '#content-wrap > div.board-wrap > div.board-view > div.post-wrap > div.post-count > div.count > span.date',
 	hitCount: '',
 };
 

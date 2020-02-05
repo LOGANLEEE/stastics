@@ -16,9 +16,6 @@ async function fetching() {
 		.get(url)
 		.then(async res => {
 			if (res.status === 200) {
-				info('============');
-				info('£££ dataa : ', res);
-				info('============');
 				// const result = iconv.decode(res.data, 'euc-kr');
 				return Processor(res.data);
 			}
@@ -36,7 +33,7 @@ async function fetching() {
 
 	async function Processor(html) {
 		try {
-			for (let i = 1; i < 39; i += 2) {
+			for (let i = 1; i < 2; i += 2) {
 				const target = `#cnts_list_new > div:nth-child(1) > table:nth-child(3) > tbody > tr:nth-child(${i})`;
 				const $ = cheerio.load(html);
 				const link = $(target + ' > td.li_sbj > a').attr('href');
@@ -45,7 +42,6 @@ async function fetching() {
 					from,
 				};
 
-				// info('£££', data);
 				await prisma.createPostLinks(data);
 			}
 		} catch (e) {

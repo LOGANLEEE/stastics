@@ -12,14 +12,14 @@ function tabHandler(e, value) {
 	store.dispatch(actions.firstTabMover(value));
 }
 
-function TabsMenus({ currentFirstTabId }) {
+function TabsMenus({ currentFirstTabId, isDayMode }) {
 	return (
-		<Wrapper>
+		<Wrapper isDayMode={isDayMode}>
 			<Tabs
 				value={currentFirstTabId}
 				onChange={(e, value) => tabHandler(e, value)}
-				indicatorColor='primary'
-				textColor='primary'
+				// indicatorColor='primary'
+				// textColor='primary'
 				variant='fullWidth'
 				aria-label='full width tabs example'>
 				<Tab label='Main' value={0} />
