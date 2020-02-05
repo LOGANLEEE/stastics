@@ -4,10 +4,11 @@ type PostLinks {
     id: ID! @id
     link: String!
     from: String!
+    hitCount: Int
     createdAt: DateTime! @createdAt
 }
 
-type TempPost {
+type preProcessedPost {
     id: ID! @id
     title: String!
     author: String
