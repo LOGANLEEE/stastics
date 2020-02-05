@@ -38,12 +38,14 @@ function approacher(target, count) {
 	let isPpomPu = false;
 	let isIlbe = false;
 	let isDogDrip = false;
+	let isEtoland = false;
 
 	// Set configuration for each site.
 	switch (target.from) {
 		case Constants.Etoland: {
 			config = { responseType: 'arraybuffer' };
 			isNeedEncodingConfig = true;
+			isEtoland = true;
 			break;
 		}
 
@@ -194,7 +196,15 @@ function approacher(target, count) {
 								: null;
 							date.includes('원글작성시간') ? (date = date.substring(date.indexOf(':') + 1)) : null;
 							date.includes('작성일') ? (date = date.substring(date.indexOf(':') + 1)) : null;
+
+							// match date format as YYYY-DD-MM hh:mm
+							if (isGasengi) {
+								if (date !== null) {
+									date = '20' + date.trim();
+								}
+							}
 						}
+
 						if (isRuliWeb) {
 							title.includes('[', ']') ? (title = title.substring(title.indexOf(']') + 1)) : null;
 							hitCount.includes('추천', '조회')
@@ -203,7 +213,6 @@ function approacher(target, count) {
 						}
 						if (isPpomPu) {
 							let tempDate = '';
-
 							date.trim()
 								.split('\t')
 								.forEach(e => {
@@ -249,20 +258,28 @@ function approacher(target, count) {
 								});
 						}
 
+
+						// Use moment.js instead of manual processing
+
 						// 요일 제거
-						dayList.forEach(day => {
-							date = util.replaceAll(date, day, '');
-						});
+						// dayList.forEach(day => {
+						// 	date = util.replaceAll(date, day, '');
+						// });
 
 						// 일자 데이터 재가공
-						date = util.replaceAll(date, '/', '-');
-						date = util.replaceAll(date, '.', '-');
-						date = util.replaceAll(date, '(', '');
-						date = util.replaceAll(date, ')', '');
+						// date = util.replaceAll(date, '/', '-');
+						// date = util.replaceAll(date, '.', '-');
+						// date = util.replaceAll(date, '(', '');
+						// date = util.replaceAll(date, ')', '');
 						// date = date.replace(' ', 'T');
 						// date = date + '+09:00';
 
-						// date = moment(date).format('YYYY-DD-MM HH:mm');
+						// those site has more white spalce
+						// if (isEtoland || isBobae) {
+						// 	date = date.replace(' ', '');
+						// }
+
+						date = moment(date, 'YYYY-DD-MM HH:mm').format('YYYY-DD-MM HH:mm');
 
 						const data = {
 							title: title.trim(),
