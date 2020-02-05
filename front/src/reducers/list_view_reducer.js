@@ -2,7 +2,7 @@ import * as actionTypes from 'actionTypes';
 
 const initialState = {
 	isAsc: true,
-	orderStandard: 'index',
+	orderStandard: 'createdAt',
 };
 
 export default function list_view(state = initialState, action) {
