@@ -1,5 +1,5 @@
 import * as actionTypes from 'actionTypes';
-import { preListSorter, preListSorterTester } from 'utils';
+import { preListSorter } from 'utils';
 
 export const ListClickCounter = count => ({
 	type: actionTypes.LIST_CLICK_COUNTER,
@@ -59,6 +59,13 @@ export const GET_TARGET_SITE_LIST = list => ({
 	type: actionTypes.GET_TARGET_SITE_LIST,
 	payload: { list },
 });
+
+export function SET_PROCESSED_LIST(orderStandard, isAsc) {
+	return {
+		type: actionTypes.SET_PROCESSED_LIST,
+		payload: { orderStandard, isAsc },
+	};
+}
 
 export function LIST_ORDER_CHANGER(orderStandard) {
 	return {
