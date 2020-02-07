@@ -1,16 +1,16 @@
 import Grid from '@material-ui/core/Grid';
+import { LIST_ORDER_CHANGER, MODE_CHANGER, OPEN_SITE_FROM_MIN_TO_MAX, SET_PROCESSED_LIST } from 'actions';
+import { NameOfOrderStandard } from 'internal_constants';
+import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import 'react-virtualized/styles.css';
-import PropTypes from 'prop-types';
+import BodyContainer from '../BodyContainer';
 import FooterContainer from '../FooterContainer';
 import HeaderContainer from '../HeaderContainer';
 import LeftSideBarContainer from '../LeftSideBarContainer';
-import BodyContainer from '../BodyContainer';
 import RightSideBarContainer from '../RightSideBarContainer';
 import Wrapper from './Wrapper';
-import { MODE_CHANGER } from 'actions';
-import { orderStandard } from 'internal_constants';
 
 function Main(props) {
 	useEffect(() => {
@@ -38,15 +38,10 @@ function Main(props) {
 	);
 }
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = state => ({
 	//initial
 	preProcessedList: state.initial.preProcessedList,
-	sortedListByCreateAt_ASC: state.initial.sortedListByCreateAt_ASC,
-	sortedListByHitCount_ASC: state.initial.sortedListByHitCount_ASC,
-	sortedListByRegisteredAt_ASC: state.initial.sortedListByRegisteredAt_ASC,
-	sortedListByCreateAt_DESC: state.initial.sortedListByCreateAt_DESC,
-	sortedListByHitCount_DESC: state.initial.sortedListByHitCount_DESC,
-	sortedListByRegisteredAt_DESC: state.initial.sortedListByRegisteredAt_DESC,
+	processedList: state.initial.processedList,
 
 	//main
 	listTargetCount: state.main.listTargetCount,
@@ -64,12 +59,7 @@ const mapStateToProps = (state, ownProps) => ({
 Main.propTypes = {
 	//initial
 	preProcessedList: PropTypes.array,
-	sortedListByCreateAt_ASC: PropTypes.array,
-	sortedListByHitCount_ASC: PropTypes.array,
-	sortedListByRegisteredAt_ASC: PropTypes.array,
-	sortedListByCreateAt_DESC: PropTypes.array,
-	sortedListByHitCount_DESC: PropTypes.array,
-	sortedListByRegisteredAt_DESC: PropTypes.array,
+	processedList: PropTypes.array,
 
 	//main
 	listTargetCount: PropTypes.number,
@@ -87,12 +77,7 @@ Main.propTypes = {
 Main.defaultProps = {
 	// initial
 	preProcessedList: [],
-	sortedListByCreateAt_ASC: [],
-	sortedListByHitCount_ASC: [],
-	sortedListByRegisteredAt_ASC: [],
-	sortedListByCreateAt_DESC: [],
-	sortedListByHitCount_DESC: [],
-	sortedListByRegisteredAt_DESC: [],
+	processedList: [],
 
 	//main
 	listTargetCount: 0,
@@ -104,11 +89,14 @@ Main.defaultProps = {
 
 	//list_view
 	isAsc: true,
-	orderStandard: orderStandard.createdAt,
+	orderStandard: NameOfOrderStandard.createdAt,
 };
 
 const mapDispatchToProps = {
 	MODE_CHANGER,
+	OPEN_SITE_FROM_MIN_TO_MAX,
+	LIST_ORDER_CHANGER,
+	SET_PROCESSED_LIST,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);
