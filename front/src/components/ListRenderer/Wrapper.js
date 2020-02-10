@@ -1,7 +1,7 @@
 import styled from 'styled-components';
+import { site_present_color } from 'internal_constants';
 
 const Wrapper = styled.div`
-	background-color: #264f58;
 	/* height: 100%; */
 	width: 100%;
 
@@ -11,39 +11,55 @@ const Wrapper = styled.div`
 	}
 
 	.SLR {
-		background-color: red;
+		background-color: ${site_present_color.SLR};
 	}
 	.TodayHumor {
-		background-color: teal;
+		background-color: ${site_present_color.TodayHumor};
 	}
 	.FmKorea {
-		background-color: orange;
+		background-color: ${site_present_color.FmKorea};
 	}
 	.TheQoo {
-		background-color: blue;
+		background-color: ${site_present_color.TheQoo};
 	}
 	.Bobae {
-		background-color: silver;
+		background-color: ${site_present_color.Bobae};
 	}
 	.RuliWeb {
-		background-color: gray;
+		background-color: ${site_present_color.RuliWeb};
 	}
 	.Clien {
-		background-color: purple;
+		background-color: ${site_present_color.Clien};
 	}
 	.Etoland {
-		background-color: slategrey;
+		background-color: ${site_present_color.Etoland};
 	}
 	.Gasengi {
-		background-color: violet;
+		background-color: ${site_present_color.Gasengi};
 	}
 	.Cook {
-		background-color: coral;
+		background-color: ${site_present_color.Cook};
+	}
+	.Ilbe {
+		background-color: ${site_present_color.Ilbe};
+	}
+	.Instiz {
+		background-color: ${site_present_color.Instiz};
+	}
+	.Bullpen {
+		background-color: ${site_present_color.Bullpen};
+	}
+	.Ppompu {
+		background-color: ${site_present_color.Ppompu};
+	}
+	.DogDrip {
+		background-color: ${site_present_color.DogDrip};
 	}
 
 	.headerGrid {
 		text-align: center;
 		border-bottom: 1px solid wheat;
+		background-color: #4e4c4c;
 
 		.index {
 			width: ${props => props.widthsPercent.index + '%'};
@@ -86,11 +102,14 @@ const Wrapper = styled.div`
 	}
 
 	.listGrid {
+		background-color: #272927;
 		cursor: pointer;
 		overflow: hidden;
 		border-bottom: 1px solid wheat;
 		line-height: 36px;
 		font-weight: bold;
+		overflow: hidden;
+
 		.index {
 			font-size: 12px;
 			width: ${props => props.widthsPercent.index + '%'};
