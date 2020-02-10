@@ -13,7 +13,7 @@ const initialState = {
 		sortedListByRegisteredAt_DESC: [],
 	},
 	processedList: [],
-	isSortingFinished: false,
+	length_of_processedList: 0,
 };
 
 export default function initial(state = initialState, action) {
@@ -33,7 +33,12 @@ export default function initial(state = initialState, action) {
 		}
 		case actionTypes.GET_PREPROCESSED_LIST: {
 			const { list } = action.payload;
-			return { ...state, preProcessedList: [...list], processedList: [...list] };
+			return {
+				...state,
+				length_of_processedList: list.length,
+				preProcessedList: [...list],
+				processedList: [...list],
+			};
 		}
 		case actionTypes.SET_SORTED_LIST: {
 			const { list, type, isASC } = action.payload;
@@ -119,7 +124,7 @@ export default function initial(state = initialState, action) {
 						break;
 				}
 			}
-			return { ...state, processedList: [...temp] };
+			return { ...state, processedList: [...temp], length_of_processedList: temp.length };
 		}
 		default:
 			return { ...state };

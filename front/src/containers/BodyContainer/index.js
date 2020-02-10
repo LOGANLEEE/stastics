@@ -14,6 +14,7 @@ function ContentRenderer(props) {
 		OPEN_SITE_FROM_MIN_TO_MAX,
 		LIST_ORDER_CHANGER,
 		SET_PROCESSED_LIST,
+		length_of_processedList,
 	} = props;
 
 	useEffect(() => {
@@ -29,7 +30,11 @@ function ContentRenderer(props) {
 		case 1: {
 			return [
 				<SecondTabsMenus key={`ContentRenderer > SecondTabsMenus`} {...props} />,
-				<Buttons key={`ContentRenderer > Buttons`} OPEN_SITE_FROM_MIN_TO_MAX={OPEN_SITE_FROM_MIN_TO_MAX} />,
+				<Buttons
+					key={`ContentRenderer > Buttons`}
+					OPEN_SITE_FROM_MIN_TO_MAX={OPEN_SITE_FROM_MIN_TO_MAX}
+					length_of_processedList={length_of_processedList}
+				/>,
 				<ListRenderer
 					key={`ContentRenderer > ListRenderer`}
 					LIST_ORDER_CHANGER={LIST_ORDER_CHANGER}

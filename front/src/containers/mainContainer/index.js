@@ -42,6 +42,7 @@ const mapStateToProps = state => ({
 	//initial
 	preProcessedList: state.initial.preProcessedList,
 	processedList: state.initial.processedList,
+	length_of_processedList: state.initial.length_of_processedList,
 
 	//main
 	listTargetCount: state.main.listTargetCount,
@@ -60,6 +61,7 @@ Main.propTypes = {
 	//initial
 	preProcessedList: PropTypes.array,
 	processedList: PropTypes.array,
+	length_of_processedList: PropTypes.number,
 
 	//main
 	listTargetCount: PropTypes.number,
@@ -78,6 +80,7 @@ Main.defaultProps = {
 	// initial
 	preProcessedList: [],
 	processedList: [],
+	length_of_processedList: 0,
 
 	//main
 	listTargetCount: 0,

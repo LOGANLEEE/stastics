@@ -3,17 +3,16 @@ import Wrapper from './Wrapper';
 import { Button } from '@material-ui/core';
 
 export default function Buttons(props) {
-	function onClick(min, max) {
-		props.OPEN_SITE_FROM_MIN_TO_MAX(min, max);
-	}
+	const { OPEN_SITE_FROM_MIN_TO_MAX, length_of_processedList } = props;
 
-	function buttonGenerator(howManyBtns) {
+	function buttonGenerator() {
 		const btns = [];
-		for (let i = 1; i < howManyBtns + 1; i++) {
-			const min = (100 / howManyBtns) * (i - 1) + 1;
-			const max = (100 / howManyBtns) * i;
+		const increaseGap = 20;
+		for (let i = 1; i < length_of_processedList + 1; i += increaseGap) {
+			const min = i;
+			const max = i + increaseGap - 1;
 			btns.push(
-				<Button key={i} onClick={() => onClick(min, max)} variant='outlined'>
+				<Button key={i} onClick={() => OPEN_SITE_FROM_MIN_TO_MAX(min, max)} variant='outlined'>
 					{max}
 				</Button>,
 			);
@@ -21,5 +20,5 @@ export default function Buttons(props) {
 		return btns;
 	}
 
-	return <Wrapper>{buttonGenerator(10)}</Wrapper>;
+	return <Wrapper>{buttonGenerator()}</Wrapper>;
 }
