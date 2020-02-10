@@ -7,7 +7,7 @@ export default function Buttons(props) {
 
 	function buttonGenerator() {
 		const btns = [];
-		const increaseGap = 20;
+		const increaseGap = 10;
 		for (let i = 1; i < length_of_processedList + 1; i += increaseGap) {
 			const min = i;
 			const max = i + increaseGap - 1;

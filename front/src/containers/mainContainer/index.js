@@ -26,11 +26,7 @@ function Main(props) {
 				<Grid container direction='row' justify='center' alignItems='stretch'>
 					<LeftSideBarContainer isDayMode={props.isDayMode} width={'15%'} />
 					<BodyContainer width={'70%'} {...props} />
-					<RightSideBarContainer
-						MODE_CHANGER={props.MODE_CHANGER}
-						isDayMode={props.isDayMode}
-						width={'15%'}
-					/>
+					<RightSideBarContainer {...props} width={'15%'} />
 				</Grid>
 				<FooterContainer isDayMode={props.isDayMode} />
 			</Grid>
