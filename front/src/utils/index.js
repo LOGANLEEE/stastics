@@ -1,7 +1,8 @@
+import moment from 'moment';
 import store from 'store';
+
 import * as actions from 'actions';
 import { NameOfOrderStandard } from 'internal_constants';
-import moment from 'moment';
 
 export function preListSorter(preProcessedList) {
 	const list = [...preProcessedList];

@@ -1,8 +1,10 @@
 import React from 'react';
-import Wrapper from './Wrapper';
+
 import { Button, Grid } from '@material-ui/core';
 import * as Icon from '@material-ui/icons';
 import Buttons from 'components/Buttons';
+
+import Wrapper from './Wrapper';
 
 function RightSideBarContainer(props) {
 	const { width, isDayMode, MODE_CHANGER, length_of_processedList, OPEN_SITE_FROM_MIN_TO_MAX } = props;

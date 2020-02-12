@@ -1,15 +1,16 @@
-import Grid from '@material-ui/core/Grid';
-import { LIST_ORDER_CHANGER, MODE_CHANGER, OPEN_SITE_FROM_MIN_TO_MAX, SET_PROCESSED_LIST } from 'actions';
-import { NameOfOrderStandard } from 'internal_constants';
-import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import Grid from '@material-ui/core/Grid';
 import { connect } from 'react-redux';
 import 'react-virtualized/styles.css';
+
 import BodyContainer from '../BodyContainer';
+import { LIST_ORDER_CHANGER, MODE_CHANGER, OPEN_SITE_FROM_MIN_TO_MAX, SET_PROCESSED_LIST } from 'actions';
 import FooterContainer from '../FooterContainer';
 import HeaderContainer from '../HeaderContainer';
 import LeftSideBarContainer from '../LeftSideBarContainer';
 import RightSideBarContainer from '../RightSideBarContainer';
+import { NameOfOrderStandard } from 'internal_constants';
 import Wrapper from './Wrapper';
 
 function Main(props) {

@@ -18,8 +18,8 @@ const config = {
 	headers: { auth: 1743511 },
 };
 
-function isServerAlive() {
-	return axios
+async function isServerAlive() {
+	return await axios
 		.get(url + address.alive)
 		.then(res => {
 			if (res.status === 200) {
@@ -34,8 +34,8 @@ function isServerAlive() {
 		});
 }
 
-function GET_PREPROCESSED_LIST() {
-	return axios.post(url + address.getTempList, '', config).then(res => {
+async function GET_PREPROCESSED_LIST() {
+	return await axios.post(url + address.getTempList, '', config).then(res => {
 		store.dispatch(actions.GET_PREPROCESSED_LIST(res.data));
 		info('=== 1. DONE GET_TEMP_POSTS');
 		inPutLogger(res.data);
@@ -43,14 +43,16 @@ function GET_PREPROCESSED_LIST() {
 	});
 }
 
-function GET_TARGET_SITE_LIST() {
-	return axios.post(url + address.getTargetSiteList, '', config).then(res => {
+async function GET_TARGET_SITE_LIST() {
+	return await axios.post(url + address.getTargetSiteList, '', config).then(res => {
 		store.dispatch(actions.GET_TARGET_SITE_LIST(res.data));
 		info('=== 2. DONE GET_TARGET_SITE_LIST');
 		inPutLogger(res.data);
 		return true;
 	});
 }
+
+export const test = 'test';
 
 export async function loading() {
 	return await isServerAlive().then(res => {

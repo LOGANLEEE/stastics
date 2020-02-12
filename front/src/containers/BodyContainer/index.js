@@ -1,8 +1,10 @@
+import React, { useEffect, useState } from 'react';
+
 import Buttons from 'components/Buttons';
 import ListRenderer from 'components/ListRenderer';
 import MainPage from 'components/MainPage';
 import SecondTabsMenus from 'components/SecondTabsMenus';
-import React, { useEffect, useState } from 'react';
+
 import Wrapper from './Wrapper';
 
 function ContentRenderer(props) {

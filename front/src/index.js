@@ -5,20 +5,20 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import App from './app/App';
-import MainContainer from './containers/MainContainer';
-import DummyContainer from './containers/DummyContainer';
-import Popup from './components/Popup';
-import * as serviceWorker from './app/serviceWorker';
-import store from './store';
-import './styles/index.css';
-import * as init from 'init';
+import App from './app';
+import MainContainer from 'containers/MainContainer';
+import DummyContainer from 'containers/DummyContainer';
+import Popup from 'components/Popup';
+import * as serviceWorker from 'app/serviceWorker';
+import store from 'store';
+import 'styles/index.css';
+import { loading } from './init';
 
 const client = new ApolloClient({
 	uri: 'http://localhost:4466/',
 });
 
-init.loading();
+loading();
 
 ReactDOM.render(
 	// <React.StrictMode>
