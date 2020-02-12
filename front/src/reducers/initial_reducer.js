@@ -1,5 +1,5 @@
 import * as actionTypes from 'actionTypes';
-import { NameOfOrderStandard, NameOfSortedList } from 'internal_constants';
+import { NameOfOrderStandard } from 'internal_constants';
 
 const initialState = {
 	preProcessedList: [],

@@ -52,8 +52,6 @@ async function GET_TARGET_SITE_LIST() {
 	});
 }
 
-export const test = 'test';
-
 export async function loading() {
 	return await isServerAlive().then(res => {
 		if (res) {

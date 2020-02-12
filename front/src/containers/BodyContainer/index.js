@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
-import Buttons from 'components/Buttons';
 import ListRenderer from 'components/ListRenderer';
 import MainPage from 'components/MainPage';
 import SecondTabsMenus from 'components/SecondTabsMenus';
 
-import Wrapper from './Wrapper';
+import Wrapper from 'containers/BodyContainer/Wrapper';
 
 function ContentRenderer(props) {
 	const { currentFirstTabId, processedList, isAsc, orderStandard, LIST_ORDER_CHANGER, SET_PROCESSED_LIST } = props;
