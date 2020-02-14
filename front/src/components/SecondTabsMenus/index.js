@@ -23,7 +23,7 @@ export default function SecondTabsMenus({ currentSecondTabId }) {
 				aria-label='full width tabs example'>
 				<Tab value='ALL' label='ALL' />
 				<Tab value='TOP100' label='TOP100' />
-				<Tab label='' />
+				<Tab label='TEST3' />
 				<Tab label='TEST4' />
 			</Tabs>
 		</Wrapper>

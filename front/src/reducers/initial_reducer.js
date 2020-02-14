@@ -1,6 +1,5 @@
 import * as actionTypes from 'actionTypes';
-import { orderStandard } from 'internal_constants';
-import { preListSorter, preListSorterTester } from 'utils';
+import { NameOfOrderStandard } from 'internal_constants';
 
 const initialState = {
 	preProcessedList: [],
@@ -13,6 +12,8 @@ const initialState = {
 		sortedListByHitCount_DESC: [],
 		sortedListByRegisteredAt_DESC: [],
 	},
+	processedList: [],
+	length_of_processedList: 0,
 };
 
 export default function initial(state = initialState, action) {
@@ -32,24 +33,30 @@ export default function initial(state = initialState, action) {
 		}
 		case actionTypes.GET_PREPROCESSED_LIST: {
 			const { list } = action.payload;
-			return { ...state, preProcessedList: [...list] };
+			return {
+				...state,
+				length_of_processedList: list.length,
+				preProcessedList: [...list],
+				processedList: [...list],
+			};
 		}
 		case actionTypes.SET_SORTED_LIST: {
 			const { list, type, isASC } = action.payload;
 			const { sortedList } = state;
+
 			// if i put 'list' itself then i didn't really change.
 			// with spread operator [...list] works..!!
 			if (isASC) {
 				switch (type) {
-					case orderStandard.createdAt: {
+					case NameOfOrderStandard.createdAt: {
 						sortedList.sortedListByCreateAt_ASC = [...list];
 						break;
 					}
-					case orderStandard.hitCount: {
+					case NameOfOrderStandard.hitCount: {
 						sortedList.sortedListByHitCount_ASC = [...list];
 						break;
 					}
-					case orderStandard.registeredAt: {
+					case NameOfOrderStandard.registeredAt: {
 						sortedList.sortedListByRegisteredAt_ASC = [...list];
 						break;
 					}
@@ -58,15 +65,15 @@ export default function initial(state = initialState, action) {
 				}
 			} else {
 				switch (type) {
-					case orderStandard.createdAt: {
+					case NameOfOrderStandard.createdAt: {
 						sortedList.sortedListByCreateAt_DESC = [...list];
 						break;
 					}
-					case orderStandard.hitCount: {
+					case NameOfOrderStandard.hitCount: {
 						sortedList.sortedListByHitCount_DESC = [...list];
 						break;
 					}
-					case orderStandard.registeredAt: {
+					case NameOfOrderStandard.registeredAt: {
 						sortedList.sortedListByRegisteredAt_DESC = [...list];
 						break;
 					}
@@ -75,6 +82,49 @@ export default function initial(state = initialState, action) {
 				}
 			}
 			return { ...state, sortedList };
+		}
+
+		case actionTypes.SET_PROCESSED_LIST: {
+			const { orderStandard, isAsc } = action.payload;
+			const { sortedList } = state;
+			let temp = [];
+
+			if (isAsc) {
+				switch (orderStandard) {
+					case NameOfOrderStandard.createdAt: {
+						temp = [...sortedList.sortedListByCreateAt_ASC];
+						break;
+					}
+					case NameOfOrderStandard.hitCount: {
+						temp = [...sortedList.sortedListByHitCount_ASC];
+						break;
+					}
+					case NameOfOrderStandard.registeredAt: {
+						temp = [...sortedList.sortedListByRegisteredAt_ASC];
+						break;
+					}
+					default:
+						break;
+				}
+			} else {
+				switch (orderStandard) {
+					case NameOfOrderStandard.createdAt: {
+						temp = [...sortedList.sortedListByCreateAt_DESC];
+						break;
+					}
+					case NameOfOrderStandard.hitCount: {
+						temp = [...sortedList.sortedListByHitCount_DESC];
+						break;
+					}
+					case NameOfOrderStandard.registeredAt: {
+						temp = [...sortedList.sortedListByRegisteredAt_DESC];
+						break;
+					}
+					default:
+						break;
+				}
+			}
+			return { ...state, processedList: [...temp], length_of_processedList: temp.length };
 		}
 		default:
 			return { ...state };

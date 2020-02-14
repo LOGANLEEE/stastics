@@ -3,18 +3,19 @@ import React, { useEffect, useState } from 'react';
 import { BeatLoader } from 'react-spinners';
 import { List } from 'react-virtualized';
 import Wrapper from './Wrapper';
-import { preListSorter, preListSorterTester } from 'utils';
+import { NameOfOrderStandard } from 'internal_constants';
 
 function ListRenderer(props) {
-	const { processedList, orderStandard, isAsc } = props;
+	const { processedList, LIST_ORDER_CHANGER } = props;
 	const [loading, setLoading] = useState(true);
+	const [list, setList] = useState([]);
 
 	useEffect(() => {
 		if (processedList.length > 0) {
+			setList(processedList);
 			setLoading(false);
-			// preListSorter(processedList);
 		}
-	});
+	}, [processedList]);
 
 	function rowRenderer({
 		key, // Unique key within array of rows
@@ -30,16 +31,16 @@ function ListRenderer(props) {
 				direction='row'
 				justify='space-around'
 				alignItems='stretch'
-				key={key + '::' + processedList[index].id}
+				key={key + '::' + list[index].id}
 				style={style}>
 				<span className='index'>{index + 1}</span>
-				<span className={`from ${processedList[index].from}`}>{processedList[index].from}</span>
-				<span onClick={() => windowOpener(processedList[index].link)} className='title'>
-					{processedList[index].title}
+				<span className={`from ${list[index].from}`}>{list[index].from}</span>
+				<span onClick={() => windowOpener(list[index].link)} className='title'>
+					{list[index].title}
 				</span>
-				<span className='author'>{processedList[index].author}</span>
-				<span className='hitCount'>{processedList[index].hitCount}</span>
-				<span className='registeredAt'>{processedList[index].registeredAt}</span>
+				<span className='author'>{list[index].author}</span>
+				<span className='hitCount'>{list[index].hitCount}</span>
+				<span className='registeredAt'>{list[index].registeredAt}</span>
 			</Grid>
 		);
 	}
@@ -50,11 +51,6 @@ function ListRenderer(props) {
 				window.open(value);
 			}
 		}
-	}
-
-	function orderChanger(value) {
-		// sorter.preListSorter(processedList, value, !isAsc);
-		props.LIST_ORDER_CHANGER(value);
 	}
 
 	const widthsPercent = {
@@ -86,7 +82,7 @@ function ListRenderer(props) {
 						direction='row'
 						justify='space-around'
 						alignItems='stretch'>
-						<span onClick={() => orderChanger('index')} className='index'>
+						<span className='index' onClick={() => LIST_ORDER_CHANGER(NameOfOrderStandard.createdAt)}>
 							<span>순서</span>
 							<span className='downArrow' />
 						</span>
@@ -96,11 +92,13 @@ function ListRenderer(props) {
 						</span>
 						<span className='title'>제목</span>
 						<span className='author'>작성자</span>
-						<span onClick={() => orderChanger('hitCount')} className='hitCount'>
+						<span className='hitCount' onClick={() => LIST_ORDER_CHANGER(NameOfOrderStandard.hitCount)}>
 							<span>조회수</span>
 							<span className='downArrow' />
 						</span>
-						<span onClick={() => orderChanger('registeredAt')} className='registeredAt'>
+						<span
+							className='registeredAt'
+							onClick={() => LIST_ORDER_CHANGER(NameOfOrderStandard.registeredAt)}>
 							<span>등록일</span>
 							<span className='downArrow' />
 						</span>
@@ -109,7 +107,7 @@ function ListRenderer(props) {
 						key={'ListRenderer > List'}
 						width={1500}
 						height={1500}
-						rowCount={processedList.length}
+						rowCount={list.length}
 						rowHeight={38}
 						rowRenderer={e => rowRenderer(e)}
 						style={{ width: '100%', outline: 'none' }}
