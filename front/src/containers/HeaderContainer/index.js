@@ -1,6 +1,6 @@
 import React from 'react';
 import TabsMenus from 'components/TabsMenus';
-import Wrapper from './Wrapper';
+import Wrapper from 'components/TabsMenus/Wrapper';
 
 function HeaderContainer(props) {
 	return (

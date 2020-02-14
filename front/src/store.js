@@ -8,6 +8,9 @@ import list_view from 'reducers/list_view_reducer';
 const rootReducers = combineReducers({ main, ui, initial, list_view });
 
 // activate redux-devtools
-const store = createStore(rootReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(
+	rootReducers,
+	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__({ trace: true }),
+);
 
 export default store;

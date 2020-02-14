@@ -5,11 +5,13 @@ import { Grid } from '@material-ui/core';
 function MainPage() {
 	return (
 		<Wrapper>
-			<Grid container direction='column' justify='center' alignItems='stretch'>
-				<div>SECTION 1</div>
-				<div>SECTION 2</div>
-				<div>SECTION 3</div>
-				<div>SECTION 4</div>
+			<Grid container direction='row' justify='center' alignItems='stretch'>
+				<div>
+					<div>정보</div>
+					<div> 뉴스</div>
+					<div>뭫 넣을까</div>
+					<div>흐잉</div>
+				</div>
 			</Grid>
 		</Wrapper>
 	);
