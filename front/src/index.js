@@ -1,47 +1,47 @@
-import ApolloClient from 'apollo-boost';
+// import ApolloClient from 'apollo-boost';
 import React from 'react';
-import { ApolloProvider } from 'react-apollo';
+// import { ApolloProvider } from 'react-apollo';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import App from './app/App';
-import MainContainer from './containers/MainContainer';
-import DummyContainer from './containers/DummyContainer';
-import Popup from './components/Popup';
-import * as serviceWorker from './app/serviceWorker';
-import store from './store';
-import './styles/index.css';
-import * as init from 'init';
+import App from './app';
+import MainContainer from 'containers/MainContainer';
+import DummyContainer from 'containers/DummyContainer';
+import Popup from 'components/Popup';
+import * as serviceWorker from 'app/serviceWorker';
+import store from 'store';
+import 'styles/index.css';
+import { loading } from 'initial';
 
-const client = new ApolloClient({
-	uri: 'http://localhost:4466/',
-});
+// const client = new ApolloClient({
+// uri: 'http://localhost:4466/',
+// });
 
-init.loading();
+loading();
 
 ReactDOM.render(
 	// <React.StrictMode>
-	<ApolloProvider client={client}>
-		<Provider store={store}>
-			<Router>
-				<Switch>
-					<Route path='/' exact>
-						<MainContainer title={'Welcome to something'} />
-					</Route>
-					<Route path='/dummy' exact>
-						<DummyContainer />
-					</Route>
-					<Route path='/pop/:topicId' exact>
-						<Popup />
-					</Route>
-					<Route path='/app' exact>
-						<App />
-					</Route>
-				</Switch>
-			</Router>
-		</Provider>
-	</ApolloProvider>,
+	// <ApolloProvider client={client}>
+	<Provider store={store}>
+		<Router>
+			<Switch>
+				<Route path='/' exact>
+					<MainContainer title={'Welcome to something'} />
+				</Route>
+				<Route path='/dummy' exact>
+					<DummyContainer />
+				</Route>
+				<Route path='/pop/:topicId' exact>
+					<Popup />
+				</Route>
+				<Route path='/app' exact>
+					<App />
+				</Route>
+			</Switch>
+		</Router>
+	</Provider>,
+	// </ApolloProvider>,
 	// </React.StrictMode>
 	document.getElementById('root'),
 );

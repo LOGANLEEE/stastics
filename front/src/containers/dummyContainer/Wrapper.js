@@ -1,8 +1,7 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const Wrapper = styled.div`
-background-color: pink;
+	background-color: pink;
 `;
-
 
 export default Wrapper;
