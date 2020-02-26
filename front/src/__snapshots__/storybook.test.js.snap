@@ -1,0 +1,920 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots MainContainer Footer 1`] = `
+<div
+  className="sc-bdVaJa fiYFYe"
+>
+  FooterContainer
+</div>
+`;
+
+exports[`Storyshots MainContainer Header 1`] = `
+<div
+  className="sc-bwzfXH igPWsS"
+>
+  <div
+    className="sc-bwzfXH igPWsS"
+  >
+    <div
+      aria-label="full width tabs example"
+      className="MuiTabs-root"
+    >
+      <div
+        className="MuiTabs-scroller MuiTabs-fixed"
+        onScroll={[Function]}
+        style={
+          Object {
+            "marginBottom": null,
+            "overflow": "hidden",
+          }
+        }
+      >
+        <div
+          className="MuiTabs-flexContainer"
+          role="tablist"
+        >
+          <button
+            aria-selected={false}
+            className="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-fullWidth"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="tab"
+            tabIndex={0}
+            type="button"
+          >
+            <span
+              className="MuiTab-wrapper"
+            >
+              MAIN
+            </span>
+          </button>
+          <button
+            aria-selected={false}
+            className="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-fullWidth"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="tab"
+            tabIndex={0}
+            type="button"
+          >
+            <span
+              className="MuiTab-wrapper"
+            >
+              LIST
+            </span>
+          </button>
+          <button
+            aria-selected={false}
+            className="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-fullWidth"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="tab"
+            tabIndex={0}
+            type="button"
+          >
+            <span
+              className="MuiTab-wrapper"
+            >
+              SITE
+            </span>
+          </button>
+          <button
+            aria-selected={false}
+            className="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-fullWidth"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="tab"
+            tabIndex={0}
+            type="button"
+          >
+            <span
+              className="MuiTab-wrapper"
+            >
+              RANK
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots MainContainer Left Side 1`] = `
+<div
+  className="sc-htpNat ggpMWC"
+/>
+`;
+
+exports[`Storyshots MainContainer Main 1`] = `
+<div
+  className="sc-iwsKbI iJHquF"
+>
+  <div
+    className="sc-iwsKbI iJHquF"
+  >
+    <div
+      className="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column MuiGrid-justify-xs-center"
+    >
+      <div
+        className="sc-bwzfXH igPWsS"
+      >
+        <div
+          className="sc-bwzfXH igPWsS"
+        >
+          <div
+            aria-label="full width tabs example"
+            className="MuiTabs-root"
+          >
+            <div
+              className="MuiTabs-scroller MuiTabs-fixed"
+              onScroll={[Function]}
+              style={
+                Object {
+                  "marginBottom": null,
+                  "overflow": "hidden",
+                }
+              }
+            >
+              <div
+                className="MuiTabs-flexContainer"
+                role="tablist"
+              >
+                <button
+                  aria-selected={false}
+                  className="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-fullWidth"
+                  disabled={false}
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onDragLeave={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onKeyUp={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchMove={[Function]}
+                  onTouchStart={[Function]}
+                  role="tab"
+                  tabIndex={0}
+                  type="button"
+                >
+                  <span
+                    className="MuiTab-wrapper"
+                  >
+                    MAIN
+                  </span>
+                </button>
+                <button
+                  aria-selected={true}
+                  className="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-selected MuiTab-fullWidth"
+                  disabled={false}
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onDragLeave={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onKeyUp={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchMove={[Function]}
+                  onTouchStart={[Function]}
+                  role="tab"
+                  tabIndex={0}
+                  type="button"
+                >
+                  <span
+                    className="MuiTab-wrapper"
+                  >
+                    LIST
+                  </span>
+                  <span
+                    className="PrivateTabIndicator-root-128 PrivateTabIndicator-colorSecondary-130 MuiTabs-indicator"
+                    style={Object {}}
+                  />
+                </button>
+                <button
+                  aria-selected={false}
+                  className="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-fullWidth"
+                  disabled={false}
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onDragLeave={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onKeyUp={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchMove={[Function]}
+                  onTouchStart={[Function]}
+                  role="tab"
+                  tabIndex={0}
+                  type="button"
+                >
+                  <span
+                    className="MuiTab-wrapper"
+                  >
+                    SITE
+                  </span>
+                </button>
+                <button
+                  aria-selected={false}
+                  className="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-fullWidth"
+                  disabled={false}
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onDragLeave={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onKeyUp={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchMove={[Function]}
+                  onTouchStart={[Function]}
+                  role="tab"
+                  tabIndex={0}
+                  type="button"
+                >
+                  <span
+                    className="MuiTab-wrapper"
+                  >
+                    RANK
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-center"
+      >
+        <div
+          className="sc-htpNat fmUFnW"
+          width="15%"
+        >
+          <div
+            className="sc-bxivhb cdwxqD"
+          >
+            <div>
+              사이트별 모아보기
+            </div>
+            <ul
+              className="list_holder"
+            >
+              <li
+                onClick={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": "#6bbc43",
+                  }
+                }
+              >
+                Etoland
+              </li>
+              <li
+                onClick={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": "#232e3e",
+                  }
+                }
+              >
+                Clien
+              </li>
+              <li
+                onClick={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": "#0070bd",
+                  }
+                }
+              >
+                Bobae
+              </li>
+              <li
+                onClick={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": "#5181e3",
+                  }
+                }
+              >
+                Bullpen
+              </li>
+              <li
+                onClick={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": "#4891db",
+                  }
+                }
+              >
+                SLR
+              </li>
+              <li
+                onClick={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": "#3ba1c7",
+                  }
+                }
+              >
+                TodayHumor
+              </li>
+              <li
+                onClick={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": "#459f39",
+                  }
+                }
+              >
+                Cook
+              </li>
+              <li
+                onClick={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": "#5f7083",
+                  }
+                }
+              >
+                Gasengi
+              </li>
+              <li
+                onClick={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": "#1970dc",
+                  }
+                }
+              >
+                RuliWeb
+              </li>
+              <li
+                onClick={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": undefined,
+                  }
+                }
+              >
+                PpomPu
+              </li>
+              <li
+                onClick={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": "#28c05d",
+                  }
+                }
+              >
+                Instiz
+              </li>
+              <li
+                onClick={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": "#365472",
+                  }
+                }
+              >
+                TheQoo
+              </li>
+              <li
+                onClick={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": "#5175cf",
+                  }
+                }
+              >
+                FmKorea
+              </li>
+              <li
+                onClick={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": "#e31d27",
+                  }
+                }
+              >
+                Ilbe
+              </li>
+              <li
+                onClick={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": "#2e4361",
+                  }
+                }
+              >
+                DogDrip
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          className="sc-dnqmqq lpeeNH"
+          width="70%"
+        >
+          <div
+            className="sc-htoDjs cNOAXX"
+          >
+            <div
+              aria-label="full width tabs example"
+              className="MuiTabs-root"
+            >
+              <div
+                className="MuiTabs-scroller MuiTabs-fixed"
+                onScroll={[Function]}
+                style={
+                  Object {
+                    "marginBottom": null,
+                    "overflow": "hidden",
+                  }
+                }
+              >
+                <div
+                  className="MuiTabs-flexContainer"
+                  role="tablist"
+                >
+                  <button
+                    aria-selected={true}
+                    className="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected MuiTab-fullWidth"
+                    disabled={false}
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onDragLeave={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    onKeyUp={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseLeave={[Function]}
+                    onMouseUp={[Function]}
+                    onTouchEnd={[Function]}
+                    onTouchMove={[Function]}
+                    onTouchStart={[Function]}
+                    role="tab"
+                    tabIndex={0}
+                    type="button"
+                  >
+                    <span
+                      className="MuiTab-wrapper"
+                    >
+                      ALL
+                    </span>
+                    <span
+                      className="PrivateTabIndicator-root-128 PrivateTabIndicator-colorPrimary-129 MuiTabs-indicator"
+                      style={Object {}}
+                    />
+                  </button>
+                  <button
+                    aria-selected={false}
+                    className="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth"
+                    disabled={false}
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onDragLeave={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    onKeyUp={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseLeave={[Function]}
+                    onMouseUp={[Function]}
+                    onTouchEnd={[Function]}
+                    onTouchMove={[Function]}
+                    onTouchStart={[Function]}
+                    role="tab"
+                    tabIndex={0}
+                    type="button"
+                  >
+                    <span
+                      className="MuiTab-wrapper"
+                    >
+                      TOP100
+                    </span>
+                  </button>
+                  <button
+                    aria-selected={false}
+                    className="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth"
+                    disabled={false}
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onDragLeave={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    onKeyUp={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseLeave={[Function]}
+                    onMouseUp={[Function]}
+                    onTouchEnd={[Function]}
+                    onTouchMove={[Function]}
+                    onTouchStart={[Function]}
+                    role="tab"
+                    tabIndex={0}
+                    type="button"
+                  >
+                    <span
+                      className="MuiTab-wrapper"
+                    >
+                      TEST3
+                    </span>
+                  </button>
+                  <button
+                    aria-selected={false}
+                    className="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth"
+                    disabled={false}
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onDragLeave={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    onKeyUp={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseLeave={[Function]}
+                    onMouseUp={[Function]}
+                    onTouchEnd={[Function]}
+                    onTouchMove={[Function]}
+                    onTouchStart={[Function]}
+                    role="tab"
+                    tabIndex={0}
+                    type="button"
+                  >
+                    <span
+                      className="MuiTab-wrapper"
+                    >
+                      TEST4
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="sc-bZQynM ecJwCi"
+          >
+            <div
+              className="spinner"
+            >
+              <div
+                className="css-0"
+              >
+                <div
+                  className="css-1wmz6fi"
+                />
+                <div
+                  className="css-19v0499"
+                />
+                <div
+                  className="css-1wmz6fi"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="sc-EHOje dpDeoA"
+          width="15%"
+        >
+          <div
+            className="MuiGrid-root buttonGrid MuiGrid-container MuiGrid-justify-xs-space-around"
+          >
+            <div
+              className="child1"
+            >
+              <button
+                className="MuiButtonBase-root MuiButton-root MuiButton-text"
+                disabled={false}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onDragLeave={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onMouseDown={[Function]}
+                onMouseLeave={[Function]}
+                onMouseUp={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                tabIndex={0}
+                type="button"
+                value={false}
+              >
+                <span
+                  className="MuiButton-label"
+                >
+                  Theme
+                  <svg
+                    aria-hidden="true"
+                    className="MuiSvgIcon-root"
+                    focusable="false"
+                    role="presentation"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M11.1 12.08c-2.33-4.51-.5-8.48.53-10.07C6.27 2.2 1.98 6.59 1.98 12c0 .14.02.28.02.42.62-.27 1.29-.42 2-.42 1.66 0 3.18.83 4.1 2.15 1.67.48 2.9 2.02 2.9 3.85 0 1.52-.87 2.83-2.12 3.51.98.32 2.03.5 3.11.5 3.5 0 6.58-1.8 8.37-4.52-2.36.23-6.98-.97-9.26-5.41z"
+                    />
+                    <path
+                      d="M7 16h-.18C6.4 14.84 5.3 14 4 14c-1.66 0-3 1.34-3 3s1.34 3 3 3h3c1.1 0 2-.9 2-2s-.9-2-2-2z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
+            <div
+              className="child2"
+            >
+              <div
+                className="sc-ifAKCX dFBXNy"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="sc-bdVaJa fiYFYe"
+      >
+        FooterContainer
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots MainContainer Right Side 1`] = `
+<div
+  className="sc-EHOje dcJZLF"
+>
+  <div
+    className="MuiGrid-root buttonGrid MuiGrid-container MuiGrid-justify-xs-space-around"
+  >
+    <div
+      className="child1"
+    >
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-text"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiButton-label"
+        >
+          Theme
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M11.1 12.08c-2.33-4.51-.5-8.48.53-10.07C6.27 2.2 1.98 6.59 1.98 12c0 .14.02.28.02.42.62-.27 1.29-.42 2-.42 1.66 0 3.18.83 4.1 2.15 1.67.48 2.9 2.02 2.9 3.85 0 1.52-.87 2.83-2.12 3.51.98.32 2.03.5 3.11.5 3.5 0 6.58-1.8 8.37-4.52-2.36.23-6.98-.97-9.26-5.41z"
+            />
+            <path
+              d="M7 16h-.18C6.4 14.84 5.3 14 4 14c-1.66 0-3 1.34-3 3s1.34 3 3 3h3c1.1 0 2-.9 2-2s-.9-2-2-2z"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+    <div
+      className="child2"
+    >
+      <div
+        className="sc-ifAKCX dFBXNy"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots SiteList Site List Component 1`] = `
+<div
+  className="sc-bxivhb cdwxqD"
+>
+  <div>
+    사이트별 모아보기
+  </div>
+  <ul
+    className="list_holder"
+  >
+    <li
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#6bbc43",
+        }
+      }
+    >
+      Etoland
+    </li>
+    <li
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#232e3e",
+        }
+      }
+    >
+      Clien
+    </li>
+    <li
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#0070bd",
+        }
+      }
+    >
+      Bobae
+    </li>
+    <li
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#5181e3",
+        }
+      }
+    >
+      Bullpen
+    </li>
+    <li
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#4891db",
+        }
+      }
+    >
+      SLR
+    </li>
+    <li
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#3ba1c7",
+        }
+      }
+    >
+      TodayHumor
+    </li>
+    <li
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#459f39",
+        }
+      }
+    >
+      Cook
+    </li>
+    <li
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#5f7083",
+        }
+      }
+    >
+      Gasengi
+    </li>
+    <li
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#1970dc",
+        }
+      }
+    >
+      RuliWeb
+    </li>
+    <li
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": undefined,
+        }
+      }
+    >
+      PpomPu
+    </li>
+    <li
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#28c05d",
+        }
+      }
+    >
+      Instiz
+    </li>
+    <li
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#365472",
+        }
+      }
+    >
+      TheQoo
+    </li>
+    <li
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#5175cf",
+        }
+      }
+    >
+      FmKorea
+    </li>
+    <li
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#e31d27",
+        }
+      }
+    >
+      Ilbe
+    </li>
+    <li
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#2e4361",
+        }
+      }
+    >
+      DogDrip
+    </li>
+  </ul>
+</div>
+`;

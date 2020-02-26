@@ -4,16 +4,23 @@ import Grid from '@material-ui/core/Grid';
 import { connect } from 'react-redux';
 import 'react-virtualized/styles.css';
 
-import BodyContainer from '../BodyContainer';
-import { LIST_ORDER_CHANGER, MODE_CHANGER, OPEN_SITE_FROM_MIN_TO_MAX, SET_PROCESSED_LIST } from 'actions';
-import FooterContainer from '../FooterContainer';
-import HeaderContainer from '../HeaderContainer';
-import LeftSideBarContainer from '../LeftSideBarContainer';
-import RightSideBarContainer from '../RightSideBarContainer';
-import { NameOfOrderStandard } from 'internal_constants';
-import Wrapper from './Wrapper';
+import {
+	LIST_ORDER_CHANGER,
+	MODE_CHANGER,
+	OPEN_SITE_FROM_MIN_TO_MAX,
+	SET_PROCESSED_LIST,
+} from 'actions';
 
-function Main(props) {
+import BodyContainer from 'containers/BodyContainer';
+import FooterContainer from 'containers/FooterContainer';
+import HeaderContainer from 'containers/HeaderContainer';
+import LeftSideBarContainer from 'containers/LeftSideBarContainer';
+import RightSideBarContainer from 'containers/RightSideBarContainer';
+import { NameOfOrderStandard } from 'internal_constants';
+
+import Wrapper from 'containers/MainContainer/Wrapper';
+
+function MainContainer(props) {
 	useEffect(() => {
 		document.title = `${props.title}`;
 	});
@@ -22,10 +29,20 @@ function Main(props) {
 
 	return (
 		<Wrapper>
-			<Grid container direction='column' justify='center' alignItems='stretch'>
+			<Grid
+				container
+				direction='column'
+				justify='center'
+				alignItems='stretch'
+			>
 				<HeaderContainer {...props} />
-				<Grid container direction='row' justify='center' alignItems='stretch'>
-					<LeftSideBarContainer isDayMode={props.isDayMode} width={'15%'} />
+				<Grid
+					container
+					direction='row'
+					justify='center'
+					alignItems='stretch'
+				>
+					<LeftSideBarContainer {...props} width={'15%'} />
 					<BodyContainer width={'70%'} {...props} />
 					<RightSideBarContainer {...props} width={'15%'} />
 				</Grid>
@@ -40,13 +57,14 @@ const mapStateToProps = state => ({
 	preProcessedList: state.initial.preProcessedList,
 	processedList: state.initial.processedList,
 	length_of_processedList: state.initial.length_of_processedList,
+	targetSiteList: state.initial.targetSiteList,
 
 	//main
 	listTargetCount: state.main.listTargetCount,
 
 	//ui
-	currentFirstTabId: state.ui.currentFirstTabId,
-	currentSecondTabId: state.ui.currentSecondTabId,
+	firstMenu: state.ui.firstMenu,
+	secondMenu: state.ui.secondMenu,
 	isDayMode: state.ui.isDayMode,
 
 	//list_view
@@ -54,18 +72,19 @@ const mapStateToProps = state => ({
 	orderStandard: state.list_view.orderStandard,
 });
 
-Main.propTypes = {
+MainContainer.propTypes = {
 	//initial
 	preProcessedList: PropTypes.array,
 	processedList: PropTypes.array,
 	length_of_processedList: PropTypes.number,
+	targetSiteList: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
 
 	//main
 	listTargetCount: PropTypes.number,
 
 	//ui
-	currentFirstTabId: PropTypes.number,
-	currentSecondTabId: PropTypes.string,
+	firstMenu: PropTypes.string,
+	secondMenu: PropTypes.string,
 	isDayMode: PropTypes.bool,
 	MODE_CHANGER: PropTypes.func,
 
@@ -73,18 +92,19 @@ Main.propTypes = {
 	isAsc: PropTypes.bool,
 	orderStandard: PropTypes.string,
 };
-Main.defaultProps = {
+MainContainer.defaultProps = {
 	// initial
 	preProcessedList: [],
 	processedList: [],
 	length_of_processedList: 0,
+	targetSiteList: [],
 
 	//main
 	listTargetCount: 0,
 
 	//ui
-	currentFirstTabId: 0,
-	currentSecondTabId: 0,
+	firstMenu: '',
+	secondMenu: '',
 	isDayMode: true,
 
 	//list_view
@@ -99,4 +119,4 @@ const mapDispatchToProps = {
 	SET_PROCESSED_LIST,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);
