@@ -1,8 +1,9 @@
 import * as actionTypes from 'actionTypes';
+import { FIRST_MENU, SECOND_MENU } from 'internal_constants';
 
 const initialState = {
-	currentFirstTabId: 1, // 0: main , 1:list, 2:site, 3:rank
-	currentSecondTabId: 'ALL', //0: ALL , 1: TOP100,
+	firstMenu: FIRST_MENU.LIST,
+	secondMenu: SECOND_MENU.ALL,
 	isDayMode: false,
 };
 
@@ -10,11 +11,11 @@ export default function ui(state = initialState, action) {
 	switch (action.type) {
 		case actionTypes.FIRST_TAB_MOVER: {
 			const { tabId } = action.payload;
-			return { ...state, currentFirstTabId: tabId };
+			return { ...state, firstMenu: tabId };
 		}
 		case actionTypes.SECOND_TAB_MOVER: {
 			const { tabId } = action.payload;
-			return { ...state, currentSecondTabId: tabId };
+			return { ...state, secondMenu: tabId };
 		}
 		case actionTypes.MODE_CHANGER: {
 			const { mode } = action.payload;

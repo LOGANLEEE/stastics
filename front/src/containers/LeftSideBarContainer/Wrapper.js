@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-	background-color: ${props => (props.isDayMode ? 'orange' : '#ffa50063')};
+	background-color: ${props => (props.isDayMode ? 'orange' : '#28672463')};
 	width: ${props => props.width};
 `;
 

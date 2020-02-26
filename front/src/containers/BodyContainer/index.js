@@ -5,23 +5,34 @@ import MainPage from 'components/MainPage';
 import SecondTabsMenus from 'components/SecondTabsMenus';
 
 import Wrapper from 'containers/BodyContainer/Wrapper';
+import { FIRST_MENU } from 'internal_constants';
 
 function ContentRenderer(props) {
-	const { currentFirstTabId, processedList, isAsc, orderStandard, LIST_ORDER_CHANGER, SET_PROCESSED_LIST } = props;
+	const {
+		firstMenu,
+		processedList,
+		isAsc,
+		orderStandard,
+		LIST_ORDER_CHANGER,
+		SET_PROCESSED_LIST,
+	} = props;
 
 	useEffect(() => {
 		SET_PROCESSED_LIST(orderStandard, isAsc);
 	}, [isAsc, orderStandard]);
 
-	switch (currentFirstTabId) {
+	switch (firstMenu) {
 		//Main
-		case 0: {
+		case FIRST_MENU.MAIN: {
 			return <MainPage />;
 		}
 		// List
-		case 1: {
+		case FIRST_MENU.LIST: {
 			return [
-				<SecondTabsMenus key={`ContentRenderer > SecondTabsMenus`} {...props} />,
+				<SecondTabsMenus
+					key={`ContentRenderer > SecondTabsMenus`}
+					{...props}
+				/>,
 				<ListRenderer
 					key={`ContentRenderer > ListRenderer`}
 					LIST_ORDER_CHANGER={LIST_ORDER_CHANGER}
@@ -30,12 +41,12 @@ function ContentRenderer(props) {
 			];
 		}
 		// Site
-		case 2: {
-			return <div> 2222</div>;
+		case FIRST_MENU.SITE: {
+			return <div> 챗봇</div>;
 		}
 		// Rank
-		case 3: {
-			return <div> 3333</div>;
+		case FIRST_MENU.RANK: {
+			return <div> 번역봇</div>;
 		}
 	}
 }
