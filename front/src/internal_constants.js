@@ -30,3 +30,17 @@ export const site_present_color = {
 	Ppompu: '#e72fff',
 	DogDrip: '#2e4361',
 };
+
+export const FIRST_MENU = {
+	MAIN: 'MAIN',
+	LIST: 'LIST',
+	SITE: 'SITE',
+	RANK: 'RANK',
+};
+
+export const SECOND_MENU = {
+	ALL: 'ALL',
+	TOP100: 'TOP100',
+	TEST3: 'TEST3',
+	TEST4: 'TEST4',
+};
