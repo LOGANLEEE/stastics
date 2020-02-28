@@ -3,27 +3,6 @@ import Wrapper from 'containers/LeftSideBarContainer/Wrapper';
 import SiteList from 'components/SiteList';
 import { FIRST_MENU } from 'internal_constants';
 
-const dummyData = {
-	isDayMode: false,
-	siteTargetList: [
-		'Etoland',
-		'Clien',
-		'Bobae',
-		'Bullpen',
-		'SLR',
-		'TodayHumor',
-		'Cook',
-		'Gasengi',
-		'RuliWeb',
-		'PpomPu',
-		'Instiz',
-		'TheQoo',
-		'FmKorea',
-		'Ilbe',
-		'DogDrip',
-	],
-};
-
 function switcher(isDayMode, firstMenu, targetSiteList) {
 	switch (firstMenu) {
 		case FIRST_MENU.MAIN: {
@@ -34,11 +13,18 @@ function switcher(isDayMode, firstMenu, targetSiteList) {
 				<SiteList
 					targetSiteList={targetSiteList}
 					isDayMode={isDayMode}
+					title={'사이트별 모아보기'}
 				/>
 			);
 		}
 		case FIRST_MENU.SITE: {
-			return;
+			return (
+				<SiteList
+					targetSiteList={targetSiteList}
+					isDayMode={isDayMode}
+					title={'사이트 바로가기'}
+				/>
+			);
 		}
 		case FIRST_MENU.RANK: {
 			return;

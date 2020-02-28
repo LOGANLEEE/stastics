@@ -1,3 +1,4 @@
+import 'utils/config';
 import React from 'react';
 import { withKnobs, object } from '@storybook/addon-knobs';
 import store from 'store';

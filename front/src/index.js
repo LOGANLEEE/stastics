@@ -1,4 +1,8 @@
 // import ApolloClient from 'apollo-boost';
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
+import 'utils/config';
+import 'styles/index.css';
 import React from 'react';
 // import { ApolloProvider } from 'react-apollo';
 import ReactDOM from 'react-dom';
@@ -11,7 +15,6 @@ import DummyContainer from 'containers/DummyContainer';
 import Popup from 'components/Popup';
 import * as serviceWorker from 'app/serviceWorker';
 import store from 'store';
-import 'styles/index.css';
 import { loading } from 'initial';
 
 // const client = new ApolloClient({

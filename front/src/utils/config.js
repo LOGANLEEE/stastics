@@ -1,0 +1,3 @@
+global.CONFIG = {
+	MODE: 'local',
+};

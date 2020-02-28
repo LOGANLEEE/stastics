@@ -11,7 +11,9 @@ const rootReducers = combineReducers({ main, ui, initial, list_view });
 const store = createStore(
 	rootReducers,
 	window.__REDUX_DEVTOOLS_EXTENSION__ &&
-		window.__REDUX_DEVTOOLS_EXTENSION__({ trace: true }),
+		(global.CONFIG.MODE !== 'real'
+			? window.__REDUX_DEVTOOLS_EXTENSION__({ trace: true })
+			: ''),
 );
 
 export default store;

@@ -25,13 +25,10 @@ function listRenderer(targetSiteList, CLICK_SITE) {
 	);
 }
 
-function SiteList({ targetSiteList, isDayMode, CLICK_SITE }) {
-	info('£££ 1 : ', targetSiteList);
-	info('£££ 2 : ', isDayMode);
-	info('£££ 3 : ', CLICK_SITE);
+function SiteList({ targetSiteList, isDayMode, CLICK_SITE, title }) {
 	return (
 		<Wrapper isDayMode={isDayMode}>
-			<div>사이트별 모아보기</div>
+			<div className='title'>{title}</div>
 
 			{listRenderer(targetSiteList, CLICK_SITE)}
 		</Wrapper>
