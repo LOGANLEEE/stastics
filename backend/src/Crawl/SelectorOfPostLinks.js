@@ -180,7 +180,7 @@ const targetList = [
 	TheQoo,
 	FmKorea, // IP BLOCK
 	Ilbe, // unable to approach from abroad.
-	// DogDrip, // this site don't have hitCount only have recommendation count.
+	DogDrip, // this site don't have hitCount only have recommendation count.
 	// HumorUniv, // doesn't work dont know why.
 ];
 

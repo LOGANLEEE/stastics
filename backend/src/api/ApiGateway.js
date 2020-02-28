@@ -5,7 +5,11 @@ const { prisma } = require('../../generated/prisma-client');
 const Constants = require('../Constants');
 const SelectorOfPostLinks = require('../Crawl/SelectorOfPostLinks');
 
-const addressBook = { getTempList: '/getTempList', getTargetSiteList: '/getTargetSiteList', alive: '/alive' };
+const addressBook = {
+	getTempList: '/getTempList',
+	getTargetSiteList: '/getTargetSiteList',
+	alive: '/alive',
+};
 
 function gate(app) {
 	app.use(cors()); // CORS setting
@@ -32,7 +36,10 @@ function gate(app) {
 			inPutLogger(addressBook.getTargetSiteList);
 
 			const targetList = SelectorOfPostLinks.targetList.map(e => {
-				return e.from;
+				const param = {};
+				param.from = e.from;
+				param.link = e.link;
+				return param;
 			});
 
 			res.status(200).send(targetList);
