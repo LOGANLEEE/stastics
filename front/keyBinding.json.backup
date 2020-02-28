@@ -1,0 +1,104 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+	{
+		"key": "`",
+		"command": "editor.action.triggerSuggest",
+		"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+	},
+	{
+		"key": "ctrl+space",
+		"command": "-editor.action.triggerSuggest",
+		"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+	},
+	{
+		"key": "`",
+		"command": "toggleSuggestionDetails",
+		"when": "suggestWidgetVisible && textInputFocus"
+	},
+	{
+		"key": "ctrl+space",
+		"command": "-toggleSuggestionDetails",
+		"when": "suggestWidgetVisible && textInputFocus"
+	},
+	{
+		"key": "f2",
+		"command": "editor.debug.action.showDebugHover",
+		"when": "editorTextFocus && inDebugMode"
+	},
+	{
+		"key": "cmd+k cmd+i",
+		"command": "-editor.debug.action.showDebugHover",
+		"when": "editorTextFocus && inDebugMode"
+	},
+	{
+		"key": "f2",
+		"command": "editor.action.showHover",
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "cmd+k cmd+i",
+		"command": "-editor.action.showHover",
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "cmd+1",
+		"command": "eslint.executeAutofix"
+	},
+	{
+		"key": "shift+cmd+'",
+		"command": "workbench.action.terminal.kill"
+	},
+	{
+		"key": "shift+cmd+, shift+cmd+.",
+		"command": "workbench.action.terminal.openNativeConsole",
+		"when": "!terminalFocus"
+	},
+	{
+		"key": "shift+cmd+c",
+		"command": "-workbench.action.terminal.openNativeConsole",
+		"when": "!terminalFocus"
+	},
+	{
+		"key": "",
+		"command": "workbench.action.problems.focus"
+	},
+	{
+		"key": "cmd+3",
+		"command": "workbench.action.showCommands"
+	},
+	{
+		"key": "",
+		"command": "-workbench.action.showCommands"
+	},
+	{
+		"key": "",
+		"command": "workbench.action.quickOpenNavigatePreviousInFilePicker",
+		"when": "inFilesPicker && inQuickOpen"
+	},
+	{
+		"key": "shift+cmd+p",
+		"command": "-workbench.action.quickOpenNavigatePreviousInFilePicker",
+		"when": "inFilesPicker && inQuickOpen"
+	},
+	{
+		"key": "shift+cmd+m",
+		"command": "workbench.action.terminal.toggleTerminal"
+	},
+	{
+		"key": "ctrl+`",
+		"command": "-workbench.action.terminal.toggleTerminal"
+	},
+	{
+		"key": "shift+cmd+p",
+		"command": "workbench.actions.view.problems"
+	},
+	{
+		"key": "shift+cmd+m",
+		"command": "-workbench.actions.view.problems"
+	},
+	{
+		"key": "alt+cmd+.",
+		"command": "-editor.action.autoFix",
+		"when": "editorTextFocus && !editorReadonly && supportedCodeAction =~ /(\\s|^)quickfix\\b/"
+	}
+]
