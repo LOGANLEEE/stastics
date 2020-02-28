@@ -1,0 +1,40 @@
+{
+    "workbench.colorTheme": "Default High Contrast",
+    "workbench.iconTheme": "material-icon-theme",
+    "terminal.integrated.fontFamily": "'SourceCodePro+Powerline+Awesome Regular'",
+    "terminal.integrated.rendererType": "dom",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "files.associations": {
+        "*.json": "json",
+        "*.js": "javascriptreact"
+    },
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "window.zoomLevel": 0,
+    "git.autofetch": false,
+    "git.confirmSync": false,
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/node_modules/**": true,
+        "**/tmp/**": true
+    },
+    "typescript.validate.enable": false,
+    "javascript.validate.enable": true,
+    "typescript.disableAutomaticTypeAcquisition": true,
+    "terminal.external.osxExec": "iTerm.app",
+    "prettier.packageManager": "yarn",
+    "prettier.jsxSingleQuote": true,
+    "prettier.singleQuote": true,
+    "prettier.tabWidth": 4,
+    "prettier.trailingComma": "all",
+    "prettier.useTabs": true,
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+}
